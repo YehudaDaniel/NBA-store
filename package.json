@@ -1,0 +1,17 @@
+{
+  "name": "nbastore",
+  "version": "1.0.0",
+  "description": "this project was developed as part of web developement course",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yehuda chen ilan yuval amit",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^7.2.2",
+    "node-sass": "^9.0.0"
+  }
+}
