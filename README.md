@@ -12,4 +12,4 @@
 
 [Ilan Brilovitch](https://github.com/jagashot)
 
-[Amit Ofir](https://github.com/AmitOfir4))
+[Amit Ofir](https://github.com/AmitOfir4)
