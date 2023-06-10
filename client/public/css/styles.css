@@ -1,2 +1,3 @@
 @import './base/_base.css';
 @import './base/_defaults.css';
+@import './components/NavBar.css';
