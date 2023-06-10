@@ -1,12 +1,19 @@
 const express = require('express');
 const RoutesConfig = require('./config/routes.config.js');
+const ejs = require('ejs');
+const path = require('path');
 
 
 const PORT = 3080 || process.env.PORT;
 const app = express();
 
 app.set('view engine', 'ejs');
-app.use('/public', express.static('public'));
+//setting up views for ejs
+app.set('views', path.join(__dirname, '../client/pages'));
+//setting up partials for ejs
+app.set('partials', path.join('../client/components'));
+app.use(express.static(path.join(__dirname, '../client/public')));
+
 //Tells express to parse the json data coming, into an object and be accessable via request.body
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
