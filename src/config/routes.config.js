@@ -1,6 +1,6 @@
+const userRouter = require('../routers/user.router');
 
-
-export const RoutesConfig = (app) => {
+const RoutesConfig = (app) => {
     app
         .use('/user', userRouter)
 
@@ -8,3 +8,5 @@ export const RoutesConfig = (app) => {
             res.send('Hello World');
         })
 };
+
+module.exports = RoutesConfig;
