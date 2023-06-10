@@ -5,7 +5,7 @@ const RoutesConfig = (app) => {
         .use('/user', userRouter)
 
         .get('/', (req, res) => {
-            res.send('Hello World');
+            res.render('')
         })
 };
 
