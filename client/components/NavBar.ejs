@@ -2,7 +2,8 @@
 <!-- HamburgerSideNav also related -->
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
   <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -10,25 +11,35 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Log In</a>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
       </ul>
       <form class="d-flex">
-          <div class="search-container">
-              <button id="search-icon" class="btn btn-outline" type="button">
-                <i class="bi bi-search"></i>
-              </button>
-              </div>
-            <button id="heart-icon" class="btn btn-outline" type="button">
-              <i class="bi bi-heart"></i>
-          </button>
-            <button id="cart-icon" class="btn btn-outline" type="button">
-              <i class="bi bi-cart"></i>
-          </button>
+        <div>
+          <input size="20px" id="search-input" class="form-control" placeholder="Search..." style="display: none;">
+        </div>
+        <button id="search-icon" class="btn btn-outline" type="button">
+          <i class="bi bi-search"></i>
+        </button>
+        <button id="heart-icon" class="btn btn-outline" type="button">
+          <i class="bi bi-heart"></i>
+        </button>
+        <button id="cart-icon" class="btn btn-outline" type="button">
+          <i class="bi bi-cart"></i>
+        </button>
       </form>
-      </div>
-      </div>
+    </div>
+  </div>
 </nav>
-<div>
-  <input size="20px" id="search-input" class="form-control" placeholder="Search..." style="display: none;">
-</div>
 
-<!-- npm run dev -->
+
+<!-- command to run server: npm run dev -->
