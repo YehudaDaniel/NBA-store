@@ -8,7 +8,6 @@
   <ul class="navbar-nav ms-auto">
 
     <li class="nav-item active">
-      
       <div>
         <input size="20px" id="search-input" class="form-control" placeholder="Search..." style="display: none;">
       </div>
@@ -23,15 +22,20 @@
     <li class="nav-item">
       <a id="heart-icon" class="btn btn-outline">
         <i class="bi bi-heart"></i>
+        <span class="position-absolute top-2 badge rounded-pill bg-primary"
+          style="display: none;" id="heart-notification">
+          <span id="heart-count"></span>
+        </span>
       </a>
     </li>
 
     <div class="dropdown me-5">
       <a class="btn btn-outline dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown">
         <i class="bi bi-cart"></i>
-        <span class="position-absolute top-0  start-50 translate-middle badge rounded-pill bg-primary" style="display: none;" id="notification">
-         <span id="count"></span></span>
-
+        <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-primary"
+          style="display: none;" id="cart-notification">
+          <span id="cart-count"></span>
+        </span>
       </a>
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="#">My Cart</a></li>

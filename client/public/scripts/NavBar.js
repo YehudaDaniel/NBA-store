@@ -12,17 +12,28 @@ searchIcon.addEventListener('click', function () {
 });
 
 
-function showNotification(count) {
-  var notification = document.getElementById('notification');
-  var countElement = document.getElementById('count');
+function showNotification(cart, heart) {
+  var cartNotification = document.getElementById('cart-notification');
+  var cartCount = document.getElementById('cart-count');
+  var heartNotificatoin = document.getElementById('heart-notification');
+  var heartCount = document.getElementById('heart-count');
 
-  if (count > 0) {
-    countElement.textContent = count;
-    notification.style.display = 'block';
-  } else {
-    notification.style.display = 'none';
+  if (cart > 0) {
+    cartCount.textContent = cart;
+    cartNotification.style.display = 'block';
+  }
+  if (cart == 0) {
+    cartNotification.style.display = 'none';
+  }
+  if (heart > 0) {
+    heartCount.textContent = heart;
+    heartNotificatoin.style.display = 'block';
+  }
+  if (heart == 0) {
+    heartNotificatoin.style.display = 'none';
   }
 }
 
-var notificationCount = 2; 
-showNotification(notificationCount);
+var notificationCount = 4;
+var heartCount = 7;
+showNotification(notificationCount, heartCount);
