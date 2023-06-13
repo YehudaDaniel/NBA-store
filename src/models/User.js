@@ -1,13 +1,20 @@
 const mongoose = require('mongoose');
+const validator = require('validator');
 
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  email: { type: String, required: true, unique: true },
+  email: { type: String, required: true, unique: true, validate: { validator: isValidEmail, message: 'Invalid email address' } },
   password: { type: String, required: true },
   address: { type: String, required: true },
   orderHistory: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Order' }],
   isAdmin: { type: Boolean, default: false }
 });
+
+// Check Email's validity
+function isValidEmail(email) {
+  return validator.isEmail(email);
+}
+
 
 // Static method to create a new user
 userSchema.statics.newUser = function (userData) {
