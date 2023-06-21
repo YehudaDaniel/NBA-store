@@ -1,4 +1,4 @@
-* {
+/* * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -84,7 +84,7 @@ body {
 .sidebar.active .toggle-btn span:nth-child(3) {
     top: 50%;
     transform: translateY(-50%) rotate(-45deg);
-}
+} */
 
 
 /* 
@@ -94,7 +94,7 @@ right side version discuss with the team
 */
 
 
-/* 
+
  * {
     margin: 0px;
     padding: 0px;
@@ -181,4 +181,4 @@ body {
 .sidebar.active .toggle-btn span:nth-child(3) {
     top: 50%;
     transform: translateY(-50%) rotate(-45deg);
-}  */
+}  
