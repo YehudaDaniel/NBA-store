@@ -1,2 +1,22 @@
-<!-- Yuval at osa -->
-<!-- gam signup -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title><h1><b>NBA Store</b></h1></title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="container">
+
+    <div id="LogIn" class="form">
+      <h2>LogIn</h2>
+      <input type="text" id="usernameInput1" placeholder="Username" oninput="clearError('usernameErrorMessage1')"/>
+      <input type="password" id="passwordInput1" minlength="5" maxlength="20" required placeholder="Password" oninput="clearError('passwordErrorMessage1')"/>
+      <button onclick="validateRegistrationForLogIn()">LogIn</button>
+      <span id="usernameErrorMessage1" class="error-message"></span>
+      <span id="passwordErrorMessage1" class="error-message"></span>
+    </div>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
