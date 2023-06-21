@@ -1,2 +1,29 @@
-<!-- Yuval at osa -->
-<!-- Gam login -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div id="SignUp"class="form">
+        <h2>SignUp</h2>
+        <input type="text" id="usernameInput" placeholder="Username" oninput="clearError('usernameErrorMessage')" />
+        <input type="password" id="passwordInput" minlength="5" maxlength="20" required placeholder="Password" oninput="clearError('passwordErrorMessage')" />
+        <input type="email" id="emailInput" placeholder="Email Address" oninput="clearError('emailErrorMessage')" />
+        <a href="NBA store Terms and Conditions Policy.pdf" target="_blank">Terms &amp; Conditions</a>
+        <div class="terms">
+          <input type="checkbox" id="termsCheckbox" onclick="clearError('termsErrorMessage')"/>
+          <label for="termsCheckbox">Read and Agree</label>
+        </div>
+        <button onclick="validateRegistrationForSignIn()">Submit</button>
+        <span id="termsErrorMessage" class="error-message"></span>
+        <span id="usernameErrorMessage" class="error-message"></span>
+        <span id="passwordErrorMessage" class="error-message"></span>
+        <span id="emailErrorMessage" class="error-message"></span>
+      </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
