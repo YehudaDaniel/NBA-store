@@ -1,14 +1,15 @@
 :root {
-
     /* Colors */
     
     --primary: #1d428a;
+    --primary-lighten: #2a5abc;
+    --primary-darken: #132c5d;
     --secondary: #c8102e;
     --white: #ffffff;
     
     /* Sizes */
     
-    --sizes: 1.6rem;
-    --sizem: 2.4rem;
-    --sizel: 3.2rem;
+    --sizes: 1.2rem;
+    --sizem: 2rem;
+    --sizel: 2.6rem;
 }

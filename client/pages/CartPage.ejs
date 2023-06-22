@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NBA Store Cart</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  <div class="cart-container">
+    <h1>NBA Store Cart</h1>
+
+    <div class="item">
+      <div class="description">
+      <h2 class="title">T-Shirt</h2>
+      <p class="price">$29.99</p>
+      <p class="size">Size: Medium</p>
+      <p class="quantity">
+        <button class="quantity-btn" onclick="decrementQuantity(this)">-</button>
+        <span class="quantity-label">Amount: </span>
+        <span class="quantity-value">1</span>
+        <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+      </p>
+      </div>
+      <img src="shirt.jpg" alt="T-Shirt">
+    </div>
+
+    <div class="item">
+      <div class="description">
+      <h2 class="title">Shorts</h2>
+      <p class="price">$39.99</p>
+      <p class="size">Size: Large</p>
+      <p class="quantity">
+        <button class="quantity-btn" onclick="decrementQuantity(this)">-</button>
+        <span class="quantity-label">Amount: </span>
+        <span class="quantity-value">1</span>
+        <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+      </p>
+      </div>
+      <img src="pants.jpg" alt="Shorts">
+    </div>
+
+    <div class="item">
+      <div class="description">
+      <h2 class="title">Shoes</h2>
+      <p class="price">$99.99</p>
+      <p class="size">Size: 40</p>
+      <p class="quantity">
+        <button class="quantity-btn" onclick="decrementQuantity(this)">-</button>
+        <span class="quantity-label">Amount: </span>
+        <span class="quantity-value">1</span>
+        <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+      </p>
+      </div>
+      <img src="shoes .png" alt="Shoes">
+    </div>
+
+    <div class="total-price">Total Price: <span id="total-price">updateTotalPrice()</span></div>
+    <button class="payment-button">Payment</button>
+  </div>
+</body>
+</html>
