@@ -34,6 +34,6 @@ function showNotification(cart, heart) {
   }
 }
 
-var notificationCount = 4;
+var notificationCount =84;
 var heartCount = 7;
 showNotification(notificationCount, heartCount);

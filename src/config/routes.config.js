@@ -5,7 +5,10 @@ const RoutesConfig = (app) => {
         .use('/user', userRouter)
 
         .get('/', (req, res) => {
-            res.render('Homepage')
+            res.render('Homepage');
+        })
+        .get('/map', (req, res) => {
+            res.render('MapPage');
         })
 };
 
