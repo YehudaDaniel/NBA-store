@@ -69,4 +69,15 @@ nav ul li a:hover {
     display: block;
   }
 
-  
+  #search-input {
+    font-size: 14px;
+    font-family: arial, sans-serif;
+    color: #202124;
+    z-index: 3;
+    height: 25px;
+    background: white;
+    border: 1px solid #dfe1e5;
+    box-shadow: none;
+    border-radius: 24px;
+    max-width: 224px;
+  }
