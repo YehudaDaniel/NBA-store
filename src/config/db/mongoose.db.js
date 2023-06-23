@@ -1,28 +1,24 @@
 const mongoose = require('mongoose');
-const url = process.env.DATABASE_URL;
+const url = process.env.DATABASE_URL || 'mongodb://127.0.0.1:27017/nba-store';
 
-class DatabaseDriver {
-    constructor(){};
+async function connct(){
+    try{
+        const connected = await connectDB(url);
+        console.log('Connected to DataBase...');
 
-    connect() {
-        try{
-            const connected = connectDB(url);
-            console.log('Successfully connected to database');
-
-            return connected.connection.readyState == 1;
-        }catch(e) {
-            console.log(`Failed connection to Database: ${e.message}`)
-        }
-    };
-
-    async connectDB(urlString) {
-        console.log(`Connecting to Database ${urlString}`);
-        return mongoose.connect(urlString, {
-            useNewUrlParser: true, //using this to avoid deprrecation warning
-            //mongoose 6 and above uses defaults true for: useCreateindex. useUnifiedTopology, UseFindAndModify
-        })
-    };
+        return connected.connection.readyState === 1;
+    }catch(e) {
+        console.log(`Failed connection to MongoDB: ${e.message}`);
+    }
 }
+
+async function connectDB(url){
+    console.log(`Connecting to DataBase ${url}`);
+    return mongoose.connect(url, {
+        useNewUrlParser: true,
+    });
+}
+
 
 //closing the DataBase if node process is terminated
 process.on('SIGINT', () => {
@@ -32,4 +28,4 @@ process.on('SIGINT', () => {
     });
 });
 
-module.exports = DatabaseDriver;
+module.exports = connct;
