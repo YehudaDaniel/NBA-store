@@ -98,3 +98,22 @@
   border-radius: 24px;
   max-width: 224px;
 }
+
+.notification{
+  position: absolute;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 5px;
+  border-radius: 50%;
+  top: 14px;
+}
+
+#heart-notification {
+  right: 132px;
+}
+
+#cart-notification{
+  right: 70px;
+}
+
