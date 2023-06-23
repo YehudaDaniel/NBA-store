@@ -4,6 +4,7 @@ const RoutesConfig = (app) => {
     app
         .use('/user', userRouter)
 
+        //-- Configuration for Pages --
         .get('/', (req, res) => {
             res.render('Homepage');
         })

@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
-const url = process.env.DATABASE_URL || 'mongodb://127.0.0.1:27017/nba-store';
+const url = process.env.DATABASE_URL;
 
 async function connct(){
     try{
         const connected = await connectDB(url);
-        console.log('Connected to DataBase...');
+        console.log('Connected to DataBase!');
 
         return connected.connection.readyState === 1;
     }catch(e) {

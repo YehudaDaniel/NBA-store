@@ -1,16 +1,14 @@
 const express = require('express');
 const RoutesConfig = require('./config/routes.config.js');
-const ejs = require('ejs');
 const path = require('path');
 const DatabaseDriver = require('./config/db/mongoose.db.js');
-const db = new DatabaseDriver();
 
 
 const PORT = process.env.PORT || 3080;
 const app = express();
 
 //connecting to DataBase
-db.connect();
+DatabaseDriver();
 
 app.set('view engine', 'ejs');
 //setting up views for ejs
