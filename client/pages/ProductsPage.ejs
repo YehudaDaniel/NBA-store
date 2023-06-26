@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/ProductsPage.css">
+  <title>NBA Store</title>
+  <script>
+    // Function to handle form submission
+    function applyFilters() {
+      var category = document.getElementById("category").value;
+      var size = document.getElementById("size").value;
+      var price = document.getElementById("price").value;
+      var team = document.getElementById("team").value;
+      
+      var products = document.getElementsByClassName("product");
+      
+      for (var i = 0; i < products.length; i++) {
+        var product = products[i];
+        
+        // Reset display for all products
+        product.style.display = "block";
+      }
+      
+      // Filter products based on category
+      if (category !== "all") {
+        for (var i = 0; i < products.length; i++) {
+          var product = products[i];
+          
+          if (product.dataset.category !== category) {
+            product.style.display = "none";
+          }
+        }
+      }
+      
+      // Filter products based on size
+      if (size !== "") {
+        for (var i = 0; i < products.length; i++) {
+          var product = products[i];
+          
+          if (product.dataset.size !== size) {
+            product.style.display = "none";
+          }
+        }
+      }
+      
+      // Filter products based on price
+      if (price !== "") {
+        var sortOrder = price === "low" ? 1 : -1;
+        var sortedProducts = Array.from(products).sort(function(a, b) {
+          var priceA = parseFloat(a.dataset.price);
+          var priceB = parseFloat(b.dataset.price);
+          return sortOrder * (priceA - priceB);
+        });
+        
+        var productList = document.getElementById("product-list");
+        
+        for (var i = 0; i < sortedProducts.length; i++) {
+          productList.appendChild(sortedProducts[i]);
+        }
+      }
+      
+      // Filter products based on team
+      if (team !== "") {
+        for (var i = 0; i < products.length; i++) {
+          var product = products[i];
+          
+          if (product.dataset.team !== team) {
+            product.style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>NBA shop - Products</h1>
+  
+  <div class="filters">
+  
+    
+    <h2>Filters</h2>
+    <form onsubmit="event.preventDefault(); applyFilters();">
+      <label for="category">Category:</label>
+      <select id="category" name="category">
+        <option value="all">All</option>
+        <option value="shirts">Shirts</option>
+        <option value="shorts">Shorts</option>
+        <option value="shoes">Shoes</option>
+      </select>
+      
+      <label for="size">Size:</label>
+      <select id="size" name="size">
+        <option value="">All</option>
+        <option value="s">S</option>
+        <option value="m">M</option>
+        <option value="l">L</option>
+      </select>
+      
+      <label for="price">Price:</label>
+      <select id="price" name="price">
+        <option value="">All</option>
+        <option value="low">Low to High</option>
+        <option value="high">High to Low</option>
+      </select>
+      
+      <label for="team">Basketball Team:</label>
+      <select id="team" name="team">
+        <option value="">All</option>
+        <option value="lakers">Los Angeles Lakers</option>
+        <option value="warriors">Golden State Warriors</option>
+        <option value="celtics">Boston Celtics</option>
+        <option value="hawks">Atlanta Hawks</option>
+        <option value="nets">Brooklyn Nets</option>
+        <option value="hornets">Charlotte Hornets</option>
+        <option value="bulls">Chicago Bulls</option>
+        <option value="cavaliers">Cleveland Cavaliers</option>
+        <option value="mavericks">Dallas Mavericks</option>
+        <option value="nuggets">Denver Nuggets</option>
+        <option value="pistons">Detroit Pistons</option>
+        <option value="rockets">Houston Rockets</option>
+        <option value="pacers">Indiana Pacers</option>
+        <option value="clippers">Los Angeles Clippers</option>
+        <option value="grizzlies">Memphis Grizzlies</option>
+        <option value="heat">Miami Heat</option>
+        <option value="bucks">Milwaukee Bucks</option>
+        <option value="timberwolves">Minnesota Timberwolves</option>
+        <option value="pelicans">New Orleans Pelicans</option>
+        <option value="knicks">New York Knicks</option>
+        <option value="thunder">Oklahoma City Thunder</option>
+        <option value="magic">Orlando Magic</option>
+        <option value="sixers">Philadelphia 76ers</option>
+        <option value="suns">Phoenix Suns</option>
+        <option value="blazers">Portland Trail Blazers</option>
+        <option value="kings">Sacramento Kings</option>
+        <option value="spurs">San Antonio Spurs</option>
+        <option value="raptors">Toronto Raptors</option>
+        <option value="jazz">Utah Jazz</option>
+        <option value="wizards">Washington Wizards</option>
+      </select>
+      
+      <button type="submit">Apply Filters</button>
+    </form>
+  </div>
+  
+  <div class="product-list" id="product-list">
+   
+    <div class="product" data-category="shirts" data-size="s" data-price="19.99" data-team="lakers">
+     <!-- <div>Product 1</div> -->
+<img src="l.jpg" alt="Product 1">
+<div class="product-price">$19.99</div>
+  <!--  <div>lakers</div>
+     <div>shirts</div>
+     <div>s</div>
+      <div>20.00$</div> -->
+      
+    </div>
+    <div class="product" data-category="shorts" data-size="m" data-price="29.99" data-team="warriors">
+      <div>warriors</div>
+      <div>shorts</div>
+      <div>m</div>
+       <div>$29.99</div>
+    </div>
+    <div class="product" data-category="shoes" data-size="l" data-price="39.99" data-team="celtics">
+      <div>celtics</div>
+      <div>shoes</div>
+      <div>l</div>
+      <div>$39.99</div>
+    </div>
+    <div class="product" data-category="shirts" data-size="s" data-price="49.99" data-team="hawks">
+      <div>hawks</div>
+      <div>shirts</div>
+      <div>s</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shorts" data-size="m" data-price="59.99" data-team="nets">
+      <div>nets</div>
+      <div>shorts</div>
+      <div>m</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shoes" data-size="l" data-price="69.99" data-team="hornets"> 
+      <div>hornets</div>
+      <div>shoes</div>
+      <div>l</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shirts" data-size="s" data-price="79.99" data-team="bulls">
+      <div>bulls</div>
+      <div>shirts</div>
+      <div>s</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shorts" data-size="m" data-price="89.99" data-team="cavaliers">
+      <div>cavaliers</div>
+      <div>shorts</div>
+      <div>m</div>
+      <div>$49.99</div>
+    </div>
+    
+    <div class="product" data-category="shirts" data-size="l" data-price="99.99" data-team="mavericks">
+      <div>mavericks</div>
+      <div>shirts</div>
+      <div>l</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shorts" data-size="s" data-price="109.99" data-team="nuggets">
+      <div>nuggets</div>
+      <div>shorts</div>
+      <div>s</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shoes" data-size="m" data-price="119.99" data-team="pistons">
+      <div>pistons</div>
+      <div>shoes</div>
+      <div>m</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shirts" data-size="l" data-price="129.99" data-team="rockets">
+      <div>rockets</div>
+      <div>shirts</div>
+      <div>l</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shorts" data-size="s" data-price="139.99" data-team="pacers">
+      <div>pacers</div>
+      <div>shorts</div>
+      <div>s</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shoes" data-size="m" data-price="149.99" data-team="clippers">
+      <div>clippers</div>
+      <div>shoes</div>
+      <div>m</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shirts" data-size="l" data-price="159.99" data-team="grizzlies">
+      <div>grizzlies</div>
+      <div>shirts</div>
+      <div>l</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shorts" data-size="s" data-price="169.99" data-team="heat">
+      <div>nets</div>
+      <div>shorts</div>
+      <div>s</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shoes" data-size="m" data-price="179.99" data-team="bucks">
+      <div>bucks</div>
+      <div>shoes</div>
+      <div>m</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shirts" data-size="l" data-price="189.99" data-team="timberwolves">
+      <div>timberwolves</div>
+      <div>shirts</div>
+      <div>l</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shorts" data-size="s" data-price="199.99" data-team="pelicans">
+      <div>pelicans</div>
+      <div>shorts</div>
+      <div>s</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shoes" data-size="m" data-price="209.99" data-team="knicks">
+      <div>knicks</div>
+      <div>shoes</div>
+      <div>m</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shirts" data-size="l" data-price="219.99" data-team="thunder">
+      <div>thunder</div>
+      <div>shirts</div>
+      <div>l</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shorts" data-size="s" data-price="229.99" data-team="magic">
+      <div>magic</div>
+      <div>shorts</div>
+      <div>s</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shoes" data-size="m" data-price="239.99" data-team="sixers">
+      <div>sixers</div>
+      <div>shoes</div>
+      <div>m</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shirts" data-size="l" data-price="249.99" data-team="suns">
+      <div>suns</div>
+      <div>shirts</div>
+      <div>l</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shorts" data-size="s" data-price="259.99" data-team="blazers">
+      <div>blazers</div>
+      <div>shorts</div>
+      <div>s</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shoes" data-size="m" data-price="269.99" data-team="kings">
+      <div>kings</div>
+      <div>shoes</div>
+      <div>m</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shirts" data-size="l" data-price="279.99" data-team="spurs">
+      <div>spurs</div>
+      <div>shirts</div>
+      <div>l</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shorts" data-size="s" data-price="289.99" data-team="raptors">
+      <div>raptors</div>
+      <div>shorts</div>
+      <div>s</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shoes" data-size="m" data-price="299.99" data-team="jazz">
+      <div>jazz</div>
+      <div>shoes</div>
+      <div>m</div>
+      <div>$49.99</div>
+    </div>
+    <div class="product" data-category="shirts" data-size="l" data-price="309.99" data-team="wizards">
+      <div>wizards</div>
+      <div>shirts</div>
+      <div>l</div>
+      <div>$49.99</div>
+      
+    </div>
+    
+  </div>
+  
+  
+</body>
+</html>
