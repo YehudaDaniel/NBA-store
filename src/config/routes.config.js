@@ -14,10 +14,23 @@ const RoutesConfig = (app) => {
         .get('/products', (req, res) => {
             res.render('ProductsPage');
         })
+        .get('/cart', (req, res) => {
+            res.render('CartPage');
+        }) 
+        .get('/login', (req, res) => {
+            res.render('Login');
+        }) 
+        .get('/signup', (req, res) => {
+            res.render('Signup');
+        }) 
+        .get('/about', (req, res) => {
+            res.render('AboutUs');
+        }) 
         //this is a test route for everyone to change
         // .get('/pagename', (req, res) => {
         //     res.render('pagename');
         // }) //this will not work until you change it
+        
 };
 
 module.exports = RoutesConfig;
