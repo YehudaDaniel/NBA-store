@@ -26,6 +26,9 @@ const RoutesConfig = (app) => {
         .get('/about', (req, res) => {
             res.render('AboutUs');
         }) 
+        .get('/navbar', (req, res) => {
+            res.render('/Users/amitofir/Desktop/פיתוח אפליקציות אינטרנטיות/NBA-store/client/components/NavBar.ejs');
+        }) 
         //this is a test route for everyone to change
         // .get('/pagename', (req, res) => {
         //     res.render('pagename');
