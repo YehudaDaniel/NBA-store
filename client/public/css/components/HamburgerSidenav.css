@@ -94,18 +94,10 @@ right side version discuss with the team
 */
 
 
-
- * {
+.sidebar {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-}
-
-body {
-    font-family: "Raleway", sans-serif;
-}
-
-.sidebar {
     position: fixed;
     top: 0px;
     right: -250px;

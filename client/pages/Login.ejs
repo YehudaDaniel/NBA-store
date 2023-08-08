@@ -2,22 +2,29 @@
 <html>
 <head>
   <title><h1><b>NBA Store</b></h1></title>
-  <link rel="stylesheet" type="text/css" href="/css/styles.css" />
-  <link rel="stylesheet" type="text/css" href="/css/pages/Login.css" />
-</head>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+  
 <body>
+  <%- include('../components/NavBar.ejs') %>
+  <%- include('../components/HamburgerSideNav.ejs') %>
+  
   <div class="container">
     <div id="LogIn" class="form">
       <h2>Log In</h2>
       <input type="text" id="usernameInput1" placeholder="Username" oninput="clearError('usernameErrorMessage1')"/>
       <input type="password" id="passwordInput1" minlength="5" maxlength="20" required placeholder="Password" oninput="clearError('passwordErrorMessage1')"/>
-      <button onclick="validateRegistrationForLogIn()">LogIn</button>
+      <button class="buttons" onclick="validateRegistrationForLogIn()">LogIn</button>
       <span id="usernameErrorMessage1" class="error-message"></span>
       <span id="passwordErrorMessage1" class="error-message"></span>
     </div>
-
+    
   </div>
   <script src="script.js"></script>
+  <script src="/scripts/Login.js"></script>
+  <script src="/scripts/NavBar.js"></script>
+  <script src="/scripts/HamburgerSideNav.js"></script>
   
 </body>
 </html>
