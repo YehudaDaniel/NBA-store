@@ -29,6 +29,9 @@ const RoutesConfig = (app) => {
         .get('/products', (req, res) => {
             res.render('ProductsPage');
         })
+        .get('/product', (req, res) => {
+            res.render('ProductPage');
+        })
         
 
         //this is a test route for everyone to change

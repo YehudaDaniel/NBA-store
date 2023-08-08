@@ -1,0 +1,30 @@
+.small-img-group{
+    display: flex;
+    justify-content: space-between;
+}
+
+.small-img-col{
+    flex-basis: 24%;
+    cursor: pointer;
+}
+
+.sProduct select{
+    display: block;
+    padding: 5px 10px;
+}
+
+.sProduct input{
+   width: 50px;
+   height: 40px;
+   padding-left: 10px;
+   font-size: 16px;
+   margin-right: 10px;
+} 
+
+.sProduct input:focus{
+    outline: none;
+}
+
+.transparent-bg {
+    background-color: rgba(255, 255, 255, 0.8); /* Adjust the alpha value (last parameter) to control transparency */
+}

@@ -1,8 +1,9 @@
 @import './base/_base.css';
 @import './base/_defaults.css';
+@import './pages/SingleProductPage.css';
+@import './pages/ProductsPage.css';
+@import './pages/CartPage.css';
 @import './components/NavBar.css';
 @import './components/HamburgerSidenav.css';
-
-
 
 
