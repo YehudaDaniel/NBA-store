@@ -23,7 +23,7 @@ test('Should sign up a new user', async () => {
         //Assert that the db was changed correctly
         const user = await User.findById(response.body.user._id);
         expect(user).not.toBeNull();
-        console.log(response.body);
+
         // Assert the body contains the expected properties
         expect(response.body).toMatchObject({
             user: {
@@ -38,4 +38,42 @@ test('Should sign up a new user', async () => {
 
         //Assert the password is encrypted
         expect(user.password).not.toBe('test1234');
+});
+
+
+//Sending a test request to /user/register with an existing username expecting it to fail
+test('Should not sign up a new user with an existing username', async () => {
+    await request(app)
+        .post('/user/register')
+        .send({
+            username:"Test",
+            email: 'test@test.com',
+            address: 'Test Address',
+            password:'test1234',
+            isAdmin: false
+        })
+        .expect(400);
+});
+
+//Sending a test request to /user/register to make sure user with invalid data isnt being signed up
+test('Should not sign up a new user with invalid data', async () => {
+    await request(app)
+        .post('/user/register')
+        .send({
+            username: '%&*$',
+            email: "bla@blala.com",
+            password: '13%$'
+        })
+        .expect(400);
+});
+
+//Sending a test request to /user/login which logs in a registered user
+test('Should login a registered user', async () => {
+    const response = await request(app)
+        .post('/user/login')
+        .send({
+            email: 'test@test.com',
+            password: 'test1234'
+        })
+        .expect(200);
 });

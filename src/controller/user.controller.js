@@ -46,6 +46,25 @@ async function register_C(req, res) {
     });
 }
 
+//Function for logging in a registered user
+async function login_C(req, res) {
+    try{
+        const user = await User.findOne({ email: req.body.email }); //saving user data by email in the variable
+        if(!user) //if user with that email not found send error
+            return res.status(404).json({ message: 'Could not find user' }); //404 - Not Found
+
+        const isMatch = await bcrypt.compare(req.body.password, user.password); //comparing the password from the request to the password in the db
+        if(!isMatch)
+            return res.status(400).json({ message: 'Something went wrong' }); //400 - Bad Request
+
+        const token = await generateAuthToken(user._id); //generate a new token for a freshly logged in user
+
+        res.send(userData(user, token));
+    }catch(e){
+        res.status(400).send(e);
+    }
+}
+
 //-- Helper Functions --//
 
 //Function for creating a token with the jwt secret and adding it to ther user's tokens array in the db
@@ -75,4 +94,5 @@ function userData(data, token){
 
 module.exports = {
     register_C,
+    login_C,
 };
