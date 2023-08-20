@@ -1,93 +1,110 @@
 <!DOCTYPE html>
 
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>>NBA store</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
-    
-  </head>
-  <body id="productsPage-body">
-    <div class="productsPage-container">
-      <div class="productsPage-sidebar">
-        <div class="productsPage-logo">NBA store</div>
-        <input type="text" id="txtSearch" placeholder="Search Product...">
-        <h3>Category</h3>
+<html lang="en">
 
-        <select id="teamFilter">
-          <option value="All">All Teams</option>
-           <option value="lakers">Los Angeles Lakers</option>
-        <option value="warriors">Golden State Warriors</option>
-        <option value="celtics">Boston Celtics</option>
-        <option value="hawks">Atlanta Hawks</option>
-        <option value="nets">Brooklyn Nets</option>
-        <option value="hornets">Charlotte Hornets</option>
-        <option value="bulls">Chicago Bulls</option>
-        <option value="cavaliers">Cleveland Cavaliers</option>
-        <option value="mavericks">Dallas Mavericks</option>
-        <option value="nuggets">Denver Nuggets</option>
-        <option value="pistons">Detroit Pistons</option>
-        <option value="rockets">Houston Rockets</option>
-        <option value="pacers">Indiana Pacers</option>
-        <option value="clippers">Los Angeles Clippers</option>
-        <option value="grizzlies">Memphis Grizzlies</option>
-        <option value="heat">Miami Heat</option>
-        <option value="bucks">Milwaukee Bucks</option>
-        <option value="timberwolves">Minnesota Timberwolves</option>
-        <option value="pelicans">New Orleans Pelicans</option>
-        <option value="knicks">New York Knicks</option>
-        <option value="thunder">Oklahoma City Thunder</option>
-        <option value="magic">Orlando Magic</option>
-        <option value="sixers">Philadelphia 76ers</option>
-        <option value="suns">Phoenix Suns</option>
-        <option value="blazers">Portland Trail Blazers</option>
-        <option value="kings">Sacramento Kings</option>
-        <option value="spurs">San Antonio Spurs</option>
-        <option value="raptors">Toronto Raptors</option>
-        <option value="jazz">Utah Jazz</option>
-        <option value="wizards">Washington Wizards</option>
-          <!-- Add options for all other teams -->
-        </select>
-        
-        <ul class="category-list"><li>All</li><li>shirts</li>shorts<li>shoes</li><li>Monitors</li></ul>
-        <div class="size-filter">
-          <label for="sizeSelect">Size:</label>
-          <select id="sizeSelect">
-            <option value="All">All Sizes</option>
-            <option value="S">S</option>
-            <option value="M">M</option>
-            <option value="L">L</option>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>>NBA store</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+
+</head>
+
+<body id="productsPage-body">
+  <%- include('../components/NavBar.ejs') %>
+    <%- include('../components/HamburgerSideNav.ejs') %>
+      <div class="productsPage-container">
+        <div class="productsPage-sidebar">
+          <div class="productsPage-logo">NBA store</div>
+          <input type="text" id="txtSearch" placeholder="Search Product...">
+          <h3>Category</h3>
+
+          <select id="teamFilter">
+            <option value="All">All Teams</option>
+            <option value="lakers">Los Angeles Lakers</option>
+            <option value="warriors">Golden State Warriors</option>
+            <option value="celtics">Boston Celtics</option>
+            <option value="hawks">Atlanta Hawks</option>
+            <option value="nets">Brooklyn Nets</option>
+            <option value="hornets">Charlotte Hornets</option>
+            <option value="bulls">Chicago Bulls</option>
+            <option value="cavaliers">Cleveland Cavaliers</option>
+            <option value="mavericks">Dallas Mavericks</option>
+            <option value="nuggets">Denver Nuggets</option>
+            <option value="pistons">Detroit Pistons</option>
+            <option value="rockets">Houston Rockets</option>
+            <option value="pacers">Indiana Pacers</option>
+            <option value="clippers">Los Angeles Clippers</option>
+            <option value="grizzlies">Memphis Grizzlies</option>
+            <option value="heat">Miami Heat</option>
+            <option value="bucks">Milwaukee Bucks</option>
+            <option value="timberwolves">Minnesota Timberwolves</option>
+            <option value="pelicans">New Orleans Pelicans</option>
+            <option value="knicks">New York Knicks</option>
+            <option value="thunder">Oklahoma City Thunder</option>
+            <option value="magic">Orlando Magic</option>
+            <option value="sixers">Philadelphia 76ers</option>
+            <option value="suns">Phoenix Suns</option>
+            <option value="blazers">Portland Trail Blazers</option>
+            <option value="kings">Sacramento Kings</option>
+            <option value="spurs">San Antonio Spurs</option>
+            <option value="raptors">Toronto Raptors</option>
+            <option value="jazz">Utah Jazz</option>
+            <option value="wizards">Washington Wizards</option>
+            <!-- Add options for all other teams -->
           </select>
-        </div>
-        <div class="price-filter">
-          <label for="priceSort">Sort by Price:</label>
-          <select id="priceSort">
-            <option value="default">Default</option>
-            <option value="lowToHigh">Low to High</option>
-            <option value="highToLow">High to Low</option>
-          </select>
-        </div>
-        
 
-        <h3>Price Range</h3>
-        <div class="price">
-          <input type="range" id="priceRange" min="20" max="15999">
-          <span class="priceValue">1300</span>
-          
-        </div>
-        <button id="resetFiltersButton">Reset Filters</button>
-      </div>
-      <div class="content">
-        
-        
-        <div class="products">
-          
- 
-</div></div>
-      </div>
-    </div>
-    <script src="/scripts/ProductsPage.js"></script>
-  
+          <ul class="category-list">
+            <li>All</li>
+            <li>shirts</li>shorts<li>shoes</li>
+            <li>Monitors</li>
+          </ul>
+          <div class="size-filter">
+            <label for="sizeSelect">Size:</label>
+            <select id="sizeSelect">
+              <option value="All">All Sizes</option>
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+            </select>
+          </div>
+          <div class="price-filter">
+            <label for="priceSort">Sort by Price:</label>
+            <select id="priceSort">
+              <option value="default">Default</option>
+              <option value="lowToHigh">Low to High</option>
+              <option value="highToLow">High to Low</option>
+            </select>
+          </div>
 
-</body></html>
+
+          <h3>Price Range</h3>
+          <div class="price">
+            <input type="range" id="priceRange" min="20" max="15999">
+            <span class="priceValue">1300</span>
+
+          </div>
+          <button id="resetFiltersButton">Reset Filters</button>
+        </div>
+        <div class="content">
+
+
+          <div class="products">
+
+
+          </div>
+        </div>
+      </div>
+      </div>
+      <script src="/scripts/ProductsPage.js"></script>
+      <script src="/scripts/NavBar.js"></script>
+      <script src="/scripts/HamburgerSideNav.js"></script>
+
+
+</body>
+
+</html>
