@@ -2,13 +2,13 @@
     box-sizing: border-box;
   }
 
-  body {
+  .body-404{
 	background-color: #0a0b3b;
 	color: #fff;
 	font-family: sans-serif;
 }
 
-  .container {
+  .body-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,7 +16,7 @@
     height: 100vh;
   }  
   
-  h1 {
+  .page404h1{
     font-size: 6em;
     margin: 0;
     animation: pulse 2s ease-in-out infinite;
@@ -34,13 +34,13 @@
     }
   }
 
-  p {
+  .p-404 {
     font-size: 1.5em;
     margin: 0;
     margin-top: 20px;
   }
 
-  a {
+  .a-404{
 	display: inline-block;
 	padding: 10px 20px;
 	background-color: #4293ef;
