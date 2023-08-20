@@ -1,8 +1,4 @@
-* {
-    box-sizing: border-box;
-  }
-
-  .body-404{
+.body-404{
 	background-color: #0a0b3b;
 	color: #fff;
 	font-family: sans-serif;

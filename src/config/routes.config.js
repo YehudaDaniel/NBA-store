@@ -34,7 +34,7 @@ const RoutesConfig = (app) => {
             res.render('ProductPage');
         })
         .get('/404page', (req, res) => {
-            res.render('ProductPage');
+            res.render('404page');
         })
         
 
