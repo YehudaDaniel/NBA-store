@@ -33,6 +33,9 @@ const RoutesConfig = (app) => {
         .get('/product', (req, res) => {
             res.render('ProductPage');
         })
+        .get('/404page', (req, res) => {
+            res.render('ProductPage');
+        })
         
 
         //this is a test route for everyone to change
