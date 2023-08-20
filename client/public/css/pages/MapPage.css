@@ -6,13 +6,8 @@ body {
     height: 70vh;  
 }
 
-#map {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-}
 
+ע
 .title {
     position: absolute;
     font-size: 50px;
@@ -24,16 +19,25 @@ body {
     left: 100px;
 }
 
+
+#map {
+    position: relative;
+    overflow: hidden;
+    width: 150%;
+    height: 70%;
+}
+
+
 #store-list-container {
-    position: absolute;
-    top: 0;
-    right: 0;
+    position: fixed;
+    top: 50%;         /* Position from the vertical center */
+    left: 0%;  
     width: 400px;
     height: 100%;
     background-color: #f8f8f8;
     padding: 10px;
     overflow-y: auto;
-  }
+  } 
   
   .store-item {
     margin-bottom: 20px;
