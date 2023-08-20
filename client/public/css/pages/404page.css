@@ -65,22 +65,22 @@
   }
 
   @media (max-width: 768px) {
-    h1 {
+    .page404h1{
       font-size: 4em;
     }
-    p {
+    .p-404 {
       font-size: 1em;
     }
   }
 
   @media (max-width: 576px) {
-    h1 {
+    .page404h1 {
       font-size: 3em;
     }
-    p {
+    .p-404 {
       font-size: 0.8em;
     }
-    a {
+    .a-404 {
       font-size: 1em;
     }
   }
