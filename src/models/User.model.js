@@ -2,25 +2,56 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 
 const userSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true, unique: true, validate: { validator: isValidEmail, message: 'Invalid email address' } },
-  password: { type: String, required: true },
-  address: { type: String, required: true },
-  orderHistory: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Order' }],
-  isAdmin: { type: Boolean, default: false }
+  name: {
+    type: String, 
+    required: true,
+    trim: true,
+    minLength: 4
+  },
+  email: {
+    type: String, 
+    required: true, 
+    unique: true, 
+    trim: true,
+    lowercase: true,
+    validate: { validator: isValidEmail, message: 'Invalid email address' } 
+  },
+  password: {
+    type: String, 
+    required: true 
+  },
+  address: { 
+    type: String, 
+    required: true,
+    trim: true,
+    minLength: 6
+  },
+  orderHistory: [
+    { 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: 'Order' 
+    }
+  ],
+  isAdmin: { 
+    type: Boolean, 
+    default: false 
+  },
+  tokens: [{
+    token: {
+      type: String,
+      required: true
+    }
+  }]
+},{
+  timestamps: true
 });
+
 
 // Check Email's validity
 function isValidEmail(email) {
   return validator.isEmail(email);
 }
 
-
-// Static method to create a new user
-userSchema.statics.newUser = function (userData) {
-  const newUser = new this(userData);
-  return newUser.save();
-};
 
 // Instance method to change the user's name
 userSchema.methods.changeName = function (newName) {

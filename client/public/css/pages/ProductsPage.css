@@ -1,0 +1,41 @@
+.product-page-body {
+    background-image: url('nbaa.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+  }
+  .product {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(128, 128, 128);
+    margin: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+  }
+  
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .filters {
+    float: left;
+  }
+  
+  .product-price {
+    font-weight: bold;
+    color: #0f0101;
+    font-size: 25px;
+  }
+
+  .product img {
+    width: 200px;
+    height: 200px;
+  }
+  
+  
+  

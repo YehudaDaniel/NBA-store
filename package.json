@@ -4,16 +4,23 @@
   "description": "this project was developed as part of web developement course",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon src/app.js"
+    "dev": "env-cmd -f ./ENV/dev.env nodemon src/app.js",
+    "test": "env-cmd -f ./ENV/test.env jest --watch --runInBand"
   },
   "author": "yehuda chen ilan yuval amit",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "bootstrap-icons": "^1.10.5",
     "ejs": "^3.1.9",
+    "env-cmd": "^10.1.0",
     "express": "^4.18.2",
+    "jest": "^29.5.0",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.2.2",
     "node-sass": "^9.0.0",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "supertest": "^6.3.3",
+    "validator": "^13.9.0"
   }
 }
