@@ -1,4 +1,4 @@
-body {
+#login-body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -7,7 +7,7 @@ body {
     background-position: bottom;
   }
   
-  .container {
+  .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,7 +15,7 @@ body {
     gap: 150px; /* Add gap between the forms */
   }
   
-  .form {
+  .login-form {
     flex: 1; /* Distribute equal space to each form */
     background-color: #fff;
     padding: 20px;
@@ -26,12 +26,12 @@ body {
     height: 40%;
   }
   
-  h2 {
+  #login-title {
     text-align: center;
     color: #333;
   }
   
-  input {
+  #usernameInput1 {
     width: 90%;
     padding: 10px;
     margin-bottom: 10px;
@@ -39,7 +39,15 @@ body {
     border: 1px solid #ccc;
   }
   
-  .buttons{
+  #passwordInput1{
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+  }
+  
+  .login-buttons{
     width: 100%;
     padding: 10px;
     background-color: #333;
@@ -49,11 +57,11 @@ body {
     cursor: pointer;
   }
   
-  .button:hover {
+  .login-buttons:hover {
     background-color: #555;
   }
   input:focus,
-  button:focus {
+  .login-buttons:focus {
     outline: none;
   }
 

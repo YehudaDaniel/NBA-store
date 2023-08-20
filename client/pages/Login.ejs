@@ -6,16 +6,16 @@
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
   
-<body>
+<body id="login-body">
   <%- include('../components/NavBar.ejs') %>
   <%- include('../components/HamburgerSideNav.ejs') %>
   
-  <div class="container">
-    <div id="LogIn" class="form">
-      <h2>Log In</h2>
+  <div class="login-container">
+    <div id="LogIn" class="login-form">
+      <h2 id="login-title">Log In</h2>
       <input type="text" id="usernameInput1" placeholder="Username" oninput="clearError('usernameErrorMessage1')"/>
       <input type="password" id="passwordInput1" minlength="5" maxlength="20" required placeholder="Password" oninput="clearError('passwordErrorMessage1')"/>
-      <button class="buttons" onclick="validateRegistrationForLogIn()">LogIn</button>
+      <button class="login-buttons" onclick="validateRegistrationForLogIn()">LogIn</button>
       <span id="usernameErrorMessage1" class="error-message"></span>
       <span id="passwordErrorMessage1" class="error-message"></span>
     </div>

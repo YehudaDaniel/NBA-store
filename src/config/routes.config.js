@@ -12,9 +12,6 @@ const RoutesConfig = (app) => {
         .get('/map', (req, res) => {
             res.render('MapPage');
         })
-        .get('/products', (req, res) => {
-            res.render('ProductsPage');
-        })
         .get('/cart', (req, res) => {
             res.render('CartPage');
         }) 
@@ -35,6 +32,9 @@ const RoutesConfig = (app) => {
         })
         .get('/404page', (req, res) => {
             res.render('404page');
+        })
+        .get('/graph', (req, res) => {
+            res.render('graphPage');
         })
         
 
