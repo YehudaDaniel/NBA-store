@@ -7,10 +7,10 @@
   font-family: "Poppins", sans-serif;
 }
 
-body {
+#productsPage-body {
   background-color: #353b48;
 }
-.container {
+.productsPage-container {
   background-color: #fff;
   width: 95%;
   margin: 0 auto;
@@ -18,7 +18,7 @@ body {
   display: flex;
 }
 
-.sidebar {
+.productsPage-sidebar {
   flex: 1;
   background-color: #f5f6fa;
   padding: 10px;
