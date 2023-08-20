@@ -23,32 +23,32 @@
   background-color: #f5f6fa;
   padding: 10px;
 }
-.logo {
+.productsPage-logo {
   font-weight: 800;
   font-size: 20px;
   text-transform: uppercase;
   color: #e74c3c;
   margin-bottom: 10px;
 }
-.sidebar input[type="text"] {
+.productsPage-sidebar input[type="text"] {
   padding: 5px 5px;
   outline: none;
   width: 100%;
   margin-bottom: 15px;
 }
-.sidebar h3 {
+.productsPage-sidebar h3 {
   font-weight: 600;
   margin-bottom: 10px;
 }
-.sidebar ul {
+.productsPage-sidebar ul {
   list-style: none;
 }
-.sidebar ul li {
+.productsPage-sidebar ul li {
   margin: 5px 0;
   /*padding-left: 5px;*/
   cursor: pointer;
 }
-.sidebar ul li:hover {
+.productsPage-sidebar ul li:hover {
   background-color: #dcdde1;
 }
 .content {
