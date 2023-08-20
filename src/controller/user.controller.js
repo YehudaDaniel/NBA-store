@@ -63,7 +63,7 @@ function userData(data, token){
         user: {
             _id: data._id,
             name: data.name,
-            addres: data.address,
+            address: data.address,
             email: data.email,
             isAdmin: data.isAdmin,
             token

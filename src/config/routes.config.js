@@ -5,6 +5,7 @@ const RoutesConfig = (app) => {
         .use('/user', userRouter)
 
         //-- Configuration for Pages --
+        //change this to use pagesRouter and refactor the pagesRouter to use the correct pages
         .get('/', (req, res) => {
             res.render('Homepage');
         })

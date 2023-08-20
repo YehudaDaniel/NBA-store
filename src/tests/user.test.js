@@ -23,18 +23,18 @@ test('Should sign up a new user', async () => {
         //Assert that the db was changed correctly
         const user = await User.findById(response.body.user._id);
         expect(user).not.toBeNull();
-
-        //Assert the body contains the expected properties
-        // expect(response.body).toMatchObject({
-        //     user: {
-        //         _id: user._id,
-        //         name: 'Test',
-        //         email: 'test@test.com',
-        //         address: 'Test Address',
-        //         isAdmin: false,
-        //         token: user.tokens[0].token
-        //     }
-        // })
+        console.log(response.body);
+        // Assert the body contains the expected properties
+        expect(response.body).toMatchObject({
+            user: {
+                _id: user.id,
+                name: 'Test',
+                email: 'test@test.com',
+                address: 'Test Address',
+                isAdmin: false,
+                token: user.tokens[0].token
+            }
+        })
 
         //Assert the password is encrypted
         expect(user.password).not.toBe('test1234');
