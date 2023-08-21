@@ -67,15 +67,14 @@
 input:focus{
     outline: none;
 }
-a{
+#addToCart-button{
     text-decoration: none;
-    color: #555;
 }
 .single-product .fa{
     color: #ff523b;
     margin-left: 10px;
 }
-p{
+.productPage-p{
     color: #555;
 }
 .btn{
