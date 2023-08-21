@@ -21,6 +21,7 @@ const RoutesConfig = (app) => {
         //     res.render('404page');
         // })
         
+        
 
         //this is a test route for everyone to change
         // .get('/pagename', (req, res) => {
