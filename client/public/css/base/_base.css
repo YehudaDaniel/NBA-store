@@ -6,6 +6,7 @@ html{
 body{
     margin: 0;
     padding: 0;
+    margin-top: 70px;
     box-sizing: border-box;
     background: var(--primary); /* an example for the usage of vars*/
 }

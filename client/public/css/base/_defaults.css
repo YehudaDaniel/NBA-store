@@ -1,7 +1,7 @@
 :root {
     /* Colors */
     
-    --primary: rgba(209, 209, 209, 0.888);
+    --primary: rgb(237, 237, 237);
     --primary-lighten: #2a5abc;
     --primary-darken: #132c5d;
     --secondary: #c8102e;

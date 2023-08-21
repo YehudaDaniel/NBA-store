@@ -8,6 +8,7 @@
   -webkit-box-shadow: 4px 2px 21px -3px rgba(0,0,0,0.75);
   -moz-box-shadow: 4px 2px 21px -3px rgba(0,0,0,0.75);
   box-shadow: 4px 2px 21px -3px rgba(0,0,0,0.75);
+  z-index: 99;
 }
 
 .primaryNavBar>div {
