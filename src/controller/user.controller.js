@@ -2,7 +2,6 @@ const { req, res } = require('express');
 const User = require('../models/User.model.js');
 const fs = require('fs');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 
 console.log('Imported User Controller');
 
@@ -19,7 +18,7 @@ async function register_C(req, res) {
             name: req.body.name,
             email: req.body.email,
             address: req.body.address,
-            isAdmin: req.body.isAdmin,
+            isAdmin: false, //default signing up a user as false - not an admin
             password: encrypted
         };
         if(!userCredentials.name && !userCredentials.email && !userCredentials.address && !userCredentials.password)
@@ -29,8 +28,9 @@ async function register_C(req, res) {
             const newUser = User.create(userCredentials)
                 .then(async (doc) => {
                     try{
-                        const token = await generateAuthToken(doc._id.toString());
-                        return res.status(201).json(userData(doc, token)); //201 - Created
+                        const user = await User.findOne({ email: doc.email });
+                        const token = await user.generateAuthToken();
+                        return res.status(201).json(userData(user, token)); //201 - Created
                     }catch(e){
                         res.status(500).send(`Error: ${e}`); //500 - Internal Server Error
                     }
@@ -57,7 +57,7 @@ async function login_C(req, res) {
         if(!isMatch)
             return res.status(400).json({ message: 'Something went wrong' }); //400 - Bad Request
 
-        const token = await generateAuthToken(user._id); //generate a new token for a freshly logged in user
+        const token = await user.generateAuthToken(); //generate a new token for a freshly logged in user
 
         res.send(userData(user, token));
     }catch(e){
@@ -67,14 +67,13 @@ async function login_C(req, res) {
 
 //-- Helper Functions --//
 
-//Function for creating a token with the jwt secret and adding it to ther user's tokens array in the db
-async function generateAuthToken(userId) {
-    const token = jwt.sign({_id: userId}, process.env.JWT_SECRET.toString()); // {expiresIn: '1h'}
+// async function generateAuthToken(userId) {
+//     const token = jwt.sign({_id: userId}, process.env.JWT_SECRET.toString()); // {expiresIn: '1h'}
 
-    await User.updateOne({_id: userId}, {$push: {tokens: {token: token}}});
+//     await User.updateOne({_id: userId}, {$push: {tokens: {token: token}}});
 
-    return token;
-}
+//     return token;
+// }
 
 //Function for returning the user's data in the desired format
 function userData(data, token){
@@ -85,8 +84,9 @@ function userData(data, token){
             address: data.address,
             email: data.email,
             isAdmin: data.isAdmin,
-            token
-        }
+            tokens: data.tokens,
+        },
+        token: token
     }
 }
 

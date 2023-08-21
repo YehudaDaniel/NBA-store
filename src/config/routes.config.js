@@ -1,41 +1,25 @@
 const userRouter = require('../routers/user.router');
+const pagesRouter = require('../routers/pages.router');
 
 const RoutesConfig = (app) => {
     app
         .use('/user', userRouter)
 
+        .use('/', pagesRouter)
+
+        .get('*', (req, res) => {
+            res.status(404).render('404page');
+        })
+
         //-- Configuration for Pages --
-        //change this to use pagesRouter and refactor the pagesRouter to use the correct pages
-        .get('/', (req, res) => {
-            res.render('Homepage');
-        })
-        .get('/map', (req, res) => {
-            res.render('MapPage');
-        })
-        .get('/cart', (req, res) => {
-            res.render('CartPage');
-        }) 
-        .get('/login', (req, res) => {
-            res.render('Login');
-        }) 
-        .get('/signup', (req, res) => {
-            res.render('Signup');
-        }) 
-        .get('/about', (req, res) => {
-            res.render('AboutUs');
-        }) 
-        .get('/products', (req, res) => {
-            res.render('ProductsPage');
-        })
-        .get('/product', (req, res) => {
-            res.render('ProductPage');
-        })
-        .get('/404page', (req, res) => {
-            res.render('404page');
-        })
-        .get('/graph', (req, res) => {
-            res.render('graphPage');
-        })
+
+
+        // .get('/about', (req, res) => {
+        //     res.render('AboutUs');
+        // }) 
+        // .get('/404page', (req, res) => {
+        //     res.render('404page');
+        // })
         
 
         //this is a test route for everyone to change

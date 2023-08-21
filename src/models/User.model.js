@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
+const jwt = require('jsonwebtoken');
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -45,6 +46,18 @@ const userSchema = new mongoose.Schema({
 },{
   timestamps: true
 });
+
+
+//Function for creating a token with the jwt secret and adding it to ther user's tokens array in the db
+userSchema.methods.generateAuthToken = async function() {
+  const user = this;
+  const token = jwt.sign({_id: user._id.toString()}, process.env.JWT_SECRET.toString()); // {expiresIn: '1h'}
+
+  user.tokens = user.tokens.concat({ token });
+  await user.save();
+
+  return token;
+}
 
 
 // Check Email's validity
