@@ -15,6 +15,9 @@
 
 </head>
 
+<%- include('../components/NavBar.ejs') %>
+  <%- include('../components/HamburgerSideNav.ejs') %>
+
 <body id="mapPage-body">
     <div class="mapPage-title"> NBA Stores </div>
     <div id="map"></div>
@@ -30,6 +33,10 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBImeeitkm-wI-p8SfcYAjy5UyEpb5ciVA&callback=initMap">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
+
+
+    <script src="/scripts/NavBar.js"></script>
+  <script src="/scripts/HamburgerSideNav.js"></script>
 
 </body>
 
