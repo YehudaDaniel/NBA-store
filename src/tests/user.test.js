@@ -77,3 +77,7 @@ test('Should login a registered user', async () => {
         })
         .expect(200);
 });
+
+//TODO: should not login nonexistent user
+//TODO: should get profile of user
+//TODO: should not get profile for unauthenticated user
