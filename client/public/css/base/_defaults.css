@@ -1,11 +1,12 @@
 :root {
     /* Colors */
     
-    --primary: rgb(237, 237, 237);
+    --primary: rgb(203, 58, 58);
     --primary-lighten: #2a5abc;
     --primary-darken: #132c5d;
     --secondary: #c8102e;
     --white: #ffffff;
+    --black: #000000;
     
     /* Sizes */
     
