@@ -98,13 +98,14 @@ right side version discuss with the team
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    position: fixed;
+    position:fixed;
     top: 0px;
     right: -250px;
     width: 250px;
     height: 100%;
     background: #111;
     transition: all 300ms ease-in-out;
+    z-index: 99;
 }
 
 .sidebar .toggle-btn {
