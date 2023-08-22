@@ -65,6 +65,34 @@ async function login_C(req, res) {
     }
 }
 
+async function logout_C(req, res) {
+    try{
+        req.user.tokens = req.user.tokens.filter((token) => {
+            return token.token !== req.token;
+        });
+        await req.user.save();
+
+        res.send();
+    }catch(e) {
+        res.status(500).send(e);
+    }
+}
+
+async function logoutall_C(req, res) {
+    try{
+        req.user.tokens = [];
+        await req.user.save();
+
+        res.send();
+    }catch(e) {
+        res.status(500).send(e);
+    }
+}
+
+async function read_C(req, res) {
+    res.send(req.user);
+}
+
 //-- Helper Functions --//
 
 // async function generateAuthToken(userId) {
@@ -95,4 +123,7 @@ function userData(data, token){
 module.exports = {
     register_C,
     login_C,
+    logout_C,
+    logoutall_C,
+    read_C
 };
