@@ -90,7 +90,7 @@ async function logoutall_C(req, res) {
 }
 
 async function read_C(req, res) {
-    res.send(req.user);
+    res.send(userData(req.user, req.token));
 }
 
 //-- Helper Functions --//

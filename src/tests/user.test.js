@@ -24,6 +24,7 @@ test('Should sign up a new user', async () => {
         const user = await User.findById(response.body.user._id);
         expect(user).not.toBeNull();
 
+        console.log(response.body);
         // Assert the body contains the expected properties
         expect(response.body).toMatchObject({
             user: {
@@ -32,8 +33,8 @@ test('Should sign up a new user', async () => {
                 email: 'test@test.com',
                 address: 'Test Address',
                 isAdmin: false,
-                token: user.tokens[0].token
-            }
+            },
+            token: user.tokens[0].token
         })
 
         //Assert the password is encrypted
@@ -78,6 +79,31 @@ test('Should login a registered user', async () => {
         .expect(200);
 });
 
-//TODO: should not login nonexistent user
-//TODO: should get profile of user
+test('Should not login a registered user', async () => {
+    await request(app)
+        .post('/user/login')
+        .send({
+            email: 'DoesntExist@atall.com',
+            password: 'irrelevant'
+        })
+        .expect(404)
+});
+
+test('Should get profile of user', async () => {
+    const user = await User.findOne({ email: 'test@test.com' })
+    expect(user).not.toBeNull()
+
+    const response = await request(app)
+        .get('/user/me')
+        .set('Authorization', `Bearer ${user.tokens[0].token}`)
+        .send()
+        .expect(200)
+
+
+        //Assert the right user was fetched from the database
+    expect(response.body.user._id).toBe(user.id)
+});
+
+
+
 //TODO: should not get profile for unauthenticated user
