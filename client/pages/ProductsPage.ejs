@@ -210,6 +210,8 @@
         var $button = $(this);
         var buttonId = $button.data('id');
 
+        
+
         // Update press count
         counts[buttonId].presses++;
         $button.find('.count').text(counts[buttonId].presses);

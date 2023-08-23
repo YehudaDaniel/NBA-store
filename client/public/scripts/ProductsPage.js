@@ -439,6 +439,9 @@ const data = [
       <span class="amt">${"Price: "+product.amt} $</span>
       <span class="size">${"Size: "+product.size}</span>
       <span class="color">${"color: "+product.color}</span>
+
+
+      
      <!--  <span class="team">${product.team}</span>   להוסיף קבוצה -->
      
      <!--  <button class="heart-button" data-id="${product.id}">
