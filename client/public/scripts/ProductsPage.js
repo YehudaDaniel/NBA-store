@@ -365,10 +365,9 @@ const data = [
       catagory: "Shorts",
       size: "M",
       color: "Yellow",
+      
     },
-  
-    
-   
+
     
   ];
   
@@ -472,6 +471,8 @@ const data = [
 
 
 
+
+
    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 
@@ -484,16 +485,48 @@ const data = [
 </div>
 </button>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 <script>
-      $(document).ready(function(){
+
+   $(document).ready(function(){
         $('.content').click(function(){
           $('.content').toggleClass("heart-active")
           $('.text').toggleClass("heart-active")
           $('.numb').toggleClass("heart-active")
           $('.heart').toggleClass("heart-active")
+          
         });
       });
-    </script>
+
+
+      
+
+      // Update the like count
+        var $numb = $('.numb');
+        var currentCount = parseInt($numb.text(), 10);
+        if ($('.heart').hasClass("heart-active")) {
+          $numb.text(currentCount + 1);
+        } else {
+          $numb.text(currentCount - 1);
+        }
+
+        
+    </script> -->
    
 
 

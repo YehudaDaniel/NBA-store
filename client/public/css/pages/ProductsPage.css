@@ -106,7 +106,9 @@ body {
 
 .heart-btn{
   position: relative;
-  
+  background: none;
+  border: none;
+  cursor: pointer;
   z-index: 99;
 }
 .content{
@@ -117,6 +119,7 @@ body {
   cursor: pointer;
 }
 .content.heart-active{
+  
   border-color: #f9b9c4;
   background: #fbd0d8;
 }
@@ -138,7 +141,7 @@ body {
   font-family: 'Montserrat',sans-serif;
 }
 .numb:before{
-  content: '12';
+   /* content: '12'; */
   font-size: 21px;
   margin-left: 7px;
   font-weight: 600;
@@ -146,7 +149,7 @@ body {
   font-family: sans-serif;
 }
 .numb.heart-active:before{
-  content: '13';
+/*  content: '13'; */
   color: #000;
 }
 .text.heart-active{

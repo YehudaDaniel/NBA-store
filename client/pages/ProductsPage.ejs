@@ -117,3 +117,117 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <style>
+    .heart-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .heart {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-color: red; /* You can change the color as desired */
+      transform: scale(1);
+      transition: transform 0.3s ease-in-out;
+    }
+    .heart-active .heart {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <button class="heart-btn">
+    <div class="content">
+      <span class="heart"></span>
+      <span class="text">Like</span>
+      <span class="numb">0</span>
+    </div>
+  </button>
+  <script>
+    $(document).ready(function(){
+      $('.heart-btn').click(function(){
+        $('.content').toggleClass("heart-active");
+        $('.text').toggleClass("heart-active");
+        $('.numb').toggleClass("heart-active");
+        $('.heart').toggleClass("heart-active");
+        
+        // Update the like count
+        var $numb = $('.numb');
+        var currentCount = parseInt($numb.text(), 10);
+        if ($('.heart').hasClass("heart-active")) {
+          $numb.text(currentCount + 1);
+        } else {
+          $numb.text(currentCount - 1);
+        }
+      });
+    });
+  </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+ 
+</head>
+<body>
+  
+
+  
+
+  <!-- Add more buttons as needed -->
+
+  <script>
+    $(document).ready(function(){
+      // Initialize an object to store likes counts and press counts
+      var counts = {};
+
+      // Initialize counts for each button
+      $('.heart-btn').each(function() {
+        var buttonId = $(this).data('id');
+        counts[buttonId] = {
+          likes: '',
+          presses: 0
+        };
+        $(this).find('.numb').text(counts[buttonId].likes);
+      });
+
+      $('.heart-btn').click(function(){
+        var $button = $(this);
+        var buttonId = $button.data('id');
+
+        // Update press count
+        counts[buttonId].presses++;
+        $button.find('.count').text(counts[buttonId].presses);
+        
+        $button.find('.content').toggleClass("heart-active");
+        $button.find('.text').toggleClass("heart-active");
+        $button.find('.numb').toggleClass("heart-active");
+        $button.find('.heart').toggleClass("heart-active");
+
+        // Update the likes count and display
+      /*  if ($button.find('.heart').hasClass("heart-active")) {
+          counts[buttonId].likes++;
+        } else {
+          counts[buttonId].likes--;
+        }
+        $button.find('.numb').text(counts[buttonId].likes);*/
+      });
+    });
+  </script>
+</body>
+</html>
