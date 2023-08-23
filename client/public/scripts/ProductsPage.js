@@ -7,6 +7,7 @@ const data = [
      // <!-- team: "Lakers",-->
       catagory: "Shirts",
       size: "S",
+      color: "Yellow",
     },
   
     {
@@ -17,6 +18,7 @@ const data = [
      // <!-- team: "Lakers",-->
       catagory: "Shirts",
       size: "M",
+      color: "Yellow",
     },
   
     {
@@ -27,6 +29,7 @@ const data = [
      // <!-- team: "Lakers",-->
       catagory: "Shirts",
       size: "M",
+      color: "Yellow",
     },
     {
       id: 4,
@@ -36,6 +39,7 @@ const data = [
     // <!-- team: "Lakers",-->
       catagory: "Shorts",
       size: "S",
+      color: "Yellow",
     },
     {
       id: 5,
@@ -45,6 +49,7 @@ const data = [
     // <!-- team: "Lakers",-->
       catagory: "Shorts",
       size: "S",
+      color: "Yellow",
     },
   
     {
@@ -55,6 +60,7 @@ const data = [
       //<!-- team: "Lakers",-->
       catagory: "Shorts",
       size: "L",
+      color: "Yellow",
     },
   
     {
@@ -65,6 +71,7 @@ const data = [
     //  <!-- team: "Lakers",-->
       catagory: "Shorts",
       size: "S",
+      color: "Yellow",
     },
     {
       id: 8,
@@ -74,6 +81,7 @@ const data = [
      // <!-- team: "Lakers",-->
       catagory: "Shoes",
       size: "L",
+      color: "Yellow",
     },
     {
       id: 9,
@@ -83,6 +91,7 @@ const data = [
       //<!-- team: "Lakers",-->
       catagory: "Shoes",
       size: "L",
+      color: "Yellow",
     },
   
     {
@@ -93,6 +102,7 @@ const data = [
      // <!-- team: "Lakers",-->,
       catagory: "Shoes",
       size: "S",
+      color: "Yellow",
     },
     {
       id: 11,
@@ -102,6 +112,7 @@ const data = [
      // <!-- team: "Lakers",-->
       catagory: "Shirts",
       size: "S",
+      color: "Yellow",
     },
   
     {
@@ -112,6 +123,7 @@ const data = [
      // <!-- team: "Lakers",-->
       catagory: "Shirts",
       size: "M",
+      color: "Yellow",
     },
   
     {
@@ -122,6 +134,7 @@ const data = [
      // <!-- team: "Lakers",-->
       catagory: "Shirts",
       size: "M",
+      color: "Yellow",
     },
     {
       id: 14,
@@ -131,6 +144,7 @@ const data = [
     // <!-- team: "Lakers",-->
       catagory: "Shorts",
       size: "S",
+      color: "Yellow",
     },
     {
       id: 15,
@@ -140,6 +154,7 @@ const data = [
     // <!-- team: "Lakers",-->
       catagory: "Shorts",
       size: "S",
+      color: "Yellow",
     },
   
     {
@@ -150,6 +165,7 @@ const data = [
       //<!-- team: "Lakers",-->
       catagory: "Shorts",
       size: "L",
+      color: "Yellow",
     },
   
     {
@@ -160,6 +176,7 @@ const data = [
     //  <!-- team: "Lakers",-->
       catagory: "Shorts",
       size: "S",
+      color: "Yellow",
     },
     {
       id: 18,
@@ -169,6 +186,7 @@ const data = [
      // <!-- team: "Lakers",-->
       catagory: "Shoes",
       size: "L",
+       color: "Yellow",
     },
     {
       id: 19,
@@ -178,6 +196,7 @@ const data = [
       //<!-- team: "Lakers",-->
       catagory: "Shoes",
       size: "L",
+      color: "Yellow",
     },
   
     {
@@ -188,6 +207,7 @@ const data = [
      // <!-- team: "Lakers",-->,
       catagory: "Shoes",
       size: "S",
+      color: "Yellow",
     },
   {
       id: 21,
@@ -197,6 +217,7 @@ const data = [
      // <!-- team: "Lakers",-->
       catagory: "Shirts",
       size: "S",
+      color: "Yellow",
     },
   
     {
@@ -207,6 +228,7 @@ const data = [
      // <!-- team: "Lakers",-->
       catagory: "Shirts",
       size: "M",
+      color: "Yellow",
     },
   
     {
@@ -217,6 +239,7 @@ const data = [
      // <!-- team: "Lakers",-->
       catagory: "Shirts",
       size: "M",
+       color: "Yellow",
     },
     {
       id: 24,
@@ -226,6 +249,7 @@ const data = [
     // <!-- team: "Lakers",-->
       catagory: "Shorts",
       size: "S",
+      color: "Yellow",
     },
     {
       id: 25,
@@ -235,6 +259,7 @@ const data = [
     // <!-- team: "Lakers",-->
       catagory: "Shorts",
       size: "S",
+      color: "Yellow",
     },
   
     {
@@ -245,6 +270,7 @@ const data = [
       //<!-- team: "Lakers",-->
       catagory: "Shorts",
       size: "L",
+      color: "Yellow",
     },
   
     {
@@ -255,6 +281,7 @@ const data = [
     //  <!-- team: "Lakers",-->
       catagory: "Shorts",
       size: "S",
+      color: "Yellow",
     },
     {
       id: 28,
@@ -264,6 +291,7 @@ const data = [
      // <!-- team: "Lakers",-->
       catagory: "Shoes",
       size: "L",
+      color: "Yellow",
     },
     {
       id: 29,
@@ -273,6 +301,7 @@ const data = [
       //<!-- team: "Lakers",-->
       catagory: "Shoes",
       size: "L",
+      color: "Yellow",
     },
   
     {
@@ -283,6 +312,7 @@ const data = [
      // <!-- team: "Lakers",-->,
       catagory: "Shoes",
       size: "S",
+      color: "Yellow",
     },
   {
       id: 31,
@@ -292,6 +322,7 @@ const data = [
      // <!-- team: "Lakers",-->
       catagory: "Shirts",
       size: "M",
+      color: "Yellow",
     },
   
     {
@@ -302,6 +333,7 @@ const data = [
      // <!-- team: "Lakers",-->
       catagory: "Shirts",
       size: "L",
+      color: "Yellow",
     },
   
     {
@@ -312,6 +344,7 @@ const data = [
      // <!-- team: "Lakers",-->
       catagory: "Shoes",
       size: "S",
+      color: "Yellow",
     },
     {
       id: 34,
@@ -321,6 +354,7 @@ const data = [
     // <!-- team: "Lakers",-->
       catagory: "Shorts",
       size: "L",
+      color: "Yellow",
     },
     {
       id: 35,
@@ -330,10 +364,10 @@ const data = [
     // <!-- team: "Lakers",-->
       catagory: "Shorts",
       size: "M",
+      color: "Yellow",
+      
     },
-  
-    
-   
+
     
   ];
   
@@ -390,6 +424,7 @@ const data = [
   const productsContainer = document.querySelector(".products");
   const categoryList = document.querySelector(".category-list");
   
+  
   function displayProducts(products) {
     if (products.length > 0) {
       const product_details = products
@@ -401,10 +436,112 @@ const data = [
     </div>
     <div class="product-details">
       <span class="name">${product.name}</span>
-      <span class="amt">${product.amt} $</span>
-      <span class="size">${product.size}</span>
-     <!--  <span class="team">${product.team}</span>   להוסיף קבוצה -->
+      <span class="amt">${"Price: "+product.amt} $</span>
+      <span class="size">${"Size: "+product.size}</span>
+      <span class="color">${"color: "+product.color}</span>
+
+
       
+     <!--  <span class="team">${product.team}</span>   להוסיף קבוצה -->
+     
+     <!--  <button class="heart-button" data-id="${product.id}">
+     ❤️
+   </button> -->
+   
+
+
+   <!-- <button class="btn btn-like">
+    <span class="btn-icon btn--icon-default">
+        <span class="fa fa-heart"></span>
+    </span>
+    <span class="btn-icon btn--icon-liked">
+        <span class="fa fa-heart"></span>
+    </span>
+    <span class="btn-content  btn-content--liked">
+        Liked
+    </span>
+    <span class="btn-content btn-content--default">
+        Like
+    </span>
+</button>-->
+
+
+
+
+
+
+
+
+
+
+
+
+   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+
+
+<button class="heart-btn">
+<div class="content">
+  <span class="heart"></span>
+  <span class="text">Like</span>
+  <span class="numb"></span>
+</div>
+</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<script>
+
+   $(document).ready(function(){
+        $('.content').click(function(){
+          $('.content').toggleClass("heart-active")
+          $('.text').toggleClass("heart-active")
+          $('.numb').toggleClass("heart-active")
+          $('.heart').toggleClass("heart-active")
+          
+        });
+      });
+
+
+      
+
+      // Update the like count
+        var $numb = $('.numb');
+        var currentCount = parseInt($numb.text(), 10);
+        if ($('.heart').hasClass("heart-active")) {
+          $numb.text(currentCount + 1);
+        } else {
+          $numb.text(currentCount - 1);
+        }
+
+        
+    </script> -->
+   
+
+
+
+
+
+
+    
+
+    
+
+
     </div>
   </div>`
         )
@@ -414,7 +551,9 @@ const data = [
     } else {
       productsContainer.innerHTML = "<h1>No Products Available</h1>";
     }
+    
   }
+  
   
   function setCategories() {
     const allCategories = data.map((product) => product.catagory);
@@ -557,4 +696,10 @@ const data = [
     updateDisplayedProducts();
   });
   
+  
+
+
+
+
+
   
