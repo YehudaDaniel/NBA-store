@@ -104,6 +104,12 @@ body {
 
 
 
+
+
+
+
+
+
 .heart-btn{
   position: relative;
   background: none;
@@ -170,3 +176,72 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* עיצוב עבור מסכים ברוחב נמוך (מובייל) */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  .productsPage-container {
+    flex-direction: column;
+  }
+  .productsPage-sidebar {
+    padding: 10px;
+    width: 100%;
+  }
+  .productsPage-sidebar input[type="text"] {
+    padding: 8px 5px;
+  }
+  .productsPage-sidebar h3 {
+    font-size: 18px;
+  }
+  .productsPage-sidebar ul li {
+    margin: 3px 0;
+  }
+  .content {
+    flex: 1;
+  }
+  .products {
+    gap: 5px;
+    justify-content: center;
+  }
+  .product {
+    width: 90%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .product .product-details {
+    text-align: center;
+  }
+  .product-details span {
+    font-size: 14px;
+  }
+  .product-details span:nth-child(1) {
+    color: #e74c3c;
+  }
+  .product-details span:nth-child(2) {
+    color: #2980b9;
+  }
+  .product-details span:nth-child(3),
+  .product-details span:nth-child(4) {
+    color: #16a085;
+  }
+}
