@@ -1,29 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title><h1><b>NBA Store</b></h1></title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
-  
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+
+    <title>HomePage</title>
+</head>
 <body id="login-body">
   <%- include('../components/NavBar.ejs') %>
   <%- include('../components/HamburgerSideNav.ejs') %>
-  <div class="login-container">
-    <div id="LogIn" class="login-form">
-      <h2 id="login-title">Log In</h2>
-      <input type="text" id="usernameInput1" placeholder="Username" oninput="clearError('usernameErrorMessage1')"/>
-      <input type="password" id="passwordInput1" minlength="5" maxlength="20" required placeholder="Password" oninput="clearError('passwordErrorMessage1')"/>
-      <button class="login-buttons" onclick="validateRegistrationForLogIn()">LogIn</button>
-      <span id="usernameErrorMessage1" class="error-message"></span>
-      <span id="passwordErrorMessage1" class="error-message"></span>
+  <div class="container-login">
+    <input type="checkbox" id="check">
+    <div class="login form">
+      <header>Login</header>
+      <form action="#">
+        <input id="usernameInput" type="text" placeholder="Enter your email">
+        <input id="passwordInput" type="password" placeholder="Enter your password">
+        <a href="#">Forgot password?</a>
+        <input id="login-button" type="button" class="button" value="Login">
+      </form>
+      <div class="signup">
+        <span class="signup">Don't have an account?
+         <a href="/signup">Signup</a>
+        </span>
+      </div>
     </div>
-    
   </div>
-  <script src="script.js"></script>
-  <script src="/scripts/Login.js"></script>
-  <script src="/scripts/NavBar.js"></script>
-  <script src="/scripts/HamburgerSideNav.js"></script>
-  
+    <script src="/scripts/NavBar.js"></script>
+    <script src="/scripts/Login.js"></script>
 </body>
+
 </html>

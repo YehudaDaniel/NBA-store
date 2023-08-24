@@ -17,6 +17,22 @@ function toggleDropdown() {
 }
 
 
+
+
+//side nav js
+
+// document.querySelector(".sidebar .toggle-btn")
+// .addEventListener("click",function(){
+//     document.querySelector(".sidebar").classList.toggle("active");
+// });
+
+document.querySelector(".toggle-btn").addEventListener("click", function() {
+  document.querySelector(".sidebar").classList.toggle("active");
+});
+
+
+
+
 // function showNotification(cart, heart) {
 //   var cartNotification = document.getElementById('cart-notification');
 //   var cartCount = document.getElementById('cart-count');
