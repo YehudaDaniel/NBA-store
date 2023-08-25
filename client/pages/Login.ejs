@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><h1><b>NBA Store</b></h1></title>
+  <title>NBA Store login</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
-  
-<body id="login-body">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+</head>  
+<body>
   <%- include('../components/NavBar.ejs') %>
   <%- include('../components/HamburgerSideNav.ejs') %>
-  <div class="login-container">
+  
+  
+  <form class="login-container" action="localhost:3080/user/login" method="POST">
     <div id="LogIn" class="login-form">
       <h2 id="login-title">Log In</h2>
       <input type="text" id="usernameInput1" placeholder="Username" oninput="clearError('usernameErrorMessage1')"/>
@@ -19,7 +21,7 @@
       <span id="passwordErrorMessage1" class="error-message"></span>
     </div>
     
-  </div>
+  </form>
   <script src="script.js"></script>
   <script src="/scripts/Login.js"></script>
   <script src="/scripts/NavBar.js"></script>
