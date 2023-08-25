@@ -5,7 +5,7 @@ body {
 }
 
 .productsPage-container {
-  display: flex;
+  display:flex;
   padding-top: 50px;
 }
 
