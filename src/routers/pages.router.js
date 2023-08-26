@@ -29,6 +29,9 @@ pagesRouter
     .get('/map', (req, res) => {
         res.render('MapPage');
     })
+    .get('/forgotpassword', (req, res) => {
+        res.render('ForgotPassword');
+    })
 
     //-- Post Requests --
 
