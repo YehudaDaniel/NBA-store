@@ -32,6 +32,9 @@ pagesRouter
     .get('/forgotpassword', (req, res) => {
         res.render('ForgotPassword');
     })
+    .get('/personaldata', (req, res) => {
+        res.render('Personaldata');
+    })
 
     //-- Post Requests --
 
