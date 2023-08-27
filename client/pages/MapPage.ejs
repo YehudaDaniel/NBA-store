@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>NBA Store</title>
-    <script defer src="https://kit.fontawesome.com/c939d0e917.js"></script>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">   זה דופק את הנאב בר-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="/css/styles.css" type="text/css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NBA Store</title>
+  <script defer src="https://kit.fontawesome.com/c939d0e917.js"></script>
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">   זה דופק את הנאב בר-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css" type="text/css">
+  <link rel="stylesheet" href="/css/pages/MapPage.css" type="text/css">
 </head>
-
-<%- include('../components/NavBar.ejs') %>
-<%- include('../components/HamburgerSideNav.ejs') %>
-
 <body>
+  <%- include('../components/NavBar.ejs') %>
+  <%- include('../components/HamburgerSideNav.ejs') %>
+
   <div class="map-main-con">
     <h1 class="mapPage-title">NBA Stores</h1>
     <div id="map"></div>
@@ -27,19 +28,14 @@
         <ul id="store-list"></ul>
     </div>
   </div>
-
     
-    
-    
-<script src="/includes/data/MapsData.js"></script>
-<script src="/scripts/MapsPage.js"></script>
-<script async
+  <script src="/includes/data/MapsData.js"></script>
+  <script src="/scripts/MapsPage.js"></script>
+  <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBImeeitkm-wI-p8SfcYAjy5UyEpb5ciVA&callback=initMap">
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
-<script src="/scripts/NavBar.js"></script>
-<script src="/scripts/HamburgerSideNav.js"></script>
-
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
+  <script src="/scripts/NavBar.js"></script>
+  <script src="/scripts/HamburgerSideNav.js"></script>
 </body>
-
 </html>

@@ -2,15 +2,18 @@
 <html>
 <head>
   <title>NBA Store Cart</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="/css/styles.css" />
-  <script src="scripts/CartPage.js"></script>
-  <%- include('../components/NavBar.ejs') %>
-    <%- include('../components/HamburgerSideNav.ejs') %>
+  <link rel="stylesheet" type="text/css" href="/css/pages/CartPage.css" />
 </head>
-
 <body>
+
+  <%- include('../components/NavBar.ejs') %>
+  <%- include('../components/HamburgerSideNav.ejs') %>
+
   <div class="cart-container">
     <h1 id="nba-cart-title">NBA Store Cart</h1>
     <div class="item">
@@ -25,7 +28,7 @@
           <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
         </p>
       </div>
-      <img src="includes\images\shirt.jpg" alt="T-Shirt">
+      <img src="includes/images/shirt.jpg" alt="T-Shirt">
     </div>
 
     <div class="item">
@@ -40,7 +43,7 @@
           <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
         </p>
       </div>
-      <img src="includes\images\pants.jpg" alt="Shorts">
+      <img src="includes/images/pants.jpg" alt="Shorts">
     </div>
 
     <div class="item">
@@ -61,7 +64,9 @@
     <button class="payment-button">Payment</button>
   </div>
   <script src="/scripts/NavBar.js"></script>
-  <script src="/scripts/Login.js"></script>
+  <script src="/scripts/HamburgerSideNav.js"></script>
+  <!-- <script src="/scripts/Login.js"></script> -->
+  <script src="scripts/CartPage.js"></script>
 </body>
 
 </html>
