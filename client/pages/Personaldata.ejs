@@ -2,44 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="PersonalDetails.css">
-    <title>Personal Details Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <title>Responsive Regisration Form </title> 
 </head>
-<body>
-    <h1>Personal Details</h1>
-    <form id="personal-details-form">
-        <label for="first-name">First Name </label>
-        <input type="text" id="first-name" name="first-name" required>
+<body class="form">
+    <div class="containerform">
+        <header>Registration</header>
 
-        <label for="last-name">Last Name </label>
-        <input type="text" id="last-name" name="last-name" required>
+        <form action="#">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Personal Details</span>
 
-        <h2>Address </h2>
-        <label for="street-address">Street </label>
-        <input type="text" id="street-address" name="street-address" required>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter your name" required>
+                        </div>
 
-        <label for="house-number">House Number</label>
-        <input type="text" id="house-number" name="house-number" required>
+                        <div class="input-field">
+                            <label>Date of Birth</label>
+                            <input type="date" placeholder="Enter birth date" required>
+                        </div>
 
-        <label for="city">City</label>
-        <input type="text" id="city" name="city" required>
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="text" placeholder="Enter your email" required>
+                        </div>
 
-        <label for="phone">Phone Number </label>
-        <input type="tel" id="phone" name="phone" required>
+                        <div class="input-field">
+                            <label>Mobile Number</label>
+                            <input type="number" placeholder="Enter mobile number" required>
+                        </div>
+                    </div>
+                </div>
 
-        <h3>Payment </h3>
-        <label for="card-number">Card Number</label>
-        <input type="text" id="card-number" name="card-number" required>
+                <div class="details address">
+                    <span class="title">Address Details</span>
 
-        <label for="expiration-date">Validity: </label>
-        <input type="text" id="expiration-date" name="expiration-date" placeholder="MM/YY" required>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Address - district </label>
+                            <input type="text" placeholder="Enter address" required>
+                        </div>
 
-        <label for="cvc">CVC </label>
-        <input type="text" id="cvc" name="cvc" required>
+                        <div class="input-field">
+                            <label>Block Number</label>
+                            <input type="number" placeholder="Enter block number" required>
+                        </div>
 
-        <button type="submit" disabled>Submit </button>
-    </form>
-    <script src="pd.js"></script>
+                        <div class="input-field">
+                            <label>City</label>
+                            <input type="number" placeholder="Enter city" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>State</label>
+                            <input type="text" placeholder="Enter your state" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Payment">
+                    <span class="title">Identity Details and Payment</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>ID Number</label>
+                            <input type="number" placeholder="Enter ID number" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Card Number</label>
+                            <input type="number" placeholder="Enter card number" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Validity</label>
+                            <input type="text" placeholder="Enter expiration-date MM/YY" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>CVC</label>
+                            <input type="text" placeholder="Enter expiration-date MM/YY" maxlength="3" required>
+                        </div>
+
+                        <button class="sumbit">
+                            <span class="btnText">Submit</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                </div> 
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

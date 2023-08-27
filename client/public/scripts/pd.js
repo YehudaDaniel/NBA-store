@@ -1,22 +1,17 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById("personal-details-form");
-    const submitButton = document.querySelector("#personal-details-form button[type='submit']");
+const form = document.querySelector("form"),
+        nextBtn = form.querySelector(".nextBtn"),
+        backBtn = form.querySelector(".backBtn"),
+        allInput = form.querySelectorAll(".first input");
 
-    form.addEventListener("input", function() {
-        if (areAllFieldsFilled()) {
-            submitButton.removeAttribute("disabled");
-        } else {
-            submitButton.setAttribute("disabled", "true");
-        }
-    });
 
-    function areAllFieldsFilled() {
-        const requiredFields = form.querySelectorAll("[required]");
-        for (const field of requiredFields) {
-            if (!field.value) {
-                return false;
-            }
+nextBtn.addEventListener("click", ()=> {
+    allInput.forEach(input => {
+        if(input.value != ""){
+            form.classList.add('secActive');
+        }else{
+            form.classList.remove('secActive');
         }
-        return true;
-    }
-});
+    })
+})
+
+backBtn.addEventListener("click", () => form.classList.remove('secActive'));
