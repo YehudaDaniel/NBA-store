@@ -2,59 +2,66 @@
 <html>
 <head>
   <title>NBA Store Cart</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="/css/styles.css" />
   <script src="scripts/CartPage.js"></script>
+  <%- include('../components/NavBar.ejs') %>
+    <%- include('../components/HamburgerSideNav.ejs') %>
 </head>
+
 <body>
   <div class="cart-container">
     <h1 id="nba-cart-title">NBA Store Cart</h1>
     <div class="item">
       <div class="description">
-      <h2 class="title">T-Shirt</h2>
-      <p class="price">$29.99</p>
-      <p class="size">Size: Medium</p>
-      <p class="quantity">
-        <button class="quantity-btn" onclick="decrementQuantity(this)">-</button>
-        <span class="quantity-label">Amount: </span>
-        <span class="quantity-value">1</span>
-        <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
-      </p>
+        <h2 class="title">T-Shirt</h2>
+        <p class="price">$29.99</p>
+        <p class="size">Size: Medium</p>
+        <p class="quantity">
+          <button class="quantity-btn" onclick="decrementQuantity(this)">-</button>
+          <span class="quantity-label">Amount: </span>
+          <span class="quantity-value">1</span>
+          <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+        </p>
       </div>
-      <img src="client\public\includes\images\shirt.jpg" alt="T-Shirt">
+      <img src="includes\images\shirt.jpg" alt="T-Shirt">
     </div>
 
     <div class="item">
       <div class="description">
-      <h2 class="title">Shorts</h2>
-      <p class="price">$39.99</p>
-      <p class="size">Size: Large</p>
-      <p class="quantity">
-        <button class="quantity-btn" onclick="decrementQuantity(this)">-</button>
-        <span class="quantity-label">Amount: </span>
-        <span class="quantity-value">1</span>
-        <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
-      </p>
+        <h2 class="title">Shorts</h2>
+        <p class="price">$39.99</p>
+        <p class="size">Size: Large</p>
+        <p class="quantity">
+          <button class="quantity-btn" onclick="decrementQuantity(this)">-</button>
+          <span class="quantity-label">Amount: </span>
+          <span class="quantity-value">1</span>
+          <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+        </p>
       </div>
-      <img src="client\public\includes\images\pants.jpg" alt="Shorts">
+      <img src="includes\images\pants.jpg" alt="Shorts">
     </div>
 
     <div class="item">
       <div class="description">
-      <h2 class="title">Shoes</h2>
-      <p class="price">$99.99</p>
-      <p class="size">Size: 40</p>
-      <p class="quantity">
-        <button class="quantity-btn" onclick="decrementQuantity(this)">-</button>
-        <span class="quantity-label">Amount: </span>
-        <span class="quantity-value">1</span>
-        <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
-      </p>
+        <h2 class="title">Shoes</h2>
+        <p class="price">$99.99</p>
+        <p class="size">Size: 40</p>
+        <p class="quantity">
+          <button class="quantity-btn" onclick="decrementQuantity(this)">-</button>
+          <span class="quantity-label">Amount: </span>
+          <span class="quantity-value">1</span>
+          <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+        </p>
       </div>
       <img src="client\public\includes\images\shoes.png" alt="Shoes">
     </div>
-
     <div class="total-price">Total Price: <span id="total-price">updateTotalPrice()</span></div>
     <button class="payment-button">Payment</button>
   </div>
+  <script src="/scripts/NavBar.js"></script>
+  <script src="/scripts/Login.js"></script>
 </body>
+
 </html>
