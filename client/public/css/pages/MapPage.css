@@ -63,9 +63,3 @@ body {
 button, input, optgroup, select, textarea {
   line-height: initial !important;
 }
-
-/* @media (max-width: 600px) {
-  body{
-    background: red;
-  }
-} why is this shit aint working???? */
