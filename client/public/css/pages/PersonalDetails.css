@@ -11,10 +11,9 @@ body.form{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #4070f4;
 }
 .containerform{
-    position: relative;
+    position: absolute;
     max-width: 900px;
     width: 300%;
     border-radius: 6px;
@@ -38,7 +37,6 @@ body.form{
     height: 3px;
     width: 27px;
     border-radius: 8px;
-    background-color: #4070f4;
 }
 .containerform form{
     position: relative;
