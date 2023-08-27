@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="PersonalDetails.css">
+    <title>Personal Details Form</title>
+</head>
+<body>
+    <h1>Personal Details</h1>
+    <form id="personal-details-form">
+        <label for="first-name">First Name </label>
+        <input type="text" id="first-name" name="first-name" required>
+
+        <label for="last-name">Last Name </label>
+        <input type="text" id="last-name" name="last-name" required>
+
+        <h2>Address </h2>
+        <label for="street-address">Street </label>
+        <input type="text" id="street-address" name="street-address" required>
+
+        <label for="house-number">House Number</label>
+        <input type="text" id="house-number" name="house-number" required>
+
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" required>
+
+        <label for="phone">Phone Number </label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <h3>Payment </h3>
+        <label for="card-number">Card Number</label>
+        <input type="text" id="card-number" name="card-number" required>
+
+        <label for="expiration-date">Validity: </label>
+        <input type="text" id="expiration-date" name="expiration-date" placeholder="MM/YY" required>
+
+        <label for="cvc">CVC </label>
+        <input type="text" id="cvc" name="cvc" required>
+
+        <button type="submit" disabled>Submit </button>
+    </form>
+    <script src="pd.js"></script>
+</body>
+</html>
