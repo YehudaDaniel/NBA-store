@@ -15,6 +15,9 @@
   border-radius: 7px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.3);
 }
+#check{
+  display: none;
+}
 .signup-container .form{
   padding: 2rem;
 }
