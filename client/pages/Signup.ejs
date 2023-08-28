@@ -2,19 +2,20 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="/css/styles.css" />
   <link rel="stylesheet" type="text/css" href="/css/pages/signup.css" />
 </head>
-<body id="signup-body">
+<body>
   <%- include('../components/NavBar.ejs') %>
   <%- include('../components/HamburgerSideNav.ejs') %>
 
   <div class="signup-container">
-    <input type="checkbox" id="check">
-    <div class="registration form">
+    <!-- <input type="checkbox" id="check"> -->
+    <div class="form">
       <header>Signup</header>
       <form action="/user/register" method="post" class="signup-form">
         <input type="text" placeholder="Full Name" name="fullName">

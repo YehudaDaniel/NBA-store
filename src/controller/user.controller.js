@@ -61,8 +61,8 @@ async function login_C(req, res) {
 
         const token = await user.generateAuthToken(); //generate a new token for a freshly logged in user
 
-        // res.send(userData(user, token));
-        res.render('Homepage');
+        res.send({ user, token });
+        // res.render('Homepage');
     }catch(e){
         res.status(400).send(e);
     }
@@ -97,14 +97,6 @@ async function read_C(req, res) {
 }
 
 //-- Helper Functions --//
-
-// async function generateAuthToken(userId) {
-//     const token = jwt.sign({_id: userId}, process.env.JWT_SECRET.toString()); // {expiresIn: '1h'}
-
-//     await User.updateOne({_id: userId}, {$push: {tokens: {token: token}}});
-
-//     return token;
-// }
 
 //Function for returning the user's data in the desired format
 function userData(data, token){

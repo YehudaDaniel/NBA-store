@@ -2,21 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 .container-login{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  max-width: 430px;
+  margin: 20px auto;
+  max-width: 50%;
   width: 100%;
   background: #fff;
   border-radius: 7px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.3);
 }
-#check{
-  display: none;
-}
 .container-login .form{
   padding: 2rem;
+}
+form{
+  display: grid;
 }
 .form header{
   font-size: 2rem;
@@ -25,7 +22,8 @@
   margin-bottom: 1.5rem;
 }
 .form input{
-  /* height: 60px; */
+  height: 60px;
+  padding: 0 15px;
   font-size: 17px;
   margin-bottom: 1.3rem;
   border: 1px solid #ddd;
@@ -41,6 +39,7 @@
   text-decoration: underline;
 }
 .form input.button{
+  width: 100%;
   color: #fff;
   background: #009579;
   font-size: 1.2rem;
@@ -52,4 +51,14 @@
 }
 .form input.button:hover{
   background: #006653;
+}
+
+@media only screen and (max-width: 700px){
+  .container-login{
+    margin: 0;
+    max-width: 100%;
+    background: unset;
+    border-radius: unset;
+    box-shadow: unset;
+  }
 }
