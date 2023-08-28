@@ -1,25 +1,138 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- this is the main css that will include 'includes' for all the relevant css's -->
-    <!-- default css settings -->
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
-
-    <title>HomePage</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="/css/pages/HomePage.css" />
+  <title>Homepage</title>
 </head>
-
 <body>
-    <%- include('../components/NavBar.ejs') %>
-    <%- include('../components/HamburgerSideNav.ejs') %>
-    <script src="/scripts/NavBar.js"></script>
-    <script src="/scripts/HamburgerSideNav.js"></script>
-</body>
+  <%- include('../components/NavBar.ejs') %>
+  <%- include('../components/HamburgerSideNav.ejs') %>
 
+  <video id="background-video" autoplay loop muted>
+    <source src="/includes/data/lebron.webm" type="video/webm">
+    Your browser does not support the video tag.
+  </video>
+  <script>
+    window.addEventListener('scroll', function() {
+      var content = document.getElementById('content');
+      var productContainer = document.getElementById('product-container');
+      
+      // הגדר גובה מינימלי להצגת התוכן מתחת לוידאו
+      var minHeightToShowContent = window.innerHeight * 0.7;
+      
+      if (window.scrollY >= minHeightToShowContent) {
+        content.classList.add('active');
+        productContainer.style.transform = 'translateY(0)';
+      }
+    });
+  </script>
+
+
+<div class="logos">
+  <div class="logos-slide">
+    <img src="/includes/images/logos/a.gif" />
+    <img src="/includes/images/logos/b.gif" />
+    <img src="/includes/images/logos/c.gif" />
+    
+    <img src="/includes/images/logos/d.gif" />
+    <img src="/includes/images/logos/e.gif" />
+    <img src="/includes/images/logos/f.gif" />
+    <img src="/includes/images/logos/g.gif" />
+    <img src="/includes/images/logos/h.gif" />
+    <img src="/includes/images/logos/i.gif" />
+    <img src="/includes/images/logos/j.gif" />
+    <img src="/includes/images/logos/l.gif" />
+    <img src="/includes/images/logos/m.gif" />
+    <img src="/includes/images/logos/n.gif" />
+    <img src="/includes/images/logos/o.gif" />
+    <img src="/includes/images/logos/p.gif" />
+    <img src="/includes/images/logos/q.gif" />
+    <img src="/includes/images/logos/r.gif" />
+    <img src="/includes/images/logos/s.gif" />
+    <img src="/includes/images/logos/t.gif" />
+    <img src="/includes/images/logos/u.gif" />
+    <img src="/includes/images/logos/v.gif" />
+    <img src="/includes/images/logos/w.gif" />
+    <img src="/includes/images/logos/x.gif" />
+    <img src="/includes/images/logos/y.gif" />
+    <img src="/includes/images/logos/z.gif" />
+  </div>
+
+  <div class="logos-slide">
+    <img src="/includes/images/logos/a.gif" />
+    <img src="/includes/images/logos/b.gif" />
+    <img src="/includes/images/logos/c.gif" />
+    
+    <img src="/includes/images/logos/d.gif" />
+    <img src="/includes/images/logos/e.gif" />
+    <img src="/includes/images/logos/f.gif" />
+    <img src="/includes/images/logos/g.gif" />
+    <img src="/includes/images/logos/h.gif" />
+    <img src="/includes/images/logos/i.gif" />
+    <img src="/includes/images/logos/j.gif" />
+    <img src="/includes/images/logos/l.gif" />
+    <img src="/includes/images/logos/m.gif" />
+    <img src="/includes/images/logos/n.gif" />
+    <img src="/includes/images/logos/o.gif" />
+    <img src="/includes/images/logos/p.gif" />
+    <img src="/includes/images/logos/q.gif" />
+    <img src="/includes/images/logos/r.gif" />
+    <img src="/includes/images/logos/s.gif" />
+    <img src="/includes/images/logos/t.gif" />
+    <img src="/includes/images/logos/u.gif" />
+    <img src="/includes/images/logos/v.gif" />
+    <img src="/includes/images/logos/w.gif" />
+    <img src="/includes/images/logos/x.gif" />
+    <img src="/includes/images/logos/y.gif" />
+    <img src="/includes/images/logos/z.gif" />
+  </div>
+</div>
+
+<div id="content">
+  <div id="video-overlay">
+  </div>
+  <div id="product-container">
+    <div class="col_allw300">
+      <h2>Shirts</h2>
+      <img src="/includes/images/shirts.jpg" alt="Image 01" class="image_frame" />
+      <div class="cleaner h20"></div>
+      <p><em>subject subject subject subject</em></p>
+      <p>bla bla bla bla bla<a rel="nofollow" href="">אפשרות לקישור לדף מסוים שלנו </a>
+    </div>
+    <div class="col_allw300">
+      <h2>Shorts</h2>
+      <img src="/includes/images/shorts.jpg" alt="Image 01" class="image_frame" />
+      <div class="cleaner h20"></div>
+      <p><em>subject subject subject subject </em></p>
+      <p>bla bla bla bla bla<a rel="nofollow" href="">אפשרות לקישור לדף מסוים שלנו </a>
+    </div>
+    <div class="col_allw300">
+      <h2>Shoes</h2>
+      <img src="/includes/images/shoes.jpg" alt="Image 01" class="image_frame" />
+      <div class="cleaner h20"></div>
+      <p><em>subject subject subject subject </em></p>
+      <p>bla bla bla bla bla<a rel="nofollow" href="">אפשרות לקישור לדף מסוים שלנו </a>
+    </div>
+    <div class="col_allw300 col_rm">
+      <h2>Sale</h2>
+      <img src="/includes/images/sale.png" alt="Image 02" class="image_frame" />
+      <div class="cleaner h20"></div>
+      <p><em>subject subject subject subject </em></p>
+      <p>bla bla bla bla bla<a rel="nofollow" href="">אפשרות לקישור לדף מסוים שלנו </a>
+    </div>
+  </div>
+</div>
+
+<script src="/scripts/HomePage.js"></script>
+<script src="/scripts/NavBar.js"></script>
+<script src="/scripts/HamburgerSideNav.js"></script>
+
+</body>
 </html>
