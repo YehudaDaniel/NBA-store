@@ -14,30 +14,90 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
     <link rel="stylesheet" type="text/css" href="/css/pages/Orders.css" />
   </head>
   <body>
+    <%- include('../components/NavBar.ejs') %>
+    <%- include('../components/HamburgerSideNav.ejs') %>
+    
     <div class="Orders">
-      <!-- Order 1 -->
+      <!-- Item 1 -->
       <div class="accordion-item">
         <input type="checkbox" id="item-1" />
-        <label for="item-1" class="accordion-header">
-          <span>Order No. 98765 </span>
+        <label class="labels-orders" for="item-1" class="accordion-header">
+          <span>Order No. 98765</span>
           <span class="arrow">
             <i class="fa-solid fa-caret-right"></i>
           </span>
         </label>
         <div class="accordion-content">
           <p>
-            <div class="items">
-              <div class="description">
-                <h3 class="Date">Date: 01/08/2023</h3>
-                <h3 class="price">Total order amount: $105.99</h3>
-                <h3 class="quantity">Quantity: 4</h3>
+            <h3 class="Date">Date: 01/08/2023</h3>
+            <h3 class="price">Total order amount: $105.99</h3>
+            <h3 class="quantity">Quantity: 4</h3>
+          </p>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="accordion-item">
+        <input type="checkbox" id="item-2" />
+        <label class="labels-orders" for="item-2" class="accordion-header">
+          <span>Order No. 99756</span>
+          <span class="arrow">
+            <i class="fa-solid fa-caret-right"></i>
+          </span>
+        </label>
+        <div class="accordion-content">
+          <p>
+            <h3 class="Date">Date: 09/08/2023</h3>
+            <h3 class="price">Total order amount: $213.99</h3>
+            <h3 class="quantity">Quantity: 3</h3>
+          </p>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="accordion-item">
+        <input type="checkbox" id="item-3" />
+        <label class="labels-orders"for="item-3" class="accordion-header">
+          <span>Order No. 99742</span>
+          <span class="arrow">
+            <i class="fa-solid fa-caret-right"></i>
+          </span>
+        </label>
+        <div class="accordion-content">
+          <p>
+            <h3 class="Date">Date: 15/08/2023</h3>
+            <h3 class="price">Total order amount: $97.99</h3>
+            <h3 class="quantity">Quantity: 1</h3>
+          </p>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="accordion-item">
+        <input type="checkbox" id="item-4" />
+        <label class="labels-orders" for="item-4" class="accordion-header">
+          <span>Order No. 99861</span>
+          <span class="arrow">
+            <i class="fa-solid fa-caret-right"></i>
+          </span>
+        </label>
+        <div class="accordion-content">
+          <p>
+            <h3 class="Date">Date: 27/08/2023</h3>
+            <h3 class="price">Total order amount: $13.99</h3>
+            <h3 class="quantity">Quantity: 1</h3>
           </p>
         </div>
       </div>
     </div>
+
+    
+
+
+    <script src="/scripts/NavBar.js"></script>
   </body>
 </html>
