@@ -1,18 +1,26 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta chareset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width ,initial-scale=1.0">
-        <title> 404 page </title>
-        <link rel="stylesheet" type="text/css" href="/css/styles.css" />
-    </head>
-    <body class="body-404">
-        <div class="body-container">
-            <img src="/client/public/includes/images/error404.png" alt="">
-            <h1 class="page404h1">404</h1>
-            <p class="p-404">Oops! Page Not Found</p>
-            <a class="a-404" href="/"> Go Back to Homepage</a>
-        </div>
-    </body>
+<html lang="en">
+<head>
+    <meta chareset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width ,initial-scale=1.0">
+    <title>Page not found</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="/css/pages/404page.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+    <%- include('../components/NavBar.ejs') %>
+    <%- include('../components/HamburgerSideNav.ejs') %>
+
+    <div class="body-container">
+        <h1 class="page404h1">404</h1>
+        <p class="p-404">Oops! Page Not Found</p>
+        <a class="a-404" href="/"> Go Back to Homepage</a>
+    </div>
+
+    <script src="/scripts/NavBar.js"></script>
+    <script src="/scripts/HamburgerSideNav.js"></script>
+</body>
 </html>

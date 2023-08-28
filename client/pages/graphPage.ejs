@@ -1,12 +1,28 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    
-</head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- this is the main css that will include 'includes' for all the relevant css's -->
+    <!-- default css settings -->
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="/css/pages/graphPage.css" />
+    <title>graph - NBA store</title>
+</head>
 <body>
+    <%- include('../components/NavBar.ejs') %>
+    <%- include('../components/HamburgerSideNav.ejs') %>
+
+    <div class="container-graph">
+        Sales per year
     <div style="height: 400px; width: 900px;">
         <canvas id="myChart"></canvas>
+    </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
@@ -17,15 +33,17 @@
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November','December'],
                 datasets: [{
                     label:'2010',
-                    data: [550, 520, 400, 450, 250]
+                    data: [10, 35, 50,60,80,90,100,130,150,180,220,250]
                 },
             {
                 label:'2011',
-                    data: [550, 520, 400, 450, 250]
+                    data: [200,300,350,400,500,600,600,620,700,600,300,500]
             }]
             }
         });
     </script>
+    <script src="/scripts/NavBar.js"></script>
+    <script src="/scripts/HamburgerSideNav.js"></script>
 </body>
 
 </html>

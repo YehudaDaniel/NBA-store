@@ -47,6 +47,15 @@ const userSchema = new mongoose.Schema({
   timestamps: true
 });
 
+userSchema.methods.toJSON = function () {
+  const user = this;
+  const userObject = user.toObject();
+
+  delete userObject.password;
+  delete userObject.tokens;
+
+  return userObject;
+};
 
 //Function for creating a token with the jwt secret and adding it to ther user's tokens array in the db
 userSchema.methods.generateAuthToken = async function() {

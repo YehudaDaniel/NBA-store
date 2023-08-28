@@ -29,6 +29,19 @@ pagesRouter
     .get('/map', (req, res) => {
         res.render('MapPage');
     })
+    .get('/forgotpassword', (req, res) => {
+        res.render('ForgotPassword');
+    })
+    .get('/personaldata', (req, res) => {
+        res.render('Personaldata');
+    })
+    .get('/admin', (req, res) => {
+        res.render('AdminPage');
+    })
+    .get('/orders', (req, res) => {
+        res.render('OrdersPage');
+    })
+
 
     //-- Post Requests --
 

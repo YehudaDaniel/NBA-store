@@ -29,13 +29,6 @@ function validateRegistrationForSignIn() {
         passwordErrorMessage.textContent = "";
         passwordInput.style.borderColor = "";
     }
-    if (passwordInput.value.length < 6) {
-        passwordErrorMessage.textContent = "Password must be at least 6 characters long.";
-        passwordInput.style.borderColor = "red";
-      } else {
-        passwordErrorMessage.textContent = "";
-        passwordInput.style.borderColor = "";
-    }
     if (emailRegex.test(email)) {
       emailErrorMessage.textContent = "";
       emailInput.style.borderColor = "";
@@ -49,11 +42,6 @@ function validateRegistrationForSignIn() {
     } else {
       termsErrorMessage.textContent = "";
       termsCheckbox.style.borderColor="";
-    }
-  
-    if (username.trim() !== "" && password.length>5 && password.length<20 && emailRegex.test(email) && termsCheckbox.checked) {
-      alert("Registration successful. Submitting form.");
-      // Additional form submission logic here
     }
   }
   
