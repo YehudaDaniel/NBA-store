@@ -1,12 +1,3 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-  }
-  body {
-    background-color: #ffff;
-  }
   .Orders {
     width: min(90vw, 750px);
     position: absolute;
