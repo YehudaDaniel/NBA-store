@@ -3,11 +3,7 @@
     <div>
       <ul>
         <li><a href="/" style="color: rgba(0,0,0,0.75);">Home</a></li>
-        <% if(!req.session.user){ %>
-          <li><a href="/login" style="color: rgba(0,0,0,0.75);">Log In</a></li>
-          <% }else{ %>
-            <li><a href="/logout" style="color: rgba(0,0,0,0.75);">Log out</a></li>
-        <% } %>
+          <li><a href="/logout" style="color: rgba(0,0,0,0.75);">Log out</a></li>
       </ul>
       <div class="nav-buttons" style="margin-right: 20px;">
         <input type="text" style="display: none;" id="search-input" class="input" placeholder="  Search">
