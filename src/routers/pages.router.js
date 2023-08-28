@@ -35,6 +35,9 @@ pagesRouter
     .get('/personaldata', (req, res) => {
         res.render('Personaldata');
     })
+    .get('/admin', (req, res) => {
+        res.render('AdminPage');
+    })
 
     //-- Post Requests --
 
