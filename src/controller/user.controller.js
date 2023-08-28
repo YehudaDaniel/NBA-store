@@ -49,38 +49,39 @@ async function register_C(req, res) {
 //Function for logging in a registered user
 async function login_C(req, res) {
     try {
-      const user = await User.findOne({ email: req.body.email }); // Saving user data by email in the variable
-      if (!user) {
-        return res.status(404).json({ message: 'Could not find user' }); // 404 - Not Found
-      }
-  
-      const isMatch = await bcrypt.compare(req.body.password, user.password); // Comparing the password from the request to the password in the db
-      if (!isMatch) {
-        return res.status(400).json({ message: 'Something went wrong' }); // 400 - Bad Request
-      }
-  
-      const token = await user.generateAuthToken(); // Generate a new token for a freshly logged in user
-  
-      // Create a user object that includes the user's data and the token
-      const userWithToken = {
-        _id: user._id,
-        name: user.name,
-        address: user.address,
-        email: user.email,
-        isAdmin: user.isAdmin,
-        tokens: user.tokens,
-        token: token // Add the token to the user object
-      };
-  
-      // Store the user object in the session
-      req.session.user = userWithToken;
-  
-      res.send({ user: userWithToken, token });
-      // res.render('Homepage');
+        const user = await User.findOne({ email: req.body.email }); // Saving user data by email in the variable
+        if (!user) {
+            return res.status(404).json({ message: 'Could not find user' }); // 404 - Not Found
+        }
+
+        const isMatch = await bcrypt.compare(req.body.password, user.password); // Comparing the password from the request to the password in the db
+        if (!isMatch) {
+            return res.status(400).json({ message: 'Something went wrong' }); // 400 - Bad Request
+        }
+
+        const token = await user.generateAuthToken(); // Generate a new token for a freshly logged in user
+
+        // Create a user object that includes the user's data and the token
+        const userWithToken = {
+            _id: user._id,
+            name: user.name,
+            address: user.address,
+            email: user.email,
+            isAdmin: user.isAdmin,
+            token: token // Add the token to the user object
+        };
+
+        // Store the user object in the session
+        req.session.user = userWithToken;
+
+        // Render the 'AdminPage' template and pass the user token as a variable
+        res.render('AdminPage', { userToken: token }); // Pass the token as 'userToken'
     } catch (e) {
-      res.status(400).send(e);
+        res.status(400).send(e);
     }
-  }  
+}
+
+
 
 async function logout_C(req, res) {
     try{
