@@ -48,23 +48,39 @@ async function register_C(req, res) {
 
 //Function for logging in a registered user
 async function login_C(req, res) {
-    try{
-        const user = await User.findOne({ email: req.body.email }); //saving user data by email in the variable
-        if(!user) //if user with that email not found send error
-            return res.status(404).json({ message: 'Could not find user' }); //404 - Not Found
-
-        const isMatch = await bcrypt.compare(req.body.password, user.password); //comparing the password from the request to the password in the db
-        if(!isMatch)
-            return res.status(400).json({ message: 'Something went wrong' }); //400 - Bad Request
-
-        const token = await user.generateAuthToken(); //generate a new token for a freshly logged in user
-
-        res.send({ user, token });
-        // res.render('Homepage');
-    }catch(e){
-        res.status(400).send(e);
+    try {
+      const user = await User.findOne({ email: req.body.email }); // Saving user data by email in the variable
+      if (!user) {
+        return res.status(404).json({ message: 'Could not find user' }); // 404 - Not Found
+      }
+  
+      const isMatch = await bcrypt.compare(req.body.password, user.password); // Comparing the password from the request to the password in the db
+      if (!isMatch) {
+        return res.status(400).json({ message: 'Something went wrong' }); // 400 - Bad Request
+      }
+  
+      const token = await user.generateAuthToken(); // Generate a new token for a freshly logged in user
+  
+      // Create a user object that includes the user's data and the token
+      const userWithToken = {
+        _id: user._id,
+        name: user.name,
+        address: user.address,
+        email: user.email,
+        isAdmin: user.isAdmin,
+        tokens: user.tokens,
+        token: token // Add the token to the user object
+      };
+  
+      // Store the user object in the session
+      req.session.user = userWithToken;
+  
+      res.send({ user: userWithToken, token });
+      // res.render('Homepage');
+    } catch (e) {
+      res.status(400).send(e);
     }
-}
+  }  
 
 async function logout_C(req, res) {
     try{
