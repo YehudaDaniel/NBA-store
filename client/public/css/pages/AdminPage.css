@@ -1,6 +1,7 @@
 /* General Styles */
 body {
   font-family: Arial, Helvetica, sans-serif;
+  /* line-height: 70px !important; */
 }
 
 .nav-pills {

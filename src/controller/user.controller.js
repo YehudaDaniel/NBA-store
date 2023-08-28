@@ -11,8 +11,6 @@ let saltRounds = 10;
 //TODO: Add an expiration date for the token user helper function 'generateAuthToken'
 //Function for signing up a new user - encrypting the password using bcrypt with 10 saltRounds
 async function register_C(req, res) {
-    console.log(req.body);
-
     bcrypt.hash(req.body.password, saltRounds, (err, encrypted) => {
         if(err)
             return res.status(500).end('Something went wrong'); //500 - Internal Server Error
@@ -32,7 +30,7 @@ async function register_C(req, res) {
                     try{
                         const user = await User.findOne({ email: doc.email });
                         const token = await user.generateAuthToken();
-                        return res.status(201).render('Homepage'); //201 - Created, sending back the homepage
+                        return res.status(201).redirect('/'); //201 - Created, sending back the homepage
                     }catch(e){
                         res.status(500).send(`Error: ${e}`); //500 - Internal Server Error
                     }
