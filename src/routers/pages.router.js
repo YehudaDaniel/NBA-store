@@ -38,6 +38,10 @@ pagesRouter
     .get('/admin', (req, res) => {
         res.render('AdminPage');
     })
+    .get('/orders', (req, res) => {
+        res.render('OrdersPage');
+    })
+
 
     //-- Post Requests --
 
