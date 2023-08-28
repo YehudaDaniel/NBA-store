@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מוצג וידאו ומוצרים</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<video id="background-video" autoplay loop muted>
+  <source src="lebron.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+<script>
+  window.addEventListener('scroll', function() {
+    var content = document.getElementById('content');
+    var productContainer = document.getElementById('product-container');
+    
+    // הגדר גובה מינימלי להצגת התוכן מתחת לוידאו
+    var minHeightToShowContent = window.innerHeight * 0.7;
+    
+    if (window.scrollY >= minHeightToShowContent) {
+      content.classList.add('active');
+      productContainer.style.transform = 'translateY(0)';
+    }
+  });
+  </script>
+
+
+<div class="logos">
+  <div class="logos-slide">
+    <img src="logo\a.gif" />
+    <img src="logo\b.gif" />
+    <img src="logo\c.gif" />
+    
+    <img src="logo\d.gif" />
+    <img src="logo\e.gif" />
+    <img src="logo\f.gif" />
+    <img src="logo\g.gif" />
+    <img src="logo\h.gif" />
+    <img src="logo\i.gif" />
+    <img src="logo\j.gif" />
+    <img src="logo\l.gif" />
+    <img src="logo\m.gif" />
+    <img src="logo\n.gif" />
+    <img src="logo\o.gif" />
+    <img src="logo\p.gif" />
+    <img src="logo\q.gif" />
+    <img src="logo\r.gif" />
+    <img src="logo\s.gif" />
+    <img src="logo\t.gif" />
+    <img src="logo\u.gif" />
+    <img src="logo\v.gif" />
+    <img src="logo\w.gif" />
+    <img src="logo\x.gif" />
+    <img src="logo\y.gif" />
+    <img src="logo\z.gif" />
+  </div>
+
+  <div class="logos-slide">
+    <img src="logo\a.gif" />
+    <img src="logo\b.gif" />
+    <img src="logo\c.gif" />
+    
+    <img src="logo\d.gif" />
+    <img src="logo\e.gif" />
+    <img src="logo\f.gif" />
+    <img src="logo\g.gif" />
+    <img src="logo\h.gif" />
+    <img src="logo\i.gif" />
+    <img src="logo\j.gif" />
+    <img src="logo\l.gif" />
+    <img src="logo\m.gif" />
+    <img src="logo\n.gif" />
+    <img src="logo\o.gif" />
+    <img src="logo\p.gif" />
+    <img src="logo\q.gif" />
+    <img src="logo\r.gif" />
+    <img src="logo\s.gif" />
+    <img src="logo\t.gif" />
+    <img src="logo\u.gif" />
+    <img src="logo\v.gif" />
+    <img src="logo\w.gif" />
+    <img src="logo\x.gif" />
+    <img src="logo\y.gif" />
+    <img src="logo\z.gif" />
+  </div>
+</div>
+
+
+
+
+
+<div id="content">
+  <div id="video-overlay"></div>
+  <div id="product-container">
+    <!-- <div class="product">מוצר 1</div>-->
+          
+<div class="col_allw300">
+  <h2>Shirts</h2>
+  <img src="shirts.jpg" alt="Image 01" class="image_frame" />
+  <div class="cleaner h20"></div>
+  <p><em>subject subject subject subject </em></p>
+  <p>bla bla bla bla bla    <a rel="nofollow" href="">אפשרות לקישור לדף מסוים שלנו </a>
+  <!-- <div class="cleaner h20"></div>
+  <a href="#" class="more float_r"></a> -->
+</div>
+
+<div class="col_allw300">
+  <h2>Shorts</h2>
+  <img src="shorts.jpg" alt="Image 01" class="image_frame" />
+  <div class="cleaner h20"></div>
+<p><em>subject subject subject subject </em></p>
+  <p>bla bla bla bla bla    <a rel="nofollow" href="">אפשרות לקישור לדף מסוים שלנו </a>
+  <!-- <div class="cleaner h20"></div>
+  <a href="#" class="more float_r"></a> -->
+</div>
+
+<div class="col_allw300">
+  <h2>Shoes</h2>
+  <img src="shoes.jpg" alt="Image 01" class="image_frame" />
+  <div class="cleaner h20"></div>
+<p><em>subject subject subject subject </em></p>
+  <p>bla bla bla bla bla    <a rel="nofollow" href="">אפשרות לקישור לדף מסוים שלנו </a>
+  <!-- <div class="cleaner h20"></div>
+  <a href="#" class="more float_r"></a> -->
+</div>
+
+<div class="col_allw300 col_rm">
+  <h2>Sale</h2>
+  <img src="sale.png" alt="Image 02" class="image_frame" />
+  <div class="cleaner h20"></div>
+<p><em>subject subject subject subject </em></p>
+  <p>bla bla bla bla bla    <a rel="nofollow" href="">אפשרות לקישור לדף מסוים שלנו </a>
+
+ 
+</div>
+
+
+
+
+
+  </div>
+</div>
+
+
+ 
+
+<script src="script.js"></script>
+</body>
+</html>
