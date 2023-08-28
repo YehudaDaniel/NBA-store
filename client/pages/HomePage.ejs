@@ -15,24 +15,17 @@
   <%- include('../components/NavBar.ejs') %>
   <%- include('../components/HamburgerSideNav.ejs') %>
 
-  <video id="background-video" autoplay loop muted>
-    <source src="/includes/data/lebron.webm" type="video/webm">
-    Your browser does not support the video tag.
-  </video>
-  <script>
-    window.addEventListener('scroll', function() {
-      var content = document.getElementById('content');
-      var productContainer = document.getElementById('product-container');
-      
-      // הגדר גובה מינימלי להצגת התוכן מתחת לוידאו
-      var minHeightToShowContent = window.innerHeight * 0.7;
-      
-      if (window.scrollY >= minHeightToShowContent) {
-        content.classList.add('active');
-        productContainer.style.transform = 'translateY(0)';
-      }
-    });
-  </script>
+
+  <div class="background-video">
+    <video autoplay loop muted plays-inline>
+      <source src="/includes/data/lebron.webm" type="video/webm">
+      Your browser does not support the video tag.
+    </video>
+    <div class="content">
+      <h1>nba store</h1>
+      <p>your #1 NBA products store</p>
+    </div>
+  </div>
 
 
 <div class="logos">
@@ -95,9 +88,7 @@
   </div>
 </div>
 
-<div id="content">
-  <div id="video-overlay">
-  </div>
+<!-- <div id="content">
   <div id="product-container">
     <div class="col_allw300">
       <h2>Shirts</h2>
@@ -127,6 +118,34 @@
       <p><em>subject subject subject subject </em></p>
       <p>bla bla bla bla bla<a rel="nofollow" href="">אפשרות לקישור לדף מסוים שלנו </a>
     </div>
+  </div>
+</div> -->
+
+<div class="products_type">
+  <div class="type left">
+    <img src="/includes/images/shirts.jpg" alt="SHIRTS">
+    <a href="">jerseys</a>
+  </div>
+
+  <div class="type rightleft">
+    <img src="/includes/images/shoes.jpg" alt="SHOES">
+    <a href="">shoes</a>
+  </div>
+  <div class="type rightright">
+    <img src="/includes/images/shorts.jpg" alt="SHORTS">
+    <a href="">shorts</a>
+  </div>
+  <div class="type wide">
+    <img src="/includes/images/sale.png" alt="SALE">
+    <a href="">sale</a>
+  </div>
+</div>
+
+<div class="aboutus">
+  <h1>about us</h1>
+  <div class="aboutus-text">
+    <p>NBA Store was founded with the desire to supply NBA fans with the best marchandise out there.</p>
+    <p>Our product, starting at the factory in sweden, get the best care during their making in order to promise our customers get the best products.</p>
   </div>
 </div>
 

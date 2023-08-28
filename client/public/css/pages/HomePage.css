@@ -1,125 +1,51 @@
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+body{
+  margin-top: unset;
+}
+/* style for the big centered video */
+.background-video {
+  width: 100%;
+  height: 100vh;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-#background-video {
+.background-video video{
   position: absolute;
-  top: 10%;   /* מאיפה הוידאו מתחיל מהטופ*/
+  top: 0;
   left: 0;
-  width: 100%;
-  height: 45%;
   object-fit: cover;
-  z-index: -1;
-}
-
-#content {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  pointer-events: none;
 }
 
-#video-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+.background-video .content{
+  position: relative;
   z-index: 1;
-}
-
-#product-container {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  background-color: #f0f0f0;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.product {
-  width: 150px;
-  height: 200px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-
-
-.col_allw300 { 
-	float: left; 
-	width: 300px; 
-	margin-right: 30px; 
-}
-
-
-
-.col_rm { 
-	margin: 0; 
-}
-
-
-
-
-
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  background-color: #f5f5f5;
-  font-family: "Lato", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.marquee {
-  width: 100%;
-  padding: 90px 20px;
-  border-top: 1px solid #000000;
-  border-bottom: 1px solid #000000;
+  margin: 0 auto;
   text-align: center;
-  overflow: hidden;
+  font-family: 'Popins', sans-serif;
 }
 
-.marquee h3 {
-  font-size: 94px;
-  font-weight: 700;
+.background-video .content h1{
+  margin: 0;
+  padding: 0;
+  font-size: 4.5em;
   text-transform: uppercase;
+  color: #fff;
+}
+.background-video .content p{
+  margin: 0;
+  font-size: 1.5em;
+  color: #fff;
 }
 
-.marquee .marquee-wrapper {
-  width: 100000px;
-  animation: marqueeAnimation 38s linear 0s infinite running;
-}
+/* --------------------- */
 
-.marquee h3 .marquee-title {
-  margin-right: 20px;
-  float: left;
-}
+/* style for marquee sliding nba logos */
 
 .text-stroke-black {
   color: transparent;
@@ -143,20 +69,6 @@ body {
   .marquee h3 {
     font-size: 50px;
   }
-}
-
-
-
-
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background: #f2f2f2;
 }
 
 @keyframes slide {
@@ -210,5 +122,97 @@ body {
   margin: 0 40px;
 }
 
+/* --------------------- */
+
+/* products short acces with images section */
+
+.products_type{
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-gap: 20px;
+  grid-template-areas: 
+    "left rightleft rightright"
+    "left wide wide"
+}
+.left{
+  grid-area: left;
+}
+
+.rightleft{
+  grid-area: rightleft;
+}
+.rightright{
+  grid-area: rightright;
+}
+
+.wide{
+  grid-area: wide;
+}
+
+.type{
+  display: flex;
+  margin: 10px;
+  border: 1px solid rgb(197, 197, 197);
+  padding: 10px 30px;
+  position: relative;
+  justify-content: center;
+}
+
+.type a{
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-decoration: none;
+  color: var(--white);
+  font-size: 40px;
+  background: var(--primary-lighten);
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border: 1px solid var(--primary-lighten);
+}
+
+.type img{
+  object-fit: cover;
+}
+
+@media (max-width: 1000px){
+  .products_type{
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    grid-template-areas: 
+      "left rightleft "
+      "rightright wide"
+  }
+}
+
+@media (max-width: 750px){
+  .products_type{
+    display: block;
+  }
+}
+
+/* --------------------- */
 
 
+/* style for the about us */
+.aboutus{
+  background: #565656;
+  padding: 20px;
+  color: var(--white);
+  text-align: center;
+}
+
+.aboutus-text{
+  text-align: left;
+  width: 70%;
+  margin: 0 auto;
+  font-size: 20px;
+}
+
+.aboutus-text p{
+  margin: 0;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
