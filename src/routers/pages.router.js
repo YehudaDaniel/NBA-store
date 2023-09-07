@@ -43,6 +43,9 @@ pagesRouter
         res.render('OrdersPage');
     })
 
+    .get('/homepage', (req, res) => {
+        res.render('HomePage');
+    })
 
     //-- Post Requests --
 
