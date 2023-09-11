@@ -46,6 +46,9 @@ pagesRouter
     .get('/homepage', (req, res) => {
         res.render('HomePage');
     })
+    .get('/user', (req, res) => {
+        res.render('User');
+    })
 
     //-- Post Requests --
 
