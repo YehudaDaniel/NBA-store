@@ -30,7 +30,7 @@ async function register_C(req, res) {
                     try {
                         const user = await User.findOne({ email: doc.email });
                         const token = await user.generateAuthToken();
-                        return res.status(201).redirect('/'); //201 - Created, sending back the homepage
+                        return res.status(201).send({user, token}); //201 - Created, sending back the homepage
                     } catch (e) {
                         res.status(500).send(`Error: ${e}`); //500 - Internal Server Error
                     }
@@ -60,22 +60,10 @@ async function login_C(req, res) {
         }
 
         const token = await user.generateAuthToken(); // Generate a new token for a freshly logged in user
-
-        // Create a user object that includes the user's data and the token
-        const userWithToken = {
-            _id: user._id,
-            name: user.name,
-            address: user.address,
-            email: user.email,
-            isAdmin: user.isAdmin,
-            token: token // Add the token to the user object
-        };
-
-        // Store the user object in the session
-
-        res.redirect('/', { user: userWithToken });
+        req.token = token;
+        res.status(200).send({user, token}); // 200 - OK
     } catch (e) {
-        res.status(400).send(e);
+        res.status(500).send(e);
     }
 }
 
@@ -86,7 +74,11 @@ async function logout_C(req, res) {
         });
         await req.user.save();
 
-        res.send();
+        req.token = null;
+        req.user = null;
+        req.isAdmin = null;
+
+        res.status(200).send();
     } catch (e) {
         res.status(500).send(e);
     }
@@ -96,6 +88,10 @@ async function logoutall_C(req, res) {
     try {
         req.user.tokens = [];
         await req.user.save();
+
+        req.token = null;
+        req.user = null;
+        req.isAdmin = null;
 
         res.send();
     } catch (e) {

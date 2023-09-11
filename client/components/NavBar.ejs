@@ -3,8 +3,8 @@
     <div>
       <ul>
         <li><a href="/" style="color: rgba(0,0,0,0.75);">Home</a></li>
-          <li><a href="/logout" style="color: rgba(0,0,0,0.75);">Log out</a></li>
-      </ul>
+          <li><a id="navbarLog" href="/login" style="color: rgba(0,0,0,0.75);"></a></li>
+        </ul>
       <div class="nav-buttons" style="margin-right: 20px;">
         <input type="text" style="display: none;" id="search-input" class="input" placeholder="  Search">
         <button id="search-icon">
@@ -12,7 +12,7 @@
         </button>
         <button>
           <i class="fa fa-heart" style="color: rgba(0,0,0,0.75);"></i>
-          <span class="notification" id="heart-notification" >7</span>
+          <span class="notification" id="heart-notification">7</span>
         </button>
         <button class="dropdown-btn" onclick="toggleDropdown()"><i class="fa fa-shopping-cart" style="color: rgba(0,0,0,0.75);"></i>
           <span class="notification" id="cart-notification">5</span></button>

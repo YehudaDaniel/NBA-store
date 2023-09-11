@@ -31,30 +31,32 @@ document.querySelector(".toggle-btn").addEventListener("click", function() {
 });
 
 
+// rendering a tag based on token
+$(document).ready(function() {
+  if(sessionStorage.getItem('token')){
+    $('#navbarLog').removeAttr('href', '/');
+    $('#navbarLog').html('LogOut');
 
-
-// function showNotification(cart, heart) {
-//   var cartNotification = document.getElementById('cart-notification');
-//   var cartCount = document.getElementById('cart-count');
-//   var heartNotificatoin = document.getElementById('heart-notification');
-//   var heartCount = document.getElementById('heart-count');
-
-//   if (cart > 0) {
-//     cartCount.textContent = cart;
-//     cartNotification.style.display = 'block';
-//   }
-//   if (cart == 0) {
-//     cartNotification.style.display = 'none';
-//   }
-//   if (heart > 0) {
-//     heartCount.textContent = heart;
-//     heartNotificatoin.style.display = 'block';
-//   }
-//   if (heart == 0) {
-//     heartNotificatoin.style.display = 'none';
-//   }
-// }
-
-// var notificationCount = 3;
-// var heartCount = 7;
-// showNotification(notificationCount, heartCount);
+    //it has logout so add ajax call
+    $('#navbarLog').click(function(e) {      
+      $.ajax({
+        type: 'POST',
+        url: '/user/logout',
+        headers: {
+          "Authorization": "Bearer " + JSON.parse(sessionStorage.getItem('token'))
+        },
+        success: function(res) {
+          sessionStorage.removeItem('token');
+          sessionStorage.removeItem('user');
+          window.location.reload();
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+    });
+  }else{
+    $('#navbarLog').attr('href', '/login');
+    $('#navbarLog').html('LogIn');
+  }
+});

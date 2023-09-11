@@ -1,4 +1,5 @@
 const express = require('express');
+const { login_C } = require('../../src/controller/user.controller');
 
 
 const pagesRouter = express.Router();
@@ -6,7 +7,6 @@ const pagesRouter = express.Router();
 pagesRouter
     //-- Get Requests --
     .get('/', (req, res) => {
-        const user = req.session.user? req.query.user : null;
         res.render('Homepage');
     })
     .get('/login', (req, res) => {

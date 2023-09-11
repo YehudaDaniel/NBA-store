@@ -8,6 +8,11 @@
   margin-bottom: 1.5rem;
 }
 
+#errorMsg{
+  color: red;
+  font-weight: 600;
+}
+
 .signup-container{
   margin: 20px auto;
   max-width: 50%;

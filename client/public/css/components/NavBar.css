@@ -11,6 +11,9 @@
   z-index: 99;
 }
 
+#navbarLog{
+  cursor: pointer;
+}
 .primaryNavBar>div {
   display: flex;
   justify-content: space-between;

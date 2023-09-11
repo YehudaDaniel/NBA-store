@@ -14,10 +14,23 @@ const productSchema = new mongoose.Schema({
     type: String, 
     required: true 
   },
-  category: [{ 
+  category: { 
     type: String, 
     required: true 
-  }],
+  },
+  size: {
+    type: String,
+    required: true
+  },
+  color: {
+    type: String,
+    required: true
+  },
+  team: {
+    type: String,
+    required: false,
+    default: "NBA Team"
+  },
   image: { 
     type: String 
   }
