@@ -9,4 +9,5 @@ body{
     margin-top: 100px;
     box-sizing: border-box;
     background: var(--primary); /* an example for the usage of vars*/
+    font-family: "Poppins", sans-serif;
 }
