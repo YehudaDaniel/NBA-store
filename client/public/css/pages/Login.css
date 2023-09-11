@@ -15,6 +15,10 @@
 form{
   display: grid;
 }
+#errorMsg{
+  color: red;
+  font-weight: 600;
+}
 .form header{
   font-size: 2rem;
   font-weight: 500;

@@ -12,7 +12,7 @@ let saltRounds = 10;
 //Function for signing up a new user - encrypting the password using bcrypt with 10 saltRounds
 async function register_C(req, res) {
     bcrypt.hash(req.body.password, saltRounds, (err, encrypted) => {
-        if(err)
+        if (err)
             return res.status(500).end('Something went wrong'); //500 - Internal Server Error
         const userCredentials = {
             name: req.body.fullName,
@@ -21,26 +21,26 @@ async function register_C(req, res) {
             isAdmin: false, //default signing up a user as false - not an admin
             password: encrypted
         };
-        if(!userCredentials.name && !userCredentials.email && !userCredentials.address && !userCredentials.password)
-            return res.status(400).json({message: "Something went wrong with the request, please try again"}); //400 - Bad Request
+        if (!userCredentials.name && !userCredentials.email && !userCredentials.address && !userCredentials.password)
+            return res.status(400).json({ message: "Something went wrong with the request, please try again" }); //400 - Bad Request
 
-        try{
+        try {
             const newUser = User.create(userCredentials)
                 .then(async (doc) => {
-                    try{
+                    try {
                         const user = await User.findOne({ email: doc.email });
                         const token = await user.generateAuthToken();
-                        return res.status(201).redirect('/'); //201 - Created, sending back the homepage
-                    }catch(e){
+                        return res.status(201).send({user, token}); //201 - Created, sending back the homepage
+                    } catch (e) {
                         res.status(500).send(`Error: ${e}`); //500 - Internal Server Error
                     }
                 })
                 .catch((err) => {
-                    if(err){
+                    if (err) {
                         return res.status(400).send(err); //400 - Bad Request
                     }
                 });
-        }catch(e){
+        } catch (e) {
             res.status(500).send(`Error: ${e}`)
         }
     });
@@ -60,49 +60,41 @@ async function login_C(req, res) {
         }
 
         const token = await user.generateAuthToken(); // Generate a new token for a freshly logged in user
-
-        // Create a user object that includes the user's data and the token
-        const userWithToken = {
-            _id: user._id,
-            name: user.name,
-            address: user.address,
-            email: user.email,
-            isAdmin: user.isAdmin,
-            token: token // Add the token to the user object
-        };
-
-        // Store the user object in the session
-        req.session.user = userWithToken;
-
-        // Render the 'AdminPage' template and pass the user token as a variable
-        res.render('AdminPage', { userToken: token }); // Pass the token as 'userToken'
+        req.token = token;
+        res.status(200).send({user, token}); // 200 - OK
     } catch (e) {
-        res.status(400).send(e);
+        res.status(500).send(e);
     }
 }
 
-
-
 async function logout_C(req, res) {
-    try{
+    try {
         req.user.tokens = req.user.tokens.filter((token) => {
             return token.token !== req.token;
         });
         await req.user.save();
 
-        res.send();
-    }catch(e) {
+        req.token = null;
+        req.user = null;
+        req.isAdmin = null;
+
+        res.status(200).send();
+    } catch (e) {
         res.status(500).send(e);
     }
 }
 
 async function logoutall_C(req, res) {
-    try{
+    try {
         req.user.tokens = [];
         await req.user.save();
 
+        req.token = null;
+        req.user = null;
+        req.isAdmin = null;
+
         res.send();
-    }catch(e) {
+    } catch (e) {
         res.status(500).send(e);
     }
 }
@@ -114,7 +106,7 @@ async function read_C(req, res) {
 //-- Helper Functions --//
 
 //Function for returning the user's data in the desired format
-function userData(data, token){
+function userData(data, token) {
     return {
         user: {
             _id: data._id,

@@ -37,7 +37,7 @@ pagesRouter
         res.render('Personaldata');
     })
     .get('/admin', (req, res) => {
-        res.render('AdminPage', { user: req.session.user });
+        res.render('AdminPage');
     })
     .get('/orders', (req, res) => {
         res.render('OrdersPage');
