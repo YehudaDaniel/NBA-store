@@ -46,7 +46,7 @@ pagesRouter
     .get('/homepage', (req, res) => {
         res.render('HomePage');
     })
-    .get('/user', (req, res) => {
+    .get('/profile', (req, res) => {
         res.render('User');
     })
 
