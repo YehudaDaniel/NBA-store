@@ -50,6 +50,12 @@ pagesRouter
         res.render('OrdersPage');
     })
 
+    .get('/homepage', (req, res) => {
+        res.render('HomePage');
+    })
+    .get('/profile', (req, res) => {
+        res.render('User');
+    })
 
     //-- Post Requests --
 

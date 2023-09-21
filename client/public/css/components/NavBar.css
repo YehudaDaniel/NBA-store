@@ -96,20 +96,20 @@
 }
 
 .notification{
-  position: absolute;
+  position: relative;
   background-color: red;
   color: white;
   font-size: 12px;
   padding: 2px 5px;
   border-radius: 50%;
-  top: 14px;
+  bottom: 10px;
 }
 
 #heart-notification {
-  right: 152px;
+  right: 10px;
 }
 
 #cart-notification{
-  right: 90px;
+  right: 10px;
 }
 

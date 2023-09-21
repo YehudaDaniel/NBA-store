@@ -195,25 +195,34 @@ body{
 }
 
 /* --------------------- */
-
-
-/* style for the about us */
-.aboutus{
-  background: #565656;
-  padding: 20px;
-  color: var(--white);
+/* Style for the About Us Section */
+.aboutus {
+  background: #535353; /* Use a lighter background color for better readability */
+  padding: 50px; /* Increase padding for better spacing */
+  color: #f0eded; /* Use a slightly darker text color for contrast */
   text-align: center;
 }
 
-.aboutus-text{
-  text-align: left;
-  width: 70%;
+.aboutus-text {
+  max-width: 800px; /* Use a max-width to control the text width */
   margin: 0 auto;
-  font-size: 20px;
+  font-size: 18px; /* Slightly reduce font size for better readability */
+  line-height: 1.5; /* Improve line spacing for readability */
+  text-align: justify; /* Justify text for a clean look */
 }
 
-.aboutus-text p{
-  margin: 0;
+.aboutus-text p {
+  margin-bottom: 20px; /* Add spacing between paragraphs */
   word-break: break-word;
-  white-space: pre-wrap;
+}
+
+/* Update the link color for better visibility */
+.aboutus-text a {
+  color: #007bff;
+  text-decoration: underline;
+  transition: color 0.3s ease-in-out;
+}
+
+.aboutus-text a:hover {
+  color: #0056b3; /* Darker color on hover */
 }
