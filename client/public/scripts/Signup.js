@@ -14,10 +14,6 @@ function validateZipcode($zipcode) {
     return zipcode.test($zipcode);
 }
 
-if(sessionStorage.getItem('user')) {
-    window.location.href = '/';
-}
-
 // event listeners
 $(document).ready(function () {
     //click event handler to the submit button
@@ -64,11 +60,10 @@ $(document).ready(function () {
                 errorMsg.html('');
                 //saving user data in the session
                 sessionStorage.setItem('user', JSON.stringify(res.user));
-                sessionStorage.setItem('token', JSON.stringify(res.token));
+                document.cookie = `token=${JSON.stringify(res.token)}`;
                 window.location.href = '/';
             },
             error: function (error) {
-                console.log(error.message);
                 let errorMsg = $('#errorMsg');
                 if (error.status == 500) {
                     errorMsg.html('Something went wrong, try again.');

@@ -33,21 +33,20 @@ document.querySelector(".toggle-btn").addEventListener("click", function() {
 
 // rendering a tag based on token
 $(document).ready(function() {
-  if(sessionStorage.getItem('token')){
+  if(document.cookie.includes('token')){
     $('#navbarLog').removeAttr('href', '/');
     $('#navbarLog').html('LogOut');
 
     //it has logout so add ajax call
-    $('#navbarLog').click(function(e) {      
+    $('#navbarLog').click(function(e) {
+      let token = document.cookie.split(';').map(cookie => cookie.trim()).find(item => item.split('=')[0] == 'token').split('=')[1];
       $.ajax({
         type: 'POST',
         url: '/user/logout',
         headers: {
-          "Authorization": "Bearer " + JSON.parse(sessionStorage.getItem('token'))
+          "Authorization": "Bearer " + JSON.parse(token)
         },
         success: function(res) {
-          sessionStorage.removeItem('token');
-          sessionStorage.removeItem('user');
           window.location.reload();
         },
         error: function(error) {

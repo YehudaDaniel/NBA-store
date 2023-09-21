@@ -70,13 +70,14 @@ async function login_C(req, res) {
 async function logout_C(req, res) {
     try {
         req.user.tokens = req.user.tokens.filter((token) => {
-            return token.token !== req.token;
+            return token.token !== req.cookies.token;
         });
         await req.user.save();
 
         req.token = null;
         req.user = null;
         req.isAdmin = null;
+        res.clearCookie('token');
 
         res.status(200).send();
     } catch (e) {
@@ -92,6 +93,7 @@ async function logoutall_C(req, res) {
         req.token = null;
         req.user = null;
         req.isAdmin = null;
+        res.clearCookie('token');
 
         res.send();
     } catch (e) {
@@ -101,6 +103,17 @@ async function logoutall_C(req, res) {
 
 async function read_C(req, res) {
     res.send(userData(req.user, req.token));
+}
+
+async function readAll_C(req, res) {
+    if(req.isAdmin === false)
+        return res.status(401).json({ message: 'Unauthorized' });
+    try{
+        const users = await User.find({ _id: {$ne: req.user._id}}).select('-password -tokens');
+        res.status(200).send(users);
+    }catch(e){
+        res.status(500).json({ message: 'Something went wrong fetching the data' });
+    }
 }
 
 //-- Helper Functions --//
@@ -127,5 +140,6 @@ module.exports = {
     login_C,
     logout_C,
     logoutall_C,
-    read_C
+    read_C,
+    readAll_C
 };

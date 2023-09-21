@@ -1,19 +1,25 @@
 const express = require('express');
-const { login_C } = require('../../src/controller/user.controller');
+
 
 
 const pagesRouter = express.Router();
 
-pagesRouter
+pagesRouter 
     //-- Get Requests --
     .get('/', (req, res) => {
         res.render('Homepage');
     })
     .get('/login', (req, res) => {
-        res.render('Login');
+        if (req.cookies.token)
+            res.redirect('/');
+        else
+            res.render('Login');
     })
     .get('/signup', (req, res) => {
-        res.render('Signup');
+        if(req.cookies.token)
+            res.redirect('/');
+        else
+            res.render('Signup');
     })
     .get('/product', (req, res) => { //should get params (productId) for the product to display
         res.render('ProductPage');
@@ -37,6 +43,7 @@ pagesRouter
         res.render('Personaldata');
     })
     .get('/admin', (req, res) => {
+        //TODO: add admin authentication
         res.render('AdminPage');
     })
     .get('/orders', (req, res) => {

@@ -11,6 +11,8 @@ userRouter
     })
     .get('/me', auth, userController.read_C)
 
+    .get('/users', auth, userController.readAll_C)
+
     //-- Post Requests --
     .post('/register', userController.register_C)
     

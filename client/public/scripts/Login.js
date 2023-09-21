@@ -5,10 +5,6 @@ function validateEmail($email) {
   return emailReg.test( $email );
 }
 
-if(sessionStorage.getItem('user')) {
-  window.location.href = '/';
-}
-
 // event listeners
 $(document).ready(function() {
   //click event handler to the submit button
@@ -36,9 +32,9 @@ $(document).ready(function() {
       data: formData,
       success: function(res) {
         errorMsg.html('');
-        //saving user data in the session
         sessionStorage.setItem('user', JSON.stringify(res.user));
-        sessionStorage.setItem('token', JSON.stringify(res.token));
+        //saving user data in the session
+        document.cookie = `token=${JSON.stringify(res.token)}`;
         window.location.href = '/';
       },
       error: function(error) {

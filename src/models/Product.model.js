@@ -19,7 +19,7 @@ const productSchema = new mongoose.Schema({
     required: true 
   },
   size: {
-    type: String,
+    type: [String],
     required: true
   },
   color: {
@@ -32,8 +32,14 @@ const productSchema = new mongoose.Schema({
     default: "NBA Team"
   },
   image: { 
-    type: String 
+    type: Buffer 
   }
+});
+
+productSchema.virtual('orders', {
+  ref: 'Order',
+  localField: '_id',
+  foreignField: 'products'
 });
 
 // Static method to create a new product

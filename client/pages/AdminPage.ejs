@@ -21,10 +21,10 @@
 <body>
   <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="pills-users-tab" data-bs-toggle="pill" data-bs-target="#pills-users" type="button" role="tab" aria-controls="pills-users" aria-selected="false">Users</button>
+      <button class="nav-link" id="pills-addProduct-tab" data-bs-toggle="pill" data-bs-target="#pills-addProduct" type="button" role="tab" aria-controls="pills-addProduct" aria-selected="false">Add Product</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="pills-addProduct-tab" data-bs-toggle="pill" data-bs-target="#pills-addProduct" type="button" role="tab" aria-controls="pills-addProduct" aria-selected="false">Add Product</button>
+      <button class="nav-link" id="pills-users-tab" data-bs-toggle="pill" data-bs-target="#pills-users" type="button" role="tab" aria-controls="pills-users" aria-selected="false">Users</button>
     </li>
     <li class="nav-item" role="presentation">
       <button class="nav-link" id="pills-product-tab" data-bs-toggle="pill" data-bs-target="#pills-product" type="button" role="tab" aria-controls="pills-product" aria-selected="false">Products</button>
@@ -56,81 +56,83 @@
     </div>
     <div class="tab-pane fade" id="pills-addProduct" role="tabpanel" aria-labelledby="pills-addProduct-tab">
       <h2>Add a Product</h2>
-      <form id="productForm" style="max-width: 400px; margin: 0 auto;">
-          <div class="form-group">
+      <form id="productForm" style="max-width:400px; margin:0 auto;" enctype="multipart/form-data">
+          <div class="form-group m-2">
               <label for="productName">Name:</label>
-              <input type="text" id="productName" class="form-control" required>
+              <input type="text" id="productName" class="form-control" name="productName" placeholder="Product name...">
           </div>
   
-          <div class="form-group">
+          <div class="form-group m-2">
               <label for="productPrice">Price:</label>
-              <input type="number" id="productPrice" class="form-control" required>
+              <input type="number" id="productPrice" name="productPrice" class="form-control">
           </div>
   
-          <div class="form-group">
+          <div class="form-group m-2">
               <label for="productDescription">Description:</label>
-              <textarea id="productDescription" class="form-control" rows="4" required></textarea>
+              <textarea id="productDescription" class="form-control" name="productDescription" rows="4"></textarea>
           </div>
   
-          <div class="form-group">
+          <div class="form-group m-2">
               <label for="productSize">Size:</label>
               <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="sizeXS" value="XS">
+                  <input type="checkbox" class="form-check-input" id="sizeXS" name="productSize" value="XS">
                   <label class="form-check-label" for="sizeXS">XS</label>
               </div>
               <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="sizeS" value="S">
+                  <input type="checkbox" class="form-check-input" id="sizeS" name="productSize" value="S">
                   <label class="form-check-label" for="sizeS">S</label>
               </div>
               <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="sizeM" value="M">
+                  <input type="checkbox" class="form-check-input" id="sizeM" name="productSize" value="M">
                   <label class="form-check-label" for="sizeM">M</label>
               </div>
               <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="sizeL" value="L">
+                  <input type="checkbox" class="form-check-input" id="sizeL" name="productSize" value="L">
                   <label class="form-check-label" for="sizeL">L</label>
               </div>
               <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="sizeXL" value="XL">
+                  <input type="checkbox" class="form-check-input" id="sizeXL" name="productSize" value="XL">
                   <label class="form-check-label" for="sizeXL">XL</label>
               </div>
               <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="sizeXXL" value="XXL">
+                  <input type="checkbox" class="form-check-input" id="sizeXXL" name="productSize" value="XXL">
                   <label class="form-check-label" for="sizeXXL">XXL</label>
               </div>
-              <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="sizeXXXL" value="XXXL">
-                  <label class="form-check-label" for="sizeXXXL">XXXL</label>
-              </div>
           </div>
   
-          <div class="form-group">
+          <div class="form-group m-2">
               <label for="productColor">Color:</label>
-              <input type="text" id="productColor" class="form-control" required>
+              <input type="text" id="productColor" class="form-control" name="productColor" placeholder="Color..">
           </div>
   
-          <div class="form-group">
-              <label for="productQuantity">Quantity:</label>
-              <input type="number" id="productQuantity" class="form-control" required>
-          </div>
-  
-          <div class="form-group">
+          <div class="form-group m-2">
               <label for="productCategory">Category:</label>
-              <input type="text" id="productCategory" class="form-control" required>
+              <input type="text" id="productCategory" class="form-control" name="productCategory" placeholder="Product Category..">
           </div>
+
+          <div class="form-group m-2">
+            <label for="productTeam">Team:</label>
+            <input type="text" id="productTeam" class="form-control" name="productTeam" placeholder="optional..">
+        </div>
   
           <div class="form-group">
-              <label for="productImage">Image URL:</label>
-              <input type="text" id="productImage" class="form-control" required>
+              <label for="productImage">Upload Image</label>
+              <input type="file" id="productImage" name="productImage" class="form-control">
+          </div>
+
+          <div class=" mt-3 mb-3 alert alert-danger" role="alert" style="display: none;">
+            <span id="errorMsg"></span>
           </div>
   
-          <button type="submit" class="btn btn-primary">Add Product</button>
+          <button type="button" class="btn btn-secondary m-3 rstBtn">RESET</button>
+          <button type="submit" class="btn btn-primary m-3">Add Product</button>
+
       </form>
   </div>
     <div class="tab-pane fade" id="pills-product" role="tabpanel" aria-labelledby="pills-product-tab">
       <div class="admin-products-buttons">
         <button id="delete-button-products" style="background-color: red; color: white;">Delete Products</button>
-        <button id="edit-button-products">Edit Products</button>
+        <!-- <button id="edit-button-products">Edit Products</button> -->
         <button id="discard-button-products" style="display: none; background-color: red; color: white;">Discard Changes</button>
         <button id="save-button-products" style="display: none; background-color: green; color: white;">Save Changes</button>
       </div>
@@ -142,7 +144,7 @@
             <th>Description</th>
             <th>Size</th>
             <th>Color</th>
-            <th>Quantity</th>
+            <th>Team</th>
             <th>Category</th>
             <th>Image</th>
             <th style="display: none;" id="deleteTh">Delete</th>

@@ -23,6 +23,12 @@ const orderSchema = new mongoose.Schema({
   timestamps: true
 });
 
+orderSchema.virtual('users', {
+  ref: 'User',
+  localField: '_id',
+  foreignField: 'orderHistory'
+});
+
 // Static method to create a new order
 orderSchema.statics.newOrder = function (orderData) {
   const newOrder = new this(orderData);

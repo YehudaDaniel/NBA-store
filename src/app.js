@@ -2,6 +2,7 @@ const express = require('express');
 const RoutesConfig = require('./config/routes.config.js');
 const path = require('path');
 const DatabaseDriver = require('./config/db/mongoose.db.js');
+const cookieParser = require('cookie-parser');
 
 
 const PORT = process.env.PORT || 3080;
@@ -18,8 +19,10 @@ app.set('partials', path.join(__dirname, '../client/components'));
 app.use(express.static(path.join(__dirname, '../client/public')));
 
 //Tells express to parse the json data coming, into an object and be accessable via request.body
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 
 RoutesConfig(app);
 
