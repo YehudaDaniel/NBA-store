@@ -18,7 +18,7 @@
 <%- include('../components/NavBar.ejs') %>
 <%- include('../components/HamburgerSideNav.ejs') %>
 
-<body>
+<body class="admin-body">
   <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
     <li class="nav-item" role="presentation">
       <button class="nav-link" id="pills-addProduct-tab" data-bs-toggle="pill" data-bs-target="#pills-addProduct" type="button" role="tab" aria-controls="pills-addProduct" aria-selected="false">Add Product</button>
@@ -53,6 +53,9 @@
           <!-- Order rows will be added dynamically via JavaScript -->
         </tbody>
       </table>
+      <div class="preloader-orders">
+        <%- include('../components/loader.ejs') %>
+      </div>
     </div>
     <div class="tab-pane fade" id="pills-addProduct" role="tabpanel" aria-labelledby="pills-addProduct-tab">
       <h2>Add a Product</h2>
@@ -154,6 +157,9 @@
           <!-- Order rows will be added dynamically via JavaScript -->
         </tbody>
       </table>
+      <div class="preloader-products">
+        <%- include('../components/loader.ejs') %>
+      </div>
     </div>
     <div class="tab-pane fade" id="pills-users" role="tabpanel" aria-labelledby="pills-users-tab">
       <div class="admin-products-buttons">
@@ -173,6 +179,9 @@
           <!-- Order rows will be added dynamically via JavaScript -->
         </tbody>
       </table>
+      <div class="preloader-users">
+        <%- include('../components/loader.ejs') %>
+      </div>
     </div>
   </div>
 
