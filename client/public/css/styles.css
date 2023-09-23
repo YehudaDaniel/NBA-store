@@ -2,6 +2,7 @@
 @import './base/_defaults.css';
 @import './components/NavBar.css';
 @import './components/HamburgerSidenav.css';
+@import './components/loader.css';
 
 
 

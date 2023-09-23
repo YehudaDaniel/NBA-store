@@ -11,7 +11,7 @@
   <link rel="stylesheet" type="text/css" href="/css/styles.css" />
   <link rel="stylesheet" type="text/css" href="/css/pages/ProductsPage.css" />
 </head>
-<body>
+<body data-page="<%=category %>">
   <%- include('../components/NavBar.ejs') %>
   <%- include('../components/HamburgerSideNav.ejs') %>
   <div class="productsPage-container">
@@ -87,114 +87,7 @@
     </div>
     <div class="products">
 
-
-      <div class="product">
-        <div class="img">
-          <img src="/includes/images/shirts.jpg" alt="test" />
-        </div>
-        <div class="product-details">
-          <div class="details-text">
-            <span class="name">test</span>
-            <span class="amt">Price:30$</span>
-            <span class="size">Size:M</span>
-            <span class="color">color: Yellow</span>
-          </div>
-          <div class="details-btns">
-            <div class="addWrapper">
-              <span class="addWrapper-minus">-</span>
-              <span class="addWrapper-num">0</span>
-              <span class="addWrapper-plus">+</span>
-            </div>
-            <button class="heart-btn">
-              <div class="content">
-                <span class="heart"></span>
-                <span class="numb"></span>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img">
-          <img src="/includes/images/shirts.jpg" alt="test" />
-        </div>
-        <div class="product-details">
-          <div class="details-text">
-            <span class="name">test</span>
-            <span class="amt">Price:30$</span>
-            <span class="size">Size:M</span>
-            <span class="color">color: Yellow</span>
-          </div>
-          <div class="details-btns">
-            <div class="addWrapper">
-              <span class="addWrapper-minus">-</span>
-              <span class="addWrapper-num">0</span>
-              <span class="addWrapper-plus">+</span>
-            </div>
-            <button class="heart-btn">
-              <div class="content">
-                <span class="heart"></span>
-                <span class="numb"></span>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img">
-          <img src="/includes/images/shirts.jpg" alt="test" />
-        </div>
-        <div class="product-details">
-          <div class="details-text">
-            <span class="name">test</span>
-            <span class="amt">Price:30$</span>
-            <span class="size">Size:M</span>
-            <span class="color">color: Yellow</span>
-          </div>
-          <div class="details-btns">
-            <div class="addWrapper">
-              <span class="addWrapper-minus">-</span>
-              <span class="addWrapper-num">0</span>
-              <span class="addWrapper-plus">+</span>
-            </div>
-            <button class="heart-btn">
-              <div class="content">
-                <span class="heart"></span>
-                <span class="numb"></span>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img">
-          <img src="/includes/images/shirts.jpg" alt="test" />
-        </div>
-        <div class="product-details">
-          <div class="details-text">
-            <span class="name">test</span>
-            <span class="amt">Price:30$</span>
-            <span class="size">Size:M</span>
-            <span class="color">color: Yellow</span>
-          </div>
-          <div class="details-btns">
-            <div class="addWrapper">
-              <span class="addWrapper-minus">-</span>
-              <span class="addWrapper-num">0</span>
-              <span class="addWrapper-plus">+</span>
-            </div>
-            <button class="heart-btn">
-              <div class="content">
-                <span class="heart"></span>
-                <span class="numb"></span>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
+      <%- include('../components/loader.ejs') %>
 
     </div>
   </div>

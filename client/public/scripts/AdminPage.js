@@ -45,6 +45,8 @@ function fetchUserData(){
         "Authorization": "Bearer " + JSON.parse(token)
       },
       success: function (res) {
+        document.querySelector('.preloader-users').style.display = 'none';
+
         if(Array.isArray(res) && res.length > 0){
           resolve(res);
         }else{
@@ -63,9 +65,14 @@ function fetchProductData(){
   return new Promise((resolve, reject) => {
     $.ajax({
       type: 'GET',
-      url: '/product/products',
+      url: '/product/allproducts',
       async: true,
+      headers: {
+        "Authorization": "Bearer " + JSON.parse(token)
+      },
       success: function (res) {
+        document.querySelector('.preloader-products').style.display = 'none';
+
         if(Array.isArray(res) && res.length > 0){
           resolve(res);
         }else{
@@ -90,6 +97,8 @@ function fetchOrderData(){
         "Authorization": "Bearer " + JSON.parse(token)
       },
       success: function (res) {
+        document.querySelector('.preloader-orders').style.display = 'none';
+
         if(Array.isArray(res) && res.length > 0){
           resolve(res);
         }else{

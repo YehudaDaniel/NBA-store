@@ -21,10 +21,10 @@
 
 .primaryNavBar>div>ul {
   list-style-type: none;
-  margin-left: 25px;
+  align-items: flex-end;
   padding: 0;
   display: flex;
-  align-items: center;
+  margin-left: 5px;
 }
 
 .primaryNavBar>div>ul>li {
