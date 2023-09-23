@@ -27,7 +27,6 @@ async function delete_C(req, res) {
 
 async function update_C(req, res) {
     try{
-        console.log("hello");
         if (!req.isAdmin) {
             return res.status(401).json({ message: 'Unauthorized' });
         }
@@ -41,6 +40,16 @@ async function update_C(req, res) {
     }
 }
 
+async function orderById_C(req, res) {
+    try{
+        const products = await Product.find({ _id: { $in: req.body.products  } });
+        if(!products)
+            return res.status(404).json({ message: 'Product not found' });
+        res.status(200).send(products);
+    }catch(e){
+        res.status(500).json({ message: 'Something went wrong fetching the product' });
+    }
+}
 
 
 //-- Helper Functions --//
@@ -52,4 +61,5 @@ module.exports = {
     readAll_C,
     delete_C,
     update_C,
+    orderById_C
 };

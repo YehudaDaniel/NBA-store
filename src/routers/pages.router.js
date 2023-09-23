@@ -43,7 +43,7 @@ pagesRouter
         res.render('Personaldata');
     })
     .get('/admin', (req, res) => {
-        if (req.cookies.isAdmin == 'false')
+        if (req.cookies.isAdmin != 'true')
             res.redirect('/');
         else
             res.render('AdminPage');

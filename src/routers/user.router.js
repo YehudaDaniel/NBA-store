@@ -24,6 +24,7 @@ userRouter
     
     .post('/logoutall', auth, userController.logoutall_C)
 
+    .post('/order', auth, userController.order_C)
 
 
 

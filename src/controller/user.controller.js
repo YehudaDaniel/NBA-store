@@ -130,6 +130,34 @@ async function allOrders_C(req, res) {
     }
 }
 
+async function order_C(req, res) {
+    const orderData = {
+        user: {id: req.body.user.id, name: req.body.user.name},
+        products: req.body.products,
+        totalPrice: req.body.totalPrice,
+    }
+
+    if(!orderData.user || !orderData.products || !orderData.totalPrice)
+        return res.status(400).json({ message: "Something went wrong with the request, please try again" }); //400 - Bad Request
+
+    try{
+        const newOrder = Order.create(orderData)
+            .then(async (doc) => {
+                try{
+                    return res.status(201).end(); //201 - Created, sending back the homepage
+                }catch(e) {
+                    res.status(500).send(`Error: ${e}`); //500 - Internal Server Error
+                }
+            })
+            .catch((err) => {
+                if(err)
+                    return res.status(400).send(err) //400 - Bad Request
+            });
+    }catch(e){
+        res.status(500).send(`Error: ${e}`)
+    }
+}
+
 //-- Helper Functions --//
 
 //Function for returning the user's data in the desired format
@@ -157,4 +185,5 @@ module.exports = {
     read_C,
     readAll_C,
     allOrders_C,
+    order_C
 };

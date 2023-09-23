@@ -1,5 +1,6 @@
 const { req, res } = require('express');
 const Product = require('../models/Product.model.js');
+const Order = require('../models/Order.model.js');
 const User = require('../models/User.model.js');
 const sharp = require('sharp');
 
@@ -57,28 +58,42 @@ async function adminUpdate_C(req, res) {
     }
 }
 
+async function updateOrders_C(req, res) {
+    try{
+        const orderIds = req.body.orderStatusUpdates.map(update => update.id);
+        const orderStatuses = req.body.orderStatusUpdates.map(update => update.status);
+        const updateOperations = [];
+
+        for(let i = 0; i < orderIds.length; i++) {
+            const orderId = orderIds[i];
+            const orderStatus = orderStatuses[i];
+
+            const updateOperation = {
+                updateOne: {
+                    filter: { _id: orderId },
+                    update: { $set: { status: orderStatus } }
+                }
+            };
+
+            updateOperations.push(updateOperation);
+        }
+
+        Order.bulkWrite(updateOperations);
+
+        res.status(200).end();
+    }catch(e) {
+        res.status(500).send(`Error: ${e}`);
+    }
+}
+
 
 
 //-- Helper Functions --//
-
-//Function for returning the user's data in the desired format
-function userData(data, token) {
-    return {
-        user: {
-            _id: data._id,
-            name: data.name,
-            address: data.address,
-            email: data.email,
-            isAdmin: data.isAdmin,
-            tokens: data.tokens,
-        },
-        token: token
-    }
-}
 
 
 
 module.exports = {
     newProduct_C,
     adminUpdate_C,
+    updateOrders_C
 };

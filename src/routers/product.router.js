@@ -13,8 +13,10 @@ productRouter
     .patch('/update', auth, productCon.update_C)
 
     //-- DELETE Requests --//
-    .delete('/delete', auth, productCon.delete_C);
+    .delete('/delete', auth, productCon.delete_C)
 
+    //-- POST Requests --//
+    .post('/orderById', productCon.orderById_C)
 
 
 module.exports = productRouter;

@@ -65,7 +65,9 @@
 .sidebar.active {
     right: 0;
 }
-
+.sidebar.deactive{
+    right: -250px;
+}
 .sidebar.active .toggle-btn span:nth-child(1) {
     top: 50%;
     transform: translateY(-50%) rotate(45deg);
@@ -79,3 +81,15 @@
     top: 50%;
     transform: translateY(-50%) rotate(-45deg);
 }  
+
+.nav-buttons{
+    height: 100%;
+    margin-right: 0 !important;
+    display: flex;
+}
+.x-btn{
+    margin: 5px;
+    padding: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
