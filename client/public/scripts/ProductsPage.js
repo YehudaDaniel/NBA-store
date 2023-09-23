@@ -24,7 +24,6 @@ $(document).ready(function () {
 
     $('.heart-btn').click(function() {
         var $button = $(this);
-        console.log($button);
         $button.find('.content').toggleClass("heart-active");
         $button.find('.text').toggleClass("heart-active");
         $button.find('.numb').toggleClass("heart-active");

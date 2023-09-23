@@ -1,5 +1,6 @@
 const { req, res } = require('express');
 const User = require('../models/User.model.js');
+const Order = require('../models/Order.model.js');
 const fs = require('fs');
 const bcrypt = require('bcrypt');
 
@@ -116,6 +117,19 @@ async function readAll_C(req, res) {
     }
 }
 
+//----- Orders -----//
+
+async function allOrders_C(req, res) {
+    if(req.isAdmin === false)
+        return res.status(401).json({ message: 'Unauthorized' });
+    try{
+        const orders = await Order.find({});
+        res.status(200).send(orders);
+    }catch(e){
+        res.status(500).json({ message: 'Something went wrong fetching the data' });
+    }
+}
+
 //-- Helper Functions --//
 
 //Function for returning the user's data in the desired format
@@ -141,5 +155,6 @@ module.exports = {
     logout_C,
     logoutall_C,
     read_C,
-    readAll_C
+    readAll_C,
+    allOrders_C,
 };

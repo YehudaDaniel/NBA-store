@@ -206,6 +206,7 @@ function toggleEditModeProducts(rowNum) {
   saveButtonProducts.style.display = isEditModeProducts ? 'block' : 'none';
   discardButtonProducts.style.display = isEditModeProducts ? 'block' : 'none';
 
+  const row = document.querySelectorAll(`#products-table tbody tr`)[rowNum];
   const nameCell = document.querySelectorAll(`#products-table tbody tr td:nth-child(1)`)[rowNum]; 
   const priceCell = document.querySelectorAll(`#products-table tbody tr td:nth-child(2)`)[rowNum];
   const descCell = document.querySelectorAll(`#products-table tbody tr td:nth-child(3)`)[rowNum];
@@ -286,7 +287,7 @@ function toggleEditModeProducts(rowNum) {
 
 
   } else {
-    saveChangesToProducts(nameCell, priceCell, descCell, sizeCell, colorCell, teamCell, categCell);
+    saveChangesToProducts(row, nameCell, priceCell, descCell, sizeCell, colorCell, teamCell, categCell);
   }
 }
   
@@ -344,91 +345,54 @@ function toggleEditModeProducts(rowNum) {
     }
   }
   
+  function saveChangesToProducts(row, nameCell, priceCell, descCell, sizeCell, colorCell, teamCell, categCell) {
+    let productsData = {};
 
-  function getRelativePath(absoluteURL) {
-    const currentURL = new URL(window.location.href);
-    const absolutePath = new URL(absoluteURL, currentURL);
+    // Update the product name
+    const nameInput = nameCell.querySelector('input');
+    productsData.name = nameInput.value;
+
+    // Update the product price
+    const priceInput = priceCell.querySelector('input');
+    productsData.price = parseFloat(priceInput.value);
+
+    // Update the product description
+    const descInput = descCell.querySelector('input');
+    productsData.description = descInput.value;
+
+    // Update the product size (parse it as an array)
+    const sizeInput = sizeCell.querySelector('input');
+    productsData.size = sizeInput.value.split(',').map((size) => size.trim());
+
+    // Update the product color
+    const colorInput = colorCell.querySelector('input');
+    productsData.color = colorInput.value;
+
+    // Update the product quantity (parse it as an integer)
+    const teamInput = teamCell.querySelector('input');
+    productsData.team = teamInput.value;
+
+    // Update the product category (parse it as an array)
+    const categInput = categCell.querySelector('input');
+    productsData.category = categInput.value;
   
-    const currentPath = currentURL.pathname.split('/');
-    const absolutePathParts = absolutePath.pathname.split('/');
-  
-    // Calculate the relative path by counting the number of common path parts
-    let relativePath = '';
-  
-    for (let i = 0; i < currentPath.length ; i++) {
-      relativePath += '../';
-    }
-  
-    for (let i = 1; i < absolutePathParts.length; i++) {
-      relativePath += absolutePathParts[i];
-      if (i < absolutePathParts.length - 1) {
-        relativePath += '/';
+    //updating the db with only the product that has been changed
+    $.ajax({
+      type: 'PATCH',
+      url: '/product/update',
+      data: { _id: row.getAttribute('data-id'), product: productsData },
+      headers: {
+        "Authorization": "Bearer " + JSON.parse(token)
+      },
+      success: function (res) {
+        generateProductsTable();
+      },
+      error: function (error) {
+        console.log(error)
       }
-    }
-  
-    return relativePath;
-  }
-  
-  function getAbsolutePath(relativePath) {
-    const currentURL = new URL(window.location.href);
-    const currentPath = currentURL.pathname.split('/');
-    const relativePathParts = relativePath.split('/');
-  
-    // Calculate the absolute path by counting the number of ".." in the relative path
-    let absolutePath = currentURL.origin + currentURL.pathname;
-  
-    for (let i = 0; i < relativePathParts.length; i++) {
-      if (relativePathParts[i] === '..') {
-        absolutePath = absolutePath.substring(0, absolutePath.lastIndexOf('/'));
-      } else {
-        absolutePath += '/' + relativePathParts[i];
-      }
-    }
-  
-    return absolutePath;
-  }
-  
-  function saveChangesToProducts(nameCell, priceCell, descCell, sizeCell, colorCell, teamCell, categCell) {
-    fetchProductData()
-      .then((productsData) => {
-        // Update the product name
-        const nameInput = nameCell.querySelector('input');
-        productsData.Name = nameInput.value;
-        nameCell.textContent = nameInput.value;
-    
-        // Update the product price
-        const priceInput = priceCell.querySelector('input');
-        productsData.Price = parseFloat(priceInput.value);
-        priceCell.textContent = priceInput.value;
-    
-        // Update the product description
-        const descInput = descCell.querySelector('input');
-        productsData.Description = descInput.value;
-        descCell.textContent = descInput.value;
-    
-        // Update the product size (parse it as an array)
-        const sizeInput = sizeCell.querySelector('input');
-        productsData.Size = sizeInput.value.split(',').map((size) => size.trim());
-        sizeCell.textContent = productsData.Size.join(', ');
-    
-        // Update the product color
-        const colorInput = colorCell.querySelector('input');
-        productsData.Color = colorInput.value;
-        colorCell.textContent = colorInput.value;
-    
-        // Update the product quantity (parse it as an integer)
-        const teamInput = teamCell.querySelector('input');
-        productsData.Team = parseInt(teamInput.value, 10);
-        teamCell.textContent = productsData.Team;
-    
-        // Update the product category (parse it as an array)
-        const categInput = categCell.querySelector('input');
-        productsData.Category = categInput.value.split(',').map((category) => category.trim());
-        categCell.textContent = productsData.Category.join(', ');
-      })
-  
+    });
+
     // Regenerate the products table
-    generateProductsTable();
   }
   
   
@@ -583,13 +547,44 @@ function showNinthColumn(show) {
   discardButtonProducts.addEventListener('click', function () {
     // Discard changes and exit edit mode
     isEditModeProducts = false;
-    currentEditedProductRow = -1;
 
     // editButtonProducts.style.display = isEditModeProducts ? 'none' : 'block';
     deleteButtonProducts.style.display = isEditModeProducts ? 'none' : 'block';
     saveButtonProducts.style.display = isEditModeProducts ? 'block' : 'none';
     discardButtonProducts.style.display = isEditModeProducts ? 'block' : 'none';
+
+    const nameCell = document.querySelectorAll(`#products-table tbody tr td:nth-child(1)`)[currentEditedProductRow]; 
+    const priceCell = document.querySelectorAll(`#products-table tbody tr td:nth-child(2)`)[currentEditedProductRow];
+    const descCell = document.querySelectorAll(`#products-table tbody tr td:nth-child(3)`)[currentEditedProductRow];
+    const sizeCell = document.querySelectorAll(`#products-table tbody tr td:nth-child(4)`)[currentEditedProductRow];
+    const colorCell = document.querySelectorAll(`#products-table tbody tr td:nth-child(5)`)[currentEditedProductRow];
+    const teamCell = document.querySelectorAll(`#products-table tbody tr td:nth-child(6)`)[currentEditedProductRow];
+    const categCell = document.querySelectorAll(`#products-table tbody tr td:nth-child(7)`)[currentEditedProductRow];
   
+    // Discarding the changes by deleting the input elements and showing the original data
+    nameCell.removeChild(nameCell.querySelector('input'));
+    nameCell.removeAttribute('style');
+
+    priceCell.removeChild(priceCell.querySelector('input'));
+    priceCell.removeAttribute('style');
+
+    descCell.removeChild(descCell.querySelector('input'));
+    descCell.removeAttribute('style');
+
+    sizeCell.removeChild(sizeCell.querySelector('input'));
+    sizeCell.removeAttribute('style');
+
+    colorCell.removeChild(colorCell.querySelector('input'));
+    colorCell.removeAttribute('style');
+
+    teamCell.removeChild(teamCell.querySelector('input'));
+    teamCell.removeAttribute('style');
+
+    categCell.removeChild(categCell.querySelector('input'));
+    categCell.removeAttribute('style');
+
+    //resetting the currentEditedProductRow
+    currentEditedProductRow = -1;
   });
   
   
@@ -632,7 +627,6 @@ function showNinthColumn(show) {
       if(!isEditModeProducts) {
         toggleEditModeProducts(num);
       }
-      console.log(currentEditedProductRow);
     });
     //adding event listener for editing a single row
     const nameCell = row.insertCell(0);

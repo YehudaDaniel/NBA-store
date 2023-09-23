@@ -1,5 +1,6 @@
 const express = require('express');
 const productCon = require('../controller/product.controller');
+const auth = require('../middleware/middleware');
 
 
 const productRouter = express.Router();
@@ -8,9 +9,11 @@ productRouter
     //-- GET Requests --//
     .get('/products', productCon.readAll_C)
 
-    //-- Post Requests --//
+    //-- PATCH Requests --//
+    .patch('/update', auth, productCon.update_C)
 
-    .delete('/delete', productCon.delete_C);
+    //-- DELETE Requests --//
+    .delete('/delete', auth, productCon.delete_C);
 
 
 

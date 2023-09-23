@@ -13,6 +13,8 @@ userRouter
 
     .get('/users', auth, userController.readAll_C)
 
+    .get('/allorders', auth, userController.allOrders_C)
+    
     //-- Post Requests --
     .post('/register', userController.register_C)
     
@@ -21,6 +23,7 @@ userRouter
     .post('/logout', auth, userController.logout_C)
     
     .post('/logoutall', auth, userController.logoutall_C)
+
 
 
 

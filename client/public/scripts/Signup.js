@@ -61,6 +61,7 @@ $(document).ready(function () {
                 //saving user data in the session
                 sessionStorage.setItem('user', JSON.stringify(res.user));
                 document.cookie = `token=${JSON.stringify(res.token)}`;
+                document.cookie = `isAdmin=${JSON.stringify(res.isAdmin)}`;
                 window.location.href = '/';
             },
             error: function (error) {

@@ -43,8 +43,10 @@ pagesRouter
         res.render('Personaldata');
     })
     .get('/admin', (req, res) => {
-        //TODO: add admin authentication
-        res.render('AdminPage');
+        if (req.cookies.isAdmin == 'false')
+            res.redirect('/');
+        else
+            res.render('AdminPage');
     })
     .get('/orders', (req, res) => {
         res.render('OrdersPage');

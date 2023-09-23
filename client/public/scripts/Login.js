@@ -35,6 +35,7 @@ $(document).ready(function() {
         sessionStorage.setItem('user', JSON.stringify(res.user));
         //saving user data in the session
         document.cookie = `token=${JSON.stringify(res.token)}`;
+        document.cookie = `isAdmin=${JSON.stringify(res.user.isAdmin)}`;
         window.location.href = '/';
       },
       error: function(error) {
