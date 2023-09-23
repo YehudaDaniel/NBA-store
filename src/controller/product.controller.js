@@ -4,10 +4,20 @@ const Product = require('../models/Product.model.js');
 console.log('Imported Product Controller');
 
 
-
 async function readAll_C(req, res) {
     try{
         const products = await Product.find({});
+        res.status(200).send(products);
+    }catch(e){
+        res.status(500).json({ message: 'Something went wrong fetching the data' });
+    }
+}
+
+async function readByFilter_C(req, res) {
+    try{
+        let category = req.body.type;
+        category = category.toLowerCase().charAt(0).toUpperCase() + category.slice(1);
+        const products = await Product.find({ category });
         res.status(200).send(products);
     }catch(e){
         res.status(500).json({ message: 'Something went wrong fetching the data' });
@@ -58,8 +68,9 @@ async function orderById_C(req, res) {
 // ------------------ //
 
 module.exports = {
-    readAll_C,
+    readByFilter_C,
     delete_C,
     update_C,
-    orderById_C
+    orderById_C,
+    readAll_C
 };
