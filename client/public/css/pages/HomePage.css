@@ -209,6 +209,11 @@ body{
   color: #f0eded; /* Use a slightly darker text color for contrast */
   text-align: center;
 }
+.about-title{
+  font-size: 30px;
+  font-weight: 600;
+  
+}
 
 .aboutus-text {
   max-width: 800px; /* Use a max-width to control the text width */
