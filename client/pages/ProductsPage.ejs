@@ -16,11 +16,10 @@
   <%- include('../components/HamburgerSideNav.ejs') %>
   <div class="productsPage-container">
     <div class="productsPage-sidebar">
-      <input type="text" id="txtSearch" placeholder="Search Product...">
       <h3>Category</h3>
 
       <select id="teamFilter">
-        <option value="All">All Teams</option>
+        <option value="All Teams">All Teams</option>
         <option value="Los Angeles Lakers">Los Angeles Lakers</option>
         <option value="Golden State Warriors">Golden State Warriors</option>
         <option value="Boston Celtics">Boston Celtics</option>
@@ -57,7 +56,7 @@
       <div class="size-filter filter">
         <label for="sizeSelect">Size:</label>
         <select id="sizeSelect">
-          <option value="All">All Sizes</option>
+          <option value="All Sizes">All Sizes</option>
           <option value="S">S</option>
           <option value="M">M</option>
           <option value="L">L</option>
@@ -66,18 +65,12 @@
       <div class="price-filter filter">
         <label for="priceSort">Sort by Price:</label>
         <select id="priceSort">
-          <option value="default">Default</option>
+          <option value="Default">Default</option>
           <option value="lowToHigh">Low to High</option>
           <option value="highToLow">High to Low</option>
         </select>
       </div>
 
-
-      <h3>Price Range</h3>
-      <div class="price">
-        <input type="range" id="priceRange" min="20" max="15999">
-        <span class="priceValue">1300</span>
-      </div>
       <button id="resetFiltersButton">Reset Filters</button>
     </div>
     <div class="products">

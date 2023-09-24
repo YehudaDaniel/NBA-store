@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
     let productTags = [];
+    let filtered;
 
     $.ajax({
         type: 'POST',
@@ -48,17 +49,56 @@ $(document).ready(function () {
         }
     });
 
+    document.querySelector('#teamFilter').addEventListener('change', updateFilters);
+    document.querySelector('#sizeSelect').addEventListener('change', updateFilters);
+    document.querySelector('#priceSort').addEventListener('change', updateFilters);
 
-    document.querySelector('#teamFilter').addEventListener('change', e => {
-        const team = e.target.value;
-        //secondChild.firstChild.lastChild.innerHTML
-        const filtered = productTags.filter((product) => product.querySelector('.product-details .details-text .team').innerHTML.split(': ')[1].trim() === team );
-        console.log(productTags[1].querySelector('.product-details .details-text .team').innerHTML.split(': ')[1].trim())
-        console.log(team)
+    filtered = productTags; // Initialize with all products
+
+    function updateFilters() {
+        const selectedTeam = document.querySelector('#teamFilter').value;
+        const selectedSize = document.querySelector('#sizeSelect').value;
+        const priceOrder = document.querySelector('#priceSort').value;
+        let originalOrder;
+        
+        filtered = productTags.filter((product) => {
+            const teamText = product.querySelector('.product-details .details-text .team').innerHTML.split(': ')[1].trim();
+            const sizeText = product.querySelector('.product-details .details-text .size').innerHTML.split(': ')[1];
+
+            const teamMatch = selectedTeam === 'All Teams' || teamText === selectedTeam;
+            const sizeMatch = selectedSize === 'All Sizes' || sizeText.includes(selectedSize);
+
+            return teamMatch && sizeMatch;
+        });
+        originalOrder = filtered;
+        if (priceOrder === 'lowToHigh') {
+            filtered.sort((a, b) => {
+                const priceA = parseInt(a.querySelector('.product-details .details-text .amt').innerHTML.split(': ')[1].split('$')[0]);
+                const priceB = parseInt(b.querySelector('.product-details .details-text .amt').innerHTML.split(': ')[1].split('$')[0]);
+                return priceA - priceB;
+            });
+        }else if(priceOrder === 'highToLow'){
+            filtered.sort((a, b) => {
+                const priceA = parseInt(a.querySelector('.product-details .details-text .amt').innerHTML.split(': ')[1].split('$')[0]);
+                const priceB = parseInt(b.querySelector('.product-details .details-text .amt').innerHTML.split(': ')[1].split('$')[0]);
+                return priceB - priceA;
+            });
+        }else {
+            filtered = originalOrder;
+        }
+
         $('.products').empty();
         $('.products').append(filtered);
-    });
+    }
 
+
+
+    document.querySelector('#resetFiltersButton').addEventListener('click', () => {
+        document.querySelector('#teamFilter').value = 'All Teams';
+        document.querySelector('#sizeSelect').value = 'All Sizes';
+        document.querySelector('#priceSort').value = 'Default';
+        updateFilters();
+    });
 
     function newProductGenerator(detailsProduct) {
         // Convert ArrayBuffer to a Uint8Array
