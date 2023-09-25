@@ -141,7 +141,14 @@ body{
 }
 
 .rightleft{
+  width: 300px;
+  height: 300px;
   grid-area: rightleft;
+}
+
+.rightleft > img {
+  width: 100%;
+  height: 100%;
 }
 .rightright{
   grid-area: rightright;
@@ -201,6 +208,11 @@ body{
   padding: 50px; /* Increase padding for better spacing */
   color: #f0eded; /* Use a slightly darker text color for contrast */
   text-align: center;
+}
+.about-title{
+  font-size: 30px;
+  font-weight: 600;
+  
 }
 
 .aboutus-text {

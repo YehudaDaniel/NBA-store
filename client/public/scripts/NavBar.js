@@ -28,6 +28,13 @@ function toggleDropdown() {
 
 document.querySelector(".toggle-btn").addEventListener("click", function() {
   document.querySelector(".sidebar").classList.toggle("active");
+  document.querySelector(".sidebar").classList.remove("deactive");
+
+});
+document.querySelector(".x-btn").addEventListener("click", function() {
+  document.querySelector(".sidebar").classList.toggle("deactive");
+  document.querySelector(".sidebar").classList.remove("active");
+
 });
 
 
@@ -58,4 +65,14 @@ $(document).ready(function() {
     $('#navbarLog').attr('href', '/login');
     $('#navbarLog').html('LogIn');
   }
+});
+
+// rendering a tag based on token
+$(document).ready(function() {
+  const newAdminPanelChild = $('<a href="/admin">Admin Panel</a>')
+  
+  if(document.cookie.includes('token') && JSON.parse(sessionStorage.getItem('user')).isAdmin){
+    $('.links').append(newAdminPanelChild);
+  }
+    
 });

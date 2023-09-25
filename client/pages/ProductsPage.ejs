@@ -11,7 +11,7 @@
   <link rel="stylesheet" type="text/css" href="/css/styles.css" />
   <link rel="stylesheet" type="text/css" href="/css/pages/ProductsPage.css" />
 </head>
-<body>
+<body data-page="<%=category %>">
   <%- include('../components/NavBar.ejs') %>
   <%- include('../components/HamburgerSideNav.ejs') %>
   <div class="productsPage-container">
@@ -21,44 +21,39 @@
 
       <select id="teamFilter">
         <option value="All">All Teams</option>
-        <option value="lakers">Los Angeles Lakers</option>
-        <option value="warriors">Golden State Warriors</option>
-        <option value="celtics">Boston Celtics</option>
-        <option value="hawks">Atlanta Hawks</option>
-        <option value="nets">Brooklyn Nets</option>
-        <option value="hornets">Charlotte Hornets</option>
-        <option value="bulls">Chicago Bulls</option>
-        <option value="cavaliers">Cleveland Cavaliers</option>
-        <option value="mavericks">Dallas Mavericks</option>
-        <option value="nuggets">Denver Nuggets</option>
-        <option value="pistons">Detroit Pistons</option>
-        <option value="rockets">Houston Rockets</option>
-        <option value="pacers">Indiana Pacers</option>
-        <option value="clippers">Los Angeles Clippers</option>
-        <option value="grizzlies">Memphis Grizzlies</option>
-        <option value="heat">Miami Heat</option>
-        <option value="bucks">Milwaukee Bucks</option>
-        <option value="timberwolves">Minnesota Timberwolves</option>
-        <option value="pelicans">New Orleans Pelicans</option>
-        <option value="knicks">New York Knicks</option>
-        <option value="thunder">Oklahoma City Thunder</option>
-        <option value="magic">Orlando Magic</option>
-        <option value="sixers">Philadelphia 76ers</option>
-        <option value="suns">Phoenix Suns</option>
-        <option value="blazers">Portland Trail Blazers</option>
-        <option value="kings">Sacramento Kings</option>
-        <option value="spurs">San Antonio Spurs</option>
-        <option value="raptors">Toronto Raptors</option>
-        <option value="jazz">Utah Jazz</option>
-        <option value="wizards">Washington Wizards</option>
+        <option value="Los Angeles Lakers">Los Angeles Lakers</option>
+        <option value="Golden State Warriors">Golden State Warriors</option>
+        <option value="Boston Celtics">Boston Celtics</option>
+        <option value="Atlanta Hawks">Atlanta Hawks</option>
+        <option value="Brooklyn Nets">Brooklyn Nets</option>
+        <option value="Charlotte Hornets">Charlotte Hornets</option>
+        <option value="Chicago Bulls">Chicago Bulls</option>
+        <option value="Cleveland Cavaliers">Cleveland Cavaliers</option>
+        <option value="Dallas Mavericks">Dallas Mavericks</option>
+        <option value="Denver Nuggets">Denver Nuggets</option>
+        <option value="Detroit Pistons">Detroit Pistons</option>
+        <option value="Houston Rockets">Houston Rockets</option>
+        <option value="Indiana Pacers">Indiana Pacers</option>
+        <option value="Los Angeles Clippers">Los Angeles Clippers</option>
+        <option value="Memphis Grizzlies">Memphis Grizzlies</option>
+        <option value="heatMiami Heat">Miami Heat</option>
+        <option value="Milwaukee Bucks">Milwaukee Bucks</option>
+        <option value="Minnesota Timberwolves">Minnesota Timberwolves</option>
+        <option value="New Orleans Pelicans">New Orleans Pelicans</option>
+        <option value="New York Knicks">New York Knicks</option>
+        <option value="Oklahoma City Thunder">Oklahoma City Thunder</option>
+        <option value="magOrlando Magic">Orlando Magic</option>
+        <option value="Philadelphia 76ers">Philadelphia 76ers</option>
+        <option value="Phoenix Suns">Phoenix Suns</option>
+        <option value="Portland Trail Blazers">Portland Trail Blazers</option>
+        <option value="Sacramento Kings">Sacramento Kings</option>
+        <option value="San Antonio Spurs">San Antonio Spurs</option>
+        <option value="Toronto Raptors">Toronto Raptors</option>
+        <option value="Utah Jazz">Utah Jazz</option>
+        <option value="Washington Wizards">Washington Wizards</option>
         <!-- Add options for all other teams -->
       </select>
 
-      <ul class="category-list">
-        <li>All</li>
-        <li>shirts</li>shorts<li>shoes</li>
-        <li>Monitors</li>
-      </ul>
       <div class="size-filter filter">
         <label for="sizeSelect">Size:</label>
         <select id="sizeSelect">
@@ -87,121 +82,13 @@
     </div>
     <div class="products">
 
-
-      <div class="product">
-        <div class="img">
-          <img src="/includes/images/shirts.jpg" alt="test" />
-        </div>
-        <div class="product-details">
-          <div class="details-text">
-            <span class="name">test</span>
-            <span class="amt">Price:30$</span>
-            <span class="size">Size:M</span>
-            <span class="color">color: Yellow</span>
-          </div>
-          <div class="details-btns">
-            <div class="addWrapper">
-              <span class="addWrapper-minus">-</span>
-              <span class="addWrapper-num">0</span>
-              <span class="addWrapper-plus">+</span>
-            </div>
-            <button class="heart-btn">
-              <div class="content">
-                <span class="heart"></span>
-                <span class="numb"></span>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img">
-          <img src="/includes/images/shirts.jpg" alt="test" />
-        </div>
-        <div class="product-details">
-          <div class="details-text">
-            <span class="name">test</span>
-            <span class="amt">Price:30$</span>
-            <span class="size">Size:M</span>
-            <span class="color">color: Yellow</span>
-          </div>
-          <div class="details-btns">
-            <div class="addWrapper">
-              <span class="addWrapper-minus">-</span>
-              <span class="addWrapper-num">0</span>
-              <span class="addWrapper-plus">+</span>
-            </div>
-            <button class="heart-btn">
-              <div class="content">
-                <span class="heart"></span>
-                <span class="numb"></span>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img">
-          <img src="/includes/images/shirts.jpg" alt="test" />
-        </div>
-        <div class="product-details">
-          <div class="details-text">
-            <span class="name">test</span>
-            <span class="amt">Price:30$</span>
-            <span class="size">Size:M</span>
-            <span class="color">color: Yellow</span>
-          </div>
-          <div class="details-btns">
-            <div class="addWrapper">
-              <span class="addWrapper-minus">-</span>
-              <span class="addWrapper-num">0</span>
-              <span class="addWrapper-plus">+</span>
-            </div>
-            <button class="heart-btn">
-              <div class="content">
-                <span class="heart"></span>
-                <span class="numb"></span>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="product">
-        <div class="img">
-          <img src="/includes/images/shirts.jpg" alt="test" />
-        </div>
-        <div class="product-details">
-          <div class="details-text">
-            <span class="name">test</span>
-            <span class="amt">Price:30$</span>
-            <span class="size">Size:M</span>
-            <span class="color">color: Yellow</span>
-          </div>
-          <div class="details-btns">
-            <div class="addWrapper">
-              <span class="addWrapper-minus">-</span>
-              <span class="addWrapper-num">0</span>
-              <span class="addWrapper-plus">+</span>
-            </div>
-            <button class="heart-btn">
-              <div class="content">
-                <span class="heart"></span>
-                <span class="numb"></span>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
+      <%- include('../components/loader.ejs') %>
 
     </div>
   </div>
   <script src="/scripts/ProductsData.js"></script>
   <script src="/scripts/ProductsPage.js"></script>
   <script src="/scripts/NavBar.js"></script>
-  <script src="/scripts/HamburgerSideNav.js"></script>
 </body>
 </html>
 

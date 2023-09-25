@@ -48,3 +48,7 @@ button{
 .editInput{
   font-size: 16px !important;
 }
+
+.admin-body{
+  height: calc(100vh - 100px);
+}

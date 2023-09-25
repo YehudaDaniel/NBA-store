@@ -24,8 +24,8 @@ pagesRouter
     .get('/product', (req, res) => { //should get params (productId) for the product to display
         res.render('ProductPage');
     })
-    .get('/products', (req, res) => { //TODO: might be changed to /products/:category
-        res.render('ProductsPage');
+    .get('/products/:categoryName', (req, res) => { //TODO: might be changed to /products/:category
+        res.render('ProductsPage', { category: req.params.categoryName });
     })
     .get('/graph', (req, res) => {
         res.render('graphPage');
@@ -43,7 +43,7 @@ pagesRouter
         res.render('Personaldata');
     })
     .get('/admin', (req, res) => {
-        if (req.cookies.isAdmin == 'false')
+        if (req.cookies.isAdmin != 'true')
             res.redirect('/');
         else
             res.render('AdminPage');

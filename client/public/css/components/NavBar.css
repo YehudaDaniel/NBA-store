@@ -4,7 +4,6 @@
   width: 100%;
   left: 0;
   top: 0;
-  line-height: 70px;
   -webkit-box-shadow: 4px 2px 21px -3px rgba(0,0,0,0.75);
   -moz-box-shadow: 4px 2px 21px -3px rgba(0,0,0,0.75);
   box-shadow: 4px 2px 21px -3px rgba(0,0,0,0.75);
@@ -17,13 +16,15 @@
 .primaryNavBar>div {
   display: flex;
   justify-content: space-between;
-  padding: 0px 60px;
+  height: 80px;
 }
 
 .primaryNavBar>div>ul {
   list-style-type: none;
-  margin: 0;
+  align-items: flex-end;
   padding: 0;
+  display: flex;
+  margin-left: 5px;
 }
 
 .primaryNavBar>div>ul>li {
@@ -43,8 +44,7 @@
 
 
 .nav-buttons>button {
-  margin: 0 10px;
-  padding: 10px;
+  padding: 0 15px;
   border: none;
   background: transparent;
   color: var(--white);
@@ -113,3 +113,7 @@
   right: 10px;
 }
 
+.hamburger{
+  color: black;
+  font-size: 35px;
+}

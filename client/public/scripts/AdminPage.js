@@ -26,16 +26,10 @@ document.addEventListener('DOMContentLoaded', function () {
   let statusDropdowns; // Declare statusDropdowns as a global variable
   let statusValues; // Declare statusValues as a global variable
   let userAdminEdit = []; //array for the users admin status with their id
+  let orderStatusUpdates = []; //array for the orders status with their id
 
   // Sample orders data (replace this with your actual data)
-  let orders = [
-    {
-      user: 'Omer Cohen',
-      products: ['Lakers jersey', 'Suns shoes', 'NBA basketball', 'NBA cap', 'NBA socks'],
-      totalPrice: 540,
-      status: 'Canceled'
-    }
-  ];
+  let orders = [];
 
 //saving the cookie token
 let token = document.cookie.split(';').map(cookie => cookie.trim()).find(item => item.split('=')[0] == 'token').split('=')[1];
@@ -51,6 +45,8 @@ function fetchUserData(){
         "Authorization": "Bearer " + JSON.parse(token)
       },
       success: function (res) {
+        document.querySelector('.preloader-users').style.display = 'none';
+
         if(Array.isArray(res) && res.length > 0){
           resolve(res);
         }else{
@@ -69,7 +65,60 @@ function fetchProductData(){
   return new Promise((resolve, reject) => {
     $.ajax({
       type: 'GET',
-      url: '/product/products',
+      url: '/product/allproducts',
+      async: true,
+      headers: {
+        "Authorization": "Bearer " + JSON.parse(token)
+      },
+      success: function (res) {
+        document.querySelector('.preloader-products').style.display = 'none';
+
+        if(Array.isArray(res) && res.length > 0){
+          resolve(res);
+        }else{
+          reject(new Error("Recieved an empty array"));
+        }
+      },
+      error: function (error) {
+        reject(error);
+      }
+    });
+  });
+}
+
+//fetching all the orders from the database and displaying them in the table
+function fetchOrderData(){
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      type: 'GET',
+      url: '/user/allorders',
+      async: true,
+      headers: {
+        "Authorization": "Bearer " + JSON.parse(token)
+      },
+      success: function (res) {
+        document.querySelector('.preloader-orders').style.display = 'none';
+
+        if(Array.isArray(res) && res.length > 0){
+          resolve(res);
+        }else{
+          reject(new Error("Recieved an empty array"));
+        }
+      },
+      error: function (error) {
+        reject(error);
+      }
+    });
+  });
+}
+
+//fetching all the orders from the database and displaying them in the table
+function fetchProductById(products){
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      type: 'POST',
+      url: '/product/orderById',
+      data: {products},
       async: true,
       success: function (res) {
         if(Array.isArray(res) && res.length > 0){
@@ -85,81 +134,90 @@ function fetchProductData(){
   });
 }
 
-
 // Keep track of the original status values
 statusValues = orders.map((order) => order.status);
 
 //adding rows to the table - being used in the generateTable function which activates after each change in the table
 function addTableRow(order, index, table) {
   const row = table.insertRow();
+  row.setAttribute('data-id', order._id); // Set the row's data-id attribute to the user's ID
   const userCell = row.insertCell(0);
   const productsCell = row.insertCell(1);
   const totalPriceCell = row.insertCell(2);
   const statusCell = row.insertCell(3);
   statusCell.classList.add('status-cell'); // Add a class for status cells
 
-  // Swap the positions of users and orders
-  userCell.textContent = order.user;
-  productsCell.textContent = order.products.join(', ');
-  totalPriceCell.textContent = order.totalPrice;
-
-  // Create a container div for status cell content
-  const statusContainer = document.createElement('div');
-  statusContainer.classList.add('status-cell-content');
-
-  // Create a span for displaying the current status text
-  const statusText = document.createElement('span');
-  statusText.classList.add('status-text');
-  statusText.textContent = order.status;
-
-  // Create a dropdown for changing status (in edit mode)
-  const statusDropdown = document.createElement('select');
-  statusDropdown.classList.add('status-dropdown');
-
-  const statusOptions = ['Pending', 'Completed', 'Canceled'];
-
-  for (const option of statusOptions) {
-    const optionElement = document.createElement('option');
-    optionElement.value = option;
-    optionElement.textContent = option;
-
-    // Set the selected option based on the order's status
-    if (option === order.status) {
-      optionElement.selected = true;
+  fetchProductById(order.products.map((product) => product.product))
+  .then((ListProducts) => {
+    // Swap the positions of users and orders
+    userCell.textContent = order.user.name;
+    
+    for(let i = 0; i < order.products.length; i++){
+      productsCell.textContent += ListProducts[i].name + " (x" + order.products[i].amount + ")" + ", ";
     }
 
-    statusDropdown.appendChild(optionElement);
+    totalPriceCell.textContent = order.totalPrice;
+
+    // Create a container div for status cell content
+    const statusContainer = document.createElement('div');
+    statusContainer.classList.add('status-cell-content');
+
+    // Create a span for displaying the current status text
+    const statusText = document.createElement('span');
+    statusText.classList.add('status-text');
+    statusText.textContent = order.status;
+
+    // Create a dropdown for changing status (in edit mode)
+    const statusDropdown = document.createElement('select');
+    statusDropdown.classList.add('status-dropdown');
+
+    const statusOptions = ['Pending', 'Completed', 'Canceled'];
+
+    for (const option of statusOptions) {
+      const optionElement = document.createElement('option');
+      optionElement.value = option;
+      optionElement.textContent = option;
+
+      // Set the selected option based on the order's status
+      if (option === order.status) {
+        optionElement.selected = true;
+      }
+
+      statusDropdown.appendChild(optionElement);
   }
 
-  // Add status text and dropdown to the container
-  statusContainer.appendChild(statusText);
-  statusContainer.appendChild(statusDropdown);
+    // Add status text and dropdown to the container
+    statusContainer.appendChild(statusText);
+    statusContainer.appendChild(statusDropdown);
 
-  statusCell.appendChild(statusContainer);
+    statusCell.appendChild(statusContainer);
 
-  // Update status background (in non-edit mode)
-  updateStatusBackground(statusCell, order.status);
+    // Update status background (in non-edit mode)
+    updateStatusBackground(statusCell, order.status);
 
-  statusText.style.display = isEditModeOrders ? 'none' : 'block';
-  statusDropdown.style.display = isEditModeOrders ? 'block' : 'none';
+    statusText.style.display = isEditModeOrders ? 'none' : 'block';
+    statusDropdown.style.display = isEditModeOrders ? 'block' : 'none';
 
-  // Add event listener to update status background (in edit mode)
-  statusDropdown.addEventListener('change', function () {
-    updateStatusBackground(statusCell, this.value);
-    // Update the status values array
-    statusValues[index] = this.value;
-  });
+    // Add event listener to update status background (in edit mode)
+    statusDropdown.addEventListener('change', function () {
+      updateStatusBackground(statusCell, this.value);
+      // Update the status values array
+      statusValues[index] = this.value;
+    });
+  })
 }
 //-------------------------------------------------------
 
 
 
-function updateStatusBackground(cell, status) {
-  if (status === 'Pending') {
+function updateStatusBackground(cell) {
+  const statusTextVal = cell.firstElementChild.firstElementChild.innerHTML;
+
+  if (statusTextVal === 'Pending') {
     cell.style.backgroundColor = 'yellow';
-  } else if (status === 'Completed') {
+  } else if (statusTextVal === 'Completed') {
     cell.style.backgroundColor = 'green';
-  } else if (status === 'Canceled') {
+  } else if (statusTextVal === 'Canceled') {
     cell.style.backgroundColor = 'red';
   } else {
     cell.style.backgroundColor = ''; // Reset to the default background color
@@ -169,7 +227,6 @@ function updateStatusBackground(cell, status) {
 function toggleEditModeOrders() {
   isEditModeOrders = !isEditModeOrders;
 
-  const statusCells = document.querySelectorAll('.status-cell-content');
   const statusTexts = document.querySelectorAll('.status-text');
   statusDropdowns = document.querySelectorAll('.status-dropdown'); // Update statusDropdowns
 
@@ -194,6 +251,20 @@ function toggleEditModeOrders() {
       dropdown.style.display = 'none';
     });
   }
+
+  statusDropdowns.forEach((dropdown, index) => {  
+    dropdown.addEventListener('change', function () {
+      let orderId = dropdown.parentElement.parentElement.parentElement.getAttribute('data-id');
+  
+      let res = orderStatusUpdates.find(edit => edit.id === orderId);
+      if(res){
+        res.status = this.value;
+      }else{
+        orderStatusUpdates.push({id: orderId, status: this.value});
+      }
+      updateStatusBackground(this.parentElement.parentElement);
+    });
+  });
 }
   
 function toggleEditModeProducts(rowNum) {
@@ -406,14 +477,24 @@ function toggleEditModeProducts(rowNum) {
     // Save changes and exit edit mode
     toggleEditModeOrders();
 
-    // Update the orders array with the new status values
-    statusDropdowns = document.querySelectorAll('.status-dropdown'); // Update statusDropdowns
-    statusDropdowns.forEach((dropdown, index) => {
-      orders[index].status = dropdown.value;
-    });
-
-    // Regenerate the table based on the updated orders array
-    generateTable();
+    if(orderStatusUpdates.length > 0){
+      $.ajax({
+        type: 'PATCH',
+        url: '/admin/updateorders',
+        data: { orderStatusUpdates },
+        headers: {
+          "Authorization": "Bearer " + JSON.parse(token)
+        },
+        success: function (res) {
+          // Regenerate the table based on the updated orders array
+          generateTable();
+          orderStatusUpdates = [];
+        },
+        error: function (error) {
+          console.error(error);
+        }
+      });
+    }
   });
   
   saveButtonProducts.addEventListener('click', function () {
@@ -516,12 +597,12 @@ function showNinthColumn(show) {
     
     statusDropdowns.forEach((dropdown, index) => {
       // Reset the dropdown value to the original status value
-      dropdown.value = statusValues[index];
+      dropdown.value = dropdown.previousElementSibling.innerHTML;
+
       // Reset the background color when discarding changes
       const statusCell = dropdown.closest('.status-cell');
-      updateStatusBackground(statusCell, statusValues[index]);
+      updateStatusBackground(statusCell);
     });
-    generateTable();
   });
   
   discardButtonUsers.addEventListener('click', function () {
@@ -535,10 +616,15 @@ function showNinthColumn(show) {
   // Function to generate the table based on the orders array
   function generateTable() {
     tableBodyOrders.innerHTML = ''; // Clear the table
-    
-    for (let i = 0; i < orders.length; i++) {
-      addTableRow(orders[i], i, tableBodyOrders);
-    }
+    fetchOrderData()
+    .then((ordersData) => {
+      for (let i = 0; i < ordersData.length; i++) {
+        addTableRow(ordersData[i], i, tableBodyOrders);
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    })
   }
 
   
@@ -817,7 +903,6 @@ function showNinthColumn(show) {
 
 // --- Helper Functions -----
 
-//check if is email - returns bool
 function validateName($name) {
   var name = /^[a-zA-Z]{2,}(?: [a-zA-Z]+){0,9}$/;
   return name.test($name);

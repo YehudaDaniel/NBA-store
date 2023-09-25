@@ -27,6 +27,10 @@ adminRouter
 
     .patch('/adminupdate', auth, adminCont.adminUpdate_C)
 
+    //-- Patch Requests --
+
+    .patch('/updateorders', auth, adminCont.updateOrders_C)
+
 
 
 
