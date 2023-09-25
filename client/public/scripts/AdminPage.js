@@ -819,7 +819,7 @@ function showNinthColumn(show) {
 
 //check if is email - returns bool
 function validateName($name) {
-  var name = /^[a-zA-Z]{4,}(?: [a-zA-Z]+){0,2}$/;
+  var name = /^[a-zA-Z]{2,}(?: [a-zA-Z]+){0,9}$/;
   return name.test($name);
 }
 
