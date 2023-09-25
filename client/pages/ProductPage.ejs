@@ -13,44 +13,29 @@
 <body class="ProductPage-body">
     <%- include('../components/NavBar.ejs') %>
     <%- include('../components/HamburgerSideNav.ejs') %>
+
     <div class="small-container single-product">
         <div class="row">
             <div class="col-2">
-                <img src="https://images.footballfanatics.com/los-angeles-lakers/los-angeles-lakers-nike-association-edition-swingman-jersey-white-lebron-james-unisex_ss5_p-13348348+u-iprkpj59rjbp3d8yk6vw+v-mgeb9v5ijnyiakymkeo4.jpg?_hv=2&w=900" id="MainImg" width="100%">
-                <div class="small-img-row">
-                    <div class="small-img-col">
-                        <img src="https://images.footballfanatics.com/los-angeles-lakers/los-angeles-lakers-nike-association-edition-swingman-jersey-white-lebron-james-unisex_ss5_p-13348348+u-iprkpj59rjbp3d8yk6vw+v-mgeb9v5ijnyiakymkeo4.jpg?_hv=2&w=900" width="100%" class="small-img">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="https://images.footballfanatics.com/los-angeles-lakers/los-angeles-lakers-jordan-statement-edition-swingman-jersey-purple-lebron-james-unisex_ss5_p-13365085+u-emdpojqbqmxn1jtysvy6+v-mw2labilgzhwzhghijtv.jpg?_hv=2&w=900" width="100%" class="small-img">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="https://images.footballfanatics.com/los-angeles-lakers/los-angeles-lakers-nike-classic-edition-swingman-jersey-white-lebron-james-unisex_ss5_p-13364138+u-tp1yt9meaekjmendhkwm+v-lqiuh3crdadiqd4x0axo.jpg?_hv=2&w=900" width="100%" class="small-img">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="https://fanatics.frgimages.com/los-angeles-lakers/mens-nike-lebron-james-gold-los-angeles-lakers-2020/21-swingman-jersey-icon-edition_pi3774000_altimages_ff_3774124-8dda7d765787e82d6c61alt1_full.jpg?_hv=2&w=900" width="100%" class="small-img">
-                    </div>
-                </div>
+                <img src="data:image/jpg;base64,<%= base64String %>" alt="<%= product.name %>" id="MainImg" width="100%">
             </div>
             <div class="col-2">
-                <p class="productPage-p">Home / Jersey</p>
-                <h1>Product Name</h1>
-                <h4>Price</h4>
+                <p class="productPage-p">Home / <%= product.category %></p>
+                <h1><%= product.name %></h1>
+                <h4><%= product.price %>$</h4>
                 <select>
                     <option>Select Size</option>
-                    <option>Small</option>
-                    <option>Medium</option>
-                    <option>Large</option>
-                    <option>XL</option>
-                    <option>XXL</option>
+                    <% for(let i = 0; i < product.size.length; i++){ %>
+                    <option><%= product.size[i] %></option>
+                    <% } %>
                 </select>
-                <input type="number" value="1" min="0">
+                <input type="number" value="0" min="0">
                 <a href="" id="addToCart-button" class="btn">Add to Cart</a>
-                <a href="https://twitter.com/intent/tweet?text=Check%20out%20this%20amazing%20product!&url=YOUR_PRODUCT_URL">
+                <a href= "https://twitter.com/intent/tweet?text=Check%20out%20this%20amazing%20product!&url=localhost:3080/product/<%= product._id %>" >
                     <i class="fa fa-twitter" style="font-size: 40px;"></i>
                   </a>
                 <h3>Product Details <i class="fa fa-indent"></i></h3>
-                <p class="productPage-p">If your youngster is looking for game-changing NBA style, then grab them this Anthony Davis Los Angeles Lakers Fast Break Replica Jersey from Fanatics Branded, which creates the same great look the team sports on the court. This piece boasts striking Los Angeles Lakers graphics and classic trims that showcase the team's distinct identity. Once your kiddo pulls this jersey on, their Los Angeles Lakers fandom will be proudly on display.</p>
+                <p class="productPage-p"><%= product.description %></p>
             </div>
         </div>
     </div>

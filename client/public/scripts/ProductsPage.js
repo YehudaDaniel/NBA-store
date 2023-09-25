@@ -34,6 +34,10 @@ $(document).ready(function () {
                         num.textContent = count;
                     }
                 });
+                product.addEventListener('click', ()=> {
+                    console.log(product.getAttribute('data-productid'));
+                    location.href = `/product/${product.getAttribute('data-productid')}`
+                });
             });
 
             $('.heart-btn').click(function () {
@@ -113,9 +117,8 @@ $(document).ready(function () {
         const base64String = btoa(binaryString);
     
         const sizes = detailsProduct.size.join(', ');
-
         const newProduct = $(`
-            <div class="product">
+            <div class="product" data-productid=${detailsProduct._id}>
                 <div class="img">
                     <img src="data:image/jpg;base64,${base64String}" alt="${detailsProduct.name}" />
                 </div>

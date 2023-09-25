@@ -61,6 +61,23 @@ async function orderById_C(req, res) {
     }
 }
 
+async function productById_C(req, res) {
+    const product = await Product.findById(req.params.productid);
+
+    // Convert ArrayBuffer to a Uint8Array
+    const uint8Array = new Uint8Array(product.image);
+
+    // Convert Uint8Array to a binary string
+    let binaryString = '';
+    uint8Array.forEach(byte => {
+        binaryString += String.fromCharCode(byte);
+    });
+    // Encode the binary string to Base64
+    const base64String = btoa(binaryString);
+
+    return res.render('ProductPage', { product, base64String });
+}
+
 
 //-- Helper Functions --//
 
@@ -72,5 +89,6 @@ module.exports = {
     delete_C,
     update_C,
     orderById_C,
-    readAll_C
+    readAll_C,
+    productById_C
 };

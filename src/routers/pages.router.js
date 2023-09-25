@@ -1,5 +1,5 @@
 const express = require('express');
-
+const productCon = require('../controller/product.controller');
 
 
 const pagesRouter = express.Router();
@@ -21,9 +21,8 @@ pagesRouter
         else
             res.render('Signup');
     })
-    .get('/product', (req, res) => { //should get params (productId) for the product to display
-        res.render('ProductPage');
-    })
+    .get('/product/:productid', productCon.productById_C)
+
     .get('/products/:categoryName', (req, res) => { //TODO: might be changed to /products/:category
         res.render('ProductsPage', { category: req.params.categoryName });
     })
