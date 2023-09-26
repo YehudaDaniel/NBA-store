@@ -138,10 +138,10 @@
 
 /* plus minus style */
 .addWrapper{
+  display:none;
   width: 100%;
   height: 30px;
   min-width: 100px;
-  display: flex;
   border-radius: 5px;
   align-items: center;
   justify-content: center;
@@ -164,6 +164,7 @@
 
 
 .heart-btn{
+  display: none;
   position: relative;
   background: none;
   border: none;

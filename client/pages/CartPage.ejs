@@ -6,7 +6,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="/css/styles.css" />
   <link rel="stylesheet" type="text/css" href="/css/pages/CartPage.css" />
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -15,74 +14,50 @@
 <body>
 
   <%- include('../components/NavBar.ejs') %>
-    <%- include('../components/HamburgerSideNav.ejs') %>
+  <%- include('../components/HamburgerSideNav.ejs') %>
 
-      <div class="cart-container">
-        <h1 id="nba-cart-title">NBA Store Cart</h1>
-        <div class="item">
-          <img id="im" src="includes/images/shirt.jpg" alt="T-Shirt">
-          <div class="description">
-            <h2 class="title">T-Shirt</h2>
-            <p class="price">$29.99</p>
-            <p class="size">Size: Medium</p>
-            <p class="quantity">
-              <button class="quantity-btn" onclick="decrementQuantity(this)">-</button>
-              <span class="quantity-label">Amount: </span>
-              <span class="quantity-value">1</span>
-              <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
-            </p>
-            <div class="cart-buttons">
-              <a class="btn-cart" href="#">delete</a>
-              <a class="btn-cart" href="#">save for later</a>
-            </div>
-          </div>
-        </div>
+  <div class="cart-container">
+    <h1 id="nba-cart-title">NBA Store Cart</h1>
 
-        <div class="item">
-          <img src="includes/images/pants.jpg" alt="Shorts">
-          <div class="description">
-            <h2 class="title">Shorts</h2>
-            <p class="price">$39.99</p>
-            <p class="size">Size: Large</p>
-            <p class="quantity">
-              <button class="quantity-btn" onclick="decrementQuantity(this)">-</button>
-              <span class="quantity-label">Amount: </span>
-              <span class="quantity-value">1</span>
-              <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
-            </p>
-            <div class="cart-buttons">
-              <a class="btn-cart" href="#">delete</a>
-              <a class="btn-cart" href="#">save for later</a>
-            </div>
-          </div>
-        </div>
+    <% for(let i =0; i<products.length; i++){ 
+        // Convert ArrayBuffer to a Uint8Array
+        const uint8Array = new Uint8Array(products[i].image);
 
-        <div class="item">
-          <img src="includes\images\shoes.png" alt="Shoes">
-          <div class="description">
-            <h2 class="title">Shoes</h2>
-            <p class="price">$99.99</p>
-            <p class="size">Size: 40</p>
-            <p class="quantity">
-              <button class="quantity-btn" onclick="decrementQuantity(this)">-</button>
-              <span class="quantity-label">Amount: </span>
-              <span class="quantity-value">1</span>
-              <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
-            </p>
-            <div class="cart-buttons">
-              <a class="btn-cart" href="#">delete</a>
-              <a class="btn-cart" href="#">save for later</a>
-            </div>
+        // Convert Uint8Array to a binary string
+        let binaryString = '';
+        uint8Array.forEach(byte => {
+          binaryString += String.fromCharCode(byte);
+        });
+        // Encode the binary string to Base64
+        const base64String = btoa(binaryString);
+      %>
+
+      <div class="item" data-productid="<%=products[i]._id%>">
+        <img src="data:image/jpg;base64,<%= base64String %>" alt="<%= products[i].name%>">
+        <div class="description">
+          <h2 class="title"><%= products[i].name %></h2>
+          <p class="price"><%= products[i].price %>$</p>
+          <p class="size">Size: <%= cart[i].size %></p>
+          <p class="quantity">
+            <span class="quantity-label">Amount: <%= cart[i].amount %></span>
+          </p>
+          <div class="cart-buttons">
+            <a class="btn-cart deleteBtn" href="#">delete</a>
           </div>
-        </div>
-        <div class="payment-div">
-          <div class="total-price">Total Price: <span id="total-price">updateTotalPrice()</span></div>
-          <button class="payment-button">Finish your purchase</button>
         </div>
       </div>
 
-      <script src="/scripts/NavBar.js"></script>
-      <script src="scripts/CartPage.js"></script>
+    <% } %>
+
+
+    <div class="payment-div">
+      <div class="total-price">Total Price: <span id="total-price"></span></div>
+      <button class="payment-button">Finish your purchase</button>
+    </div>
+  </div>
+
+  <script src="/scripts/NavBar.js"></script>
+  <script src="scripts/CartPage.js"></script>
 </body>
 
 </html>

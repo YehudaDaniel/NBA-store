@@ -78,6 +78,19 @@ async function productById_C(req, res) {
     return res.render('ProductPage', { product, base64String });
 }
 
+async function cart_C(req, res) {
+    try{
+        let cart = JSON.parse(req.cookies.cart);
+        const productIds = cart.map((item) => item.productId);
+        const products = await Product.find({ _id: { $in: productIds  }});
+        if(!products)
+            return res.status(404).json({ message: 'Product not found' });
+        res.render('CartPage', { products, cart });
+    }catch(e){
+        res.status(500).json({ message: 'Something went wrong fetching the product' });
+    }
+}
+
 
 //-- Helper Functions --//
 
@@ -90,5 +103,6 @@ module.exports = {
     update_C,
     orderById_C,
     readAll_C,
-    productById_C
+    productById_C,
+    cart_C
 };

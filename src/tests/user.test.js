@@ -24,7 +24,6 @@ test('Should sign up a new user', async () => {
         const user = await User.findById(response.body.user._id);
         expect(user).not.toBeNull();
 
-        console.log(response.body);
         // Assert the body contains the expected properties
         expect(response.body).toMatchObject({
             user: {

@@ -13,7 +13,7 @@ const orderSchema = new mongoose.Schema({
     },
   },
   products: [{ 
-    product: {
+    productId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Product', // Reference to the Product model
       required: true,
@@ -22,6 +22,10 @@ const orderSchema = new mongoose.Schema({
       type: Number,
       required: true,
       min: 1, // Assuming a minimum amount of 1
+    },
+    size:{
+      type: String,
+      required: true,
     }
   }],
   totalPrice: { 

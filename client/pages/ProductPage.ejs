@@ -22,18 +22,18 @@
             <div class="col-2">
                 <p class="productPage-p">Home / <%= product.category %></p>
                 <h1><%= product.name %></h1>
-                <h4><%= product.price %>$</h4>
-                <select>
+                <h4 id="price"><%= product.price %>$</h4>
+                <select id="size">
                     <option>Select Size</option>
                     <% for(let i = 0; i < product.size.length; i++){ %>
                     <option><%= product.size[i] %></option>
                     <% } %>
                 </select>
-                <input type="number" value="0" min="0">
+                <input type="number" value="0" min="0" id="amount">
                 <a href="" id="addToCart-button" class="btn">Add to Cart</a>
                 <a href= "https://twitter.com/intent/tweet?text=Check%20out%20this%20amazing%20product!&url=localhost:3080/product/<%= product._id %>" >
                     <i class="fa fa-twitter" style="font-size: 40px;"></i>
-                  </a>
+                </a>
                 <h3>Product Details <i class="fa fa-indent"></i></h3>
                 <p class="productPage-p"><%= product.description %></p>
             </div>

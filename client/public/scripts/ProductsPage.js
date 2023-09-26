@@ -35,7 +35,6 @@ $(document).ready(function () {
                     }
                 });
                 product.addEventListener('click', ()=> {
-                    console.log(product.getAttribute('data-productid'));
                     location.href = `/product/${product.getAttribute('data-productid')}`
                 });
             });

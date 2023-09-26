@@ -1,15 +1,15 @@
 var searchInput = document.getElementById('search-input');
 var searchIcon = document.getElementById('search-icon');
 
-searchIcon.addEventListener('click', function () {
-  if (searchInput.style.display == 'none') {
-    searchInput.style.display = '';
-    searchInput.focus();
-  } else {
-    searchInput.style.display = 'none';
-    searchInput.value = '';
-  }
-});
+// searchIcon.addEventListener('click', function () {
+//   if (searchInput.style.display == 'none') {
+//     searchInput.style.display = '';
+//     searchInput.focus();
+//   } else {
+//     searchInput.style.display = 'none';
+//     searchInput.value = '';
+//   }
+// });
 
 function toggleDropdown() {
   var dropdownContent = document.querySelector(".dropdown-content");
@@ -71,7 +71,7 @@ $(document).ready(function() {
 $(document).ready(function() {
   const newAdminPanelChild = $('<a href="/admin">Admin Panel</a>')
   
-  if(document.cookie.includes('token') && JSON.parse(sessionStorage.getItem('user')).isAdmin){
+  if(document.cookie.includes('token') && JSON.parse(sessionStorage.getItem('user'))?.isAdmin){
     $('.links').append(newAdminPanelChild);
   }
     

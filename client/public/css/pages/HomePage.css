@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'mathlete';
+  src: url('../../includes/fonts/Mathlete-SkinnySlant-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
 
 body{
   margin-top: unset;
@@ -237,4 +246,27 @@ body{
 
 .aboutus-text a:hover {
   color: #0056b3; /* Darker color on hover */
+}
+
+/* font-face */
+.aboutus-text p {
+  font-family: 'mathlete';
+  letter-spacing: 5px;
+  font-weight: 600;
+}
+
+footer{
+  text-align: center;
+  padding: 50px;
+  background: var(--white);
+  border: 15px solid black;
+}
+footer h1{
+  letter-spacing: 3px;
+}
+
+footer span{
+  color: rgb(0, 85, 255);
+  font-weight: 600;
+  font-size: 30px;
 }

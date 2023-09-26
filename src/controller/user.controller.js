@@ -132,7 +132,7 @@ async function allOrders_C(req, res) {
 
 async function order_C(req, res) {
     const orderData = {
-        user: {id: req.body.user.id, name: req.body.user.name},
+        user: {id: req.body.user._id, name: req.body.user.name},
         products: req.body.products,
         totalPrice: req.body.totalPrice,
     }
@@ -157,6 +157,8 @@ async function order_C(req, res) {
         res.status(500).send(`Error: ${e}`)
     }
 }
+
+
 
 //-- Helper Functions --//
 

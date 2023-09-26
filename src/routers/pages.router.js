@@ -29,9 +29,8 @@ pagesRouter
     .get('/graph', (req, res) => {
         res.render('graphPage');
     })
-    .get('/cart', (req, res) => {
-        res.render('CartPage');
-    })
+    .get('/cart', productCon.cart_C)
+
     .get('/map', (req, res) => {
         res.render('MapPage');
     })
@@ -56,6 +55,10 @@ pagesRouter
     })
     .get('/profile', (req, res) => {
         res.render('User');
+    })
+
+    .get('/thankyou', (req, res) => {
+        res.render('thankyou');
     })
 
     //-- Post Requests --

@@ -11,6 +11,14 @@
   <link rel="stylesheet" type="text/css" href="/css/pages/HomePage.css" />
   <title>Homepage</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io();
+
+    socket.on('userCounter', (msg) => {
+      document.querySelector('#count').innerHTML = msg;
+    });
+  </script>
 </head>
 <body>
   <%- include('../components/NavBar.ejs') %>
@@ -108,12 +116,17 @@
     <a href="">socks</a>
   </div>
 </div>
-
+<footer>
+  <h1>
+    Currently Online Tabs:
+  </h1>
+  <span id="count">0</span>
+</footer>
 <div class="aboutus">
   <h1 class="about-title">About us</h1>
   <div class="aboutus-text">
     <p>NBA Store was founded with the desire to supply NBA fans with the best marchandise out there.</p>
-    <p>Our product, starting at the factory in sweden, get the best care during their making in order to promise our customers get the best products.</p>
+    <aside>Our product, starting at the factory in sweden, get the best care during their making in order to promise our customers get the best products.</aside>
   </div>
 </div>
 
