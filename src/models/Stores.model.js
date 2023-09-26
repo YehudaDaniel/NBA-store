@@ -9,7 +9,9 @@ const storesSchema = new mongoose.Schema({
     },
     phoneNumber: {
         type: Number,
-        required: true
+        required: true,
+        trim: true,
+        minLength: 4
     },
     coordinates: {
         latitude: {
@@ -26,16 +28,14 @@ const storesSchema = new mongoose.Schema({
         }
     },
     addressLines: {
-        type: String,
+        type: [String],
         required: true,
         trim: true,
         minLength: 6
     },
     hours: {
-        type: Number,
-        required: true,
-        trim: true,
-        minLength: 4
+        type: [Number],
+        required: true
     }
 }, {
     timestamps: true
